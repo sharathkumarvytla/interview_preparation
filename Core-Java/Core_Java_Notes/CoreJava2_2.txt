@@ -1,0 +1,506 @@
+# Java
+- Java is object oriental programing language, it is an high level, secured and open source programing language
+
+# What is object orientel
+- In java everything in object only, means we organize our software as a combination of different types of objects
+
+# Type of java application
+- Standalone application
+- Web application
+- Enterprice application
+- Mobile application
+
+# What is standalone applcation
+- Standalone application is like desktop application, mean standalone application will perform in same machine with user interface
+- Mobile applications also like standalone applications
+
+# What is distributed application
+- Distributed application are run on server only, user will connect using web application url
+- Based on url user will get UI pages, user will perform operations according
+
+# What is Http and FTP
+- Http(Hyper tech transfer protocol) is used to access the website on the internet
+- FTP(File Transfer Protocol) is used to transfer file from one host to another
+
+# Stateless and Statefull Protocol
+- Stateless doesn't maintain any user request information in sessions
+- Statefull will maintain user request informations in sessions, and if user require request information then we can send using session object
+
+# What are the features in java
+1. Simple
+- Java is simple programing language
+2. PlantForm Independent
+- We can run program on any plateform
+3. Portable
+- We can carry java byte code into any plateform without doing any changes
+4. Secure
+- Java was not communicates directly with machine(Operating System), first convert into byte code then
+  jvm will convert into machine code. so if have any issues with byte code then jvm will not convert into machine code
+  this is also called compiled time error with syntax
+5. Object operiented pragraming language
+- Java is an object oriental programing language, bcoz everything we handle in terms of object only
+6. MultiThreading
+- Java can provide inbuilt support for multithreading by providing rich apis
+- In the case of multithreading, multithread can run simultaniously and can perform specific task symultaniuosly
+7. Distributed
+
+# What is happend in comipile time
+- At compile time, the Java file is compiled by Java Compiler (It does not interact with OS) and converts the Java code into bytecode
+
+# What is JVM (Java Virtual Machine)
+- JVM stands for Java Virtual Machine, it is used to read byte code line by line and convert into nagative understanding formate of OS(Operating System)
+- Steps to follow convert byte to os
+  1. Load code
+  2. Verifi code
+  3. Execute code
+  4. Provide runtime environment
+
+# What is JRE (Java Runtime Environment)
+- It is used to provide run time environment for java application
+
+# What is JDK (Java Development Kits)
+- It is used to developer java applications
+
+# What is JIT (Just In Time)
+- JVM will read byte code in line by line, so it will take more time to read byte code line by line and convertinto OS
+- So over come this problem we use JIT
+- JIT is used to read entire byte code at once and convert into netive understand permate of OS
+
+# What us Garbage Collection
+- It is used to find the unused objects and delete then to reclaim memory
+
+# What is Identifiers in java
+- A name in java program is defualt considered as identifier, which is used to identification purpose
+- It can be class name or method name or variable name or label name
+- In java some idenfier are reserved to associate some functionality or meaning of each reseverd identifier are called reseverd words
+
+# What is variable
+- varible is hold the value, we can assing variable using data type
+- we have 3 types of varialble
+1. local variable
+- If we declare varible inside method, then those methods are calles local variable
+2. instance variable
+- If we declare varicale inside class and outside of methods with non-static is called instance variable
+3. static varicale
+- If we declare varicale inside class and outside of methods with static is called static variable
+
+# What is variable declaration and initialization
+- variable declaration means we coudn't given any value for variable(we are not assign any values for variable)
+Ex: int a;
+- Varible initialization means we will assign value for variable
+Ex: int a=10;
+
+# What is Data Type
+- Data type is declare varible type, which mean our variable values as primitive or non- primitive data type
+- Data types are two type
+1. Primitive data type
+- The primitive data types are boolean, char, byte, short, int, long, float and double.
+2. Non primitive data type
+- The non-primitive data types are Classes, Interfaces, and Arrays
+- String also comes under non-primitive data type, becoz String is an object
+
+# Java Control Statement
+- provides statements that can be used to control the flow of Java code. Such statements are called control flow statements. 
+  It is one of the fundamental features of Java, which provides a smooth flow of program
+- Decision Making statements
+  if statements
+  switch statement - if several options are available then it is not recomended to use if-else, we should use switch
+- Loop statements
+  do while loop - if we want to execute loop body at lease once then we should go for do-while
+  while loop - if we dont know the no of iterations in advance then best loop is while loop
+  for loop - this is most commonly used loop and best suitable if we know the no of iterations in advance
+  for-each loop
+- Jump statements
+  break statement
+  continue statement
+
+# What is new and newInstance()
+- new is a key word used to create an object for class, if we know the class name before create an object then we go for new keyword
+- newInstance() is used to create an object for class, if we want to create instance(object) with out knowing class name then we go for use it
+
+# public static void main(String[] args)
+- It is a starting point of executing java application
+- while creating main method must be follow same modifier, return type and signagure
+- public is an modifier : we can access main method from other classes
+- static : we can call main method without create instance
+- void : main method could not return anything
+- main : main is a signature, JVM will understand this is main method using method name as main
+- string[] : we can pass parameters while calling main method
+
+# Java is plateform independent
+- Java is plateform independent, bcoz JVM will convert byte code into native understanble languale, mean JVM will convert any type OS understandable language
+
+# why java is not 100% object oriented
+- In java have primitive datatype like byte, char, int, float, sort, double, long which are not objects. thats why java is not 100% object oriented
+
+# what is wrapper class 
+- Every primitive data type have one class, that class is used to convert primitive data type to reference(object) type. this primitive data type class called   wrapper class
+
+# What is constructor
+- constructor is a special method in class, it is used to initialize object with defult values
+- we have 2 types of constructors
+1. defualt constructor : In defualt constructor, constructor will initialize objects with defualt values
+2. parameterized constructor : In parameterizes constructor, we can pass parameter dynamically and constructor will initialize objet with parameter values
+- Every constuctor will call automatically while creating an class object
+
+# What is singleton in java
+- Singleton means, class can return same instance for everytime
+- If we want to make class as singleton then we can use private modifier for constructor
+
+# What is homogenius and hetrogenius
+- Homegenius means same type of object, like array can support only homogeius
+- Hetrogenius mean different types of objects, like array coudn't support hetrogenius values
+
+# What is array 
+- An array used to store the hohmogenius data in index value
+- In array we can't change size of array once array is created
+- we must be know(decide) the size of array before creating
+
+# What is Iterable and Iterator
+- The target element in forEach loop should be Iterable
+- We can use iteraor to get objects one by one from the collection
+
+# Diff ArrayList and Vector
+- ArrayList : 1.Arraylist is non-synchronized 2.It is an faster compare to Vector 3.It is not thread safe 4.Once exceed arraylist capacity it will increase 50%
+- Vector : 1.Vector is synchonized 2.It is slower compare to ArrayList 3.It is thread safe 4.Once exceed vector capacity it will incerase 100% 
+
+# Diff diff == and equals()
+1. == is an operator, used to compare two object references
+2. equals() is a method, used to compare two object contents
+
+# What is super keyword
+- It is used to call parent class object into child class
+
+# What is Replactions in java
+- In java reflactions is changing behaviour of classes, methods and interfaces at run time. Reflactions can create new object
+
+# Can we call constructor of class inside another constructor
+- Yes, we can call constructor of class within a same class or from child class. It is also called constructor chaining
+
+Ex: Public class Parent{
+    pulbic Parent(){
+    System.out.println("Defulat constructor");
+    }  
+    public Parenet(String msg){
+    System.out.println("Parameterized constructor - "+msg);
+    }
+    }
+    Public class Child extends Parent{
+    // Here want to call pareterized constructor
+    public Child(){
+    super("Hello");
+    System.out.println("Child constructor");
+    }
+    public static void main(String[] args){
+    Child c=new Child();
+     }
+    }
+Output : Parameterzed constuctor - Hello
+         Child constructor
+    
+
+# Stock Vs Heap memorty
+- In Stock memory store primitive data type values, In Heap memory store object memory at thread execution time 
+- In Stock memory, memory cann't access another thread, In Heap memory, store memory globally
+- In Stock memory, memory is live until thead execution is complete, In Heam memory, memory is live until application execution is complete
+
+# Access Modifier in java
+- Access modifiers is nothing but restrict the access for the classes, intefaces, methods from the another classes
+- We have 4 types of modifier
+1. Defualt
+- We can access from same class, same package sub class, same package non-sub class
+- We cann't access from deff package subclass and diff package non-sub class
+
+2. Public 
+- We can access from same class, same package sub class, same package non-sub class, deff package subclass and diff package non-sub class
+
+3. Private 
+- We can access from same class
+- We cann't access from same package sub class, same package non-sub class, deff package subclass and diff package non-sub class
+
+4. Protected
+- We can access from same class, same package sub class, same package non-sub class, deff package subclass
+- We cann't access from diff package non-sub class
+
+# What is class and Object
+
+
+# What Static Modifier
+- We can use static modifer for varible and methods but not classes
+- In instace variable for every object seperate copy will created, but static variable only one copy will be created at class level. mean at class level only variable 
+  must be declarete and initialise
+
+# What is synchronized
+- Synchronized is modifier at method and blocks, but we cann't use at classes and variable
+- It is used to allow only one thread at a time and execute given response
+- The main advantage of synchronize modifier is to resolve data inconsistancy problem
+- The disadvantage of synchonize modifier is increase waiting time for remaining thread and reduce performance of application
+
+# Diff local variable and instance(global) variable
+- Local variable can we declare within methods, constructors or blocks, From another methods couldn't access local variable
+- Global variable can we declare on class level, every method can access instance variable and modify it
+
+# Method Vs Constructor
+- Constructor is a special method in a class, constructor will initialize defualt values
+- Method is contains logics of application
+
+# What is final keyword
+- final is a keyword, we can use final keyword for variable, methods and classes.
+- If variable as final we cann't change variable value
+- If method as final we cann't override
+- If class as final we cann't extend calss from sub class, but we can extends from another class
+
+# this() Vs super()
+- Both are keywords used to call the construct
+- this() is used to call current class instance or current class defualt constructor
+- super() is used to call parent class instance or parent class defualt constructor
+
+# String  vs String Builder vs String Buffer
+- String is imutable, String builder and String buffer is a mutable
+- String and String buffer is thread safe(synchronized), String builder is non thread safe(none synchronzed)
+
+# Why String is mutable
+- Once we create an String instance, we cann't change instance reference from string pool, we can change only values, thats why String is imutable
+
+# What is String pool
+- String pool is a collections of String value, which are stored in heap memory
+- String pool is used to decrease the no of String instance in heap memory, mean while creating String object jvm will check wether same instace reference is available 
+  in String pool or not, if available it will return same referece for creating String object other wise create new instace in the String pool
+
+# Static method Vs instance method
+- Static method will call without object reference, instance method will call using class object refernce
+
+# Polymorphism
+- One form can perform multiple actions is called polymorphism
+- Like We have one writCSVFile() method, using this method we can create/write any type of data information it is also called polymorphism
+- We have two type of polymorphism
+1. Compile time polymorphism 2. Run time polymorphism
+1. Compile time polymorphism means at compile time we can call same method with different parameters(like diff type parameters or no of paramters) it is called compile time polymorphims - internally it will follow mothod overloading
+2. Run time polyporphims means at run time we can override paratent class method it is called run time polimorphism - internally it will work method overriding 
+
+# What is abstract class
+- Abstract is an implemented class, we can declare abstract class using abstract keyword
+- Every abstract class hava constructors, implemented methods, variable
+- We can use abstract methods using extends keyword, and it is optional to override abstract methods
+- We can use abstract functionality in sub classes or override abstract class method
+
+# Interface
+- Interface is a reference type in java, it is contains collections of abstract method without body
+- In Java, mutiple inheritance is not possible with class extends, so we can perform mutiple inheritance using intefaces
+- We can implement interface mutiple and call abstract method from inheritance, while calling abstrac method from inheritance, inheritance will class class method ,   bcoz every class implement interface
+
+# Diff Abstract class Vs Interface
+- Abstract class contains abstract methods with implementation, it is optional to override method, and we cann't extends multiple abstract classes same time
+- Interface contains abstract method without body, it is mandaroty to override methods in class, and we can implements mutiple interfaces same time
+
+# What is OOPs
+- OOPs stands for object oriental programing language. java provide few oops concepts like
+1. Object
+- An entity have states and behaviour is know as object, we can defined instance of class is called object
+- We can create object for using new key word, or using newInstance(), while create object it will allocate some memeory space for storing object data
+2. Class
+- A class is blurprint or prototype from which object are created.
+- Every class containns set of properties or methods
+3. Abstraction
+- Hiding internal details and showing functionality is known as abstraction. 
+  For example we have data package provided by java, we just use our required methods. but we dont know the internal logics of methods
+4. Encapsulation
+
+5. Inheritance
+- It is used to call/get some functionalotity from one class to another class, like parent class to child class
+- we have diffrent way of inheritance
+- advatage of thise is code reusability
+   1. Single inheritance
+- Here Child class can get features from parent class
+Ex:
+  class Parent{
+  }
+  class Child extends Parent{
+  // Here child class can get parent class features
+  }
+   2. MultiLevel inheritance
+- Here child2 class can get features from child1 class, And child1 class can get features from Parent class
+Ex:
+  class Parent{
+  }
+  class Child1 extends Parent{
+  // Here child1 class get features from Parent
+  }
+  class Child2 extends Child1{
+  // Here child2 class get features from Child1
+  }
+   3. hierarcal inheritance
+- Here child1 class get features from parent class, And child2 class get features from parent class
+Ex:
+  class Parent{
+  }
+  class child1 extends Parent{
+  // Here child1 class get features from Parent class
+  }
+  class child2 extends Parent{
+  // Here child2 class get features from Parent class
+  }
+
+   4. Multiple inheritance
+   5. Hybrid inheritance
+Note: Multiple and Hybrid inheritance will supports for interface only
+
+6. Polymorphism
+- One task can perform multiple ways, like in my code i writen code for write data on csv file using input like arrayList object and filename
+- In that method will work on any type of data like student informtaion data, customer information data, or anyinvalid data
+- In jave method overloading and overriding also achieve polymorphism 
+- In java we have two type of polymorphism
+  1. compiletime polymorphism - It is nothing but method overloading, that means method overload treat like compiletime polymorphim, bcoz we will pass parameters before run the application
+  2. runtime polymorphism - It is nothing but method overriding, that means method overriding treat like runtime polymorphism, bcoz we will execute rebuild method at runtime
+
+# What is method in java
+- A method is a collection of statement that perform some specific task and return result to caller
+- The advantage of method is to use reusability
+- Public: The method is accessible by all classes when we use public specifier in our application.
+- Private: When we use a private access specifier, the method is accessible only in the classes in which it is defined.
+- Protected: When we use protected access specifier, the method is accessible within the same package or subclasses in a different package.
+- Default: When we do not use any access specifier in the method declaration, Java uses default access specifier by default. It is visible only 
+  from the same package only
+- Return Type: Return type is a data type that the method returns. It may have a primitive data type, object, collection, void, etc. If the method 
+  does not return anything, we use void keyword
+- Method Name: It is a unique name that is used to define the name of a method. It must be corresponding to the functionality of the method. Suppose, 
+  if we are creating a method for subtraction of two numbers, the method name must be subtraction(). A method is invoked by its name
+- Parameter List: It is the list of parameters separated by a comma and enclosed in the pair of parentheses. It contains the data type and variable name. 
+  If the method has no parameter, left the parentheses blank
+- Method Body: It is a part of the method declaration. It contains all the actions to be performed. It is enclosed within the pair of curly braces.
+
+# Types of Method in java
+There are two types of methods in Java:
+1. Predefined Method
+- This methods is given by java library, just we can use method and get functionality of methods
+2. User-defined Method
+- This method is written by developer, These methods are modified according to the requirement.
+
+# Instnace and Static methods in java
+1. Instance method are methods which require an object of its class to be created before it can be called. Static methods are the methods in Java that can be 
+   called without creating an object of class.
+2. Static method is declared with static keyword. Instance method is not with static keyword.
+3. Static method means which will exist as a single copy for a class. But instance methods exist as multiple copies depending on the number of instances created 
+   for that class.
+4. Static methods can be invoked by using class reference. Instance or non static methods are invoked by using object reference.
+5. Static methods can’t access instance methods and instance variables directly. Instance method can access static variables and static methods directly.
+
+# What is this key workd in java
+- In java this keyword can be used to refer the current object in a method or constructor.
+- The most common use of the this keyword is to eliminate the confusion if we use same name attributes in class and constructor or methods
+
+# What is super key word in java
+- In java super key word can be used to refer the parent class variable and methods in child class
+- For example, if i want to get Student class variable values or method in StudentReg class. then we use super key word
+
+# What is super() in java
+- In java super() used to call parent class constuctor only
+
+# Constructor
+- To perform intialization operations of an object using constructors
+- In constructor we can initialize object, but we cann't create object
+- In java we have two type of constructor
+  1. defualt constructor
+  2. parameterized constructor
+
+# What is Is-A and Has-A relation
+- In Is-A is nothing but inheritance. means one class can depende another class loosely, so in inheritance we can get one class methods/functionality in another class
+  using IS-A relations only. bcoz in inhentaance strictly loosely couple
+- In Has-A is we can follow tightly couple. like I have one studentInfo class and another one is StudentLogin, And before instantiate object for StudentLogin class must be instantial
+  StudentInfo. bcoz here without student info we can't to login. so StudentLogin class will depend on StudentInfo class lightly it is called Hash-A relation
+
+# What is wrapper class
+- Wrapper class is nothing but to convert from primitive datatype into object or object into primitive
+- so her we need a some classes for convertion like int for Integer, boolen for Boolen, double for Double. so this classes are called wrapper classes 
+
+# What is method overloading and method overriding
+- If both methods having same name but different argument typs is called method overloading
+Ex: public class Student{
+    public void Cal(int val1, int val2){
+    //here 2 argument are int type only
+    }
+    public void Cal(int val1, double val2){
+    //here first argument are int and second argument are double type
+    }
+    }
+- Whenever we inheritate from parent class into child class, we can get method also from parent class. so now my requirement is not suitable for existing parent class implmentation
+  so what am doint, based on requirement am trying to reimplement in same method.
+- So here we assume parent class method  name is Culc(), so in child class am define the same method. that mean Parent Calc() is overrid in child class
+Ex: Public class Student{
+    public void regis(int id, String name){
+    // Some implementation
+    }
+    }
+    Public class Facult extends Student{
+    public void regis(int id, String name){   // In Facult method regis method is overrided from Student class
+    // Some implementation
+    }
+    }
+
+# What id data binding
+- Which mean when we call method from class reference it is called data binding
+- we have two type of data binding
+  1. static data binding- Is-A relations ship like static data binding only, bcoz her we can bind data at compile time
+  2. dynamic data binding- Has-A relations ship like dynamic data binding only, bcoz her we can bind data at run time
+
+# What is String buffer and String builder
+- Both are used to change String object as mutable
+- In string buffer it is thread safe means internally follow synchronized, so at a time only one thread can allow. perfomrance wise is slow
+- In string builder is non thread safe mean inernally is not follow synchonized, perromance wise is speed
+
+# What is exeception
+- While executing progarme if have any issue with buisiness login then next process will terminate mean not execute complete task 
+- so in thise case we must be handle that exception using try catch blocks
+1. checked exception
+- compile will check before run whether need to handle any exception for runtime level. those exceptions are called checked exception
+Ex: File Not Found Exception
+
+2. unchecked exception
+- which exceptions are compiler will not checked those exceptions are called unchecked exception
+- Here programer only will handle the exception using try and catch bock and using throws keyword
+Ex: Artthmetic Exception
+    Null pointer Exception
+
+Note: Whether checked or unchecked both exception will come on runtime, but not in compile time
+
+# What is throw and throws keyword
+- throw keyword is used to throw the exception explicitly into catch block
+- throws keyword is used to declare exception type on method level, once that exception will accured in try block then will throw into catch block, here we write
+  throws beside of method 
+
+# What is collection and collections
+- collection is a fw, to represent group of individual object in single entity then we use collection
+- collections is unility class, it is from java.util.package. it contains some method like soring, serching ect. so we can user those method using collections class
+
+
+# Diff Get and Post method
+- Get method will append the user parameters on URL, Post method will send user parameters with request body only
+- In Get method user will send limited size of user parameters, In post method no limite to send user parameter size
+
+# Request Dispatcher 
+- In servlet, request dispatcher is an interface used to redirect request into different resource like html, jsp, server application ect
+- we have 2 types of method 1. forward() 2. incluse()
+
+# Servlet Life Cycle
+- States in life cycle
+1. new state, 2. ready state, 3. destroy state
+
+# Driver in JDBC
+- Driver is an software used to intaract with Java and Datase 
+
+# ResultSet metadata, Database metadata
+- Resultset Metadata will return table information like no of column, column name, and column types
+- Database Metadata will return database information like driver name, url, listener ect
+
+# Batch Processing
+- Execute mutiple sql queries in only once without open mutiple db connections
+
+# execute(Sql query) Vs executeQuery(Sql query) Vs executeUpdate(Sql query)
+- execute(Sql query) used to execute sql query and return True or False
+- executeQuery(Sql query) used to execute sql query and retunr resultset object
+- executeUpdate(Sql query) used to update DDL statement and returns nothing
+
+# Statements is JDBC
+- Statement - used to execute sql statement
+- PrepareStatement - used to execute sql statement with dynamic input paramters
+- CollabelStatemetn - used to execute stored procedures

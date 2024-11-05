@@ -1,0 +1,58 @@
+//String Swap without third variable
+public class Test {
+	public static void main(String[] args) {
+String name1 = "IGSA";
+		String name2 = "LABS";
+		name1 = name1+name2;
+		name2 = name1.substring(0, (name1.length())-(name2.length()));
+		name1 = name1.substring(name2.length());
+		System.out.println("name1 "+name1+" : names2 "+name2);
+	}
+}		
+
+//Find no of digites in number values
+public class Test {
+	public static void main(String[] args) {
+		int number = 123456;
+		int digits = 0;
+		while (number != 0) {
+			digits++;
+			number = number / 10;
+		}
+		System.out.println("No of digits : " + digits);
+	}
+}
+
+//Swap int values without third variable
+public class Test {
+	public static void main(String[] args) {
+
+		int a = 10;
+		int b = 20;
+		b = b+a;
+		a = b-a;
+		b = b-a;
+		System.out.println("a : "+a+" - b: "+b);
+	}
+}
+
+//Reverse String without pre defined methods
+public class Test {
+	public static void main(String[] args) {
+		String name = "IGSALABS";
+		char[] listChar = name.toCharArray();
+		for(int i=listChar.length-1;i>=0;i--){
+			System.out.print(listChar[i]);
+		}
+	}
+}
+
+//Reverse String with pre defined methods'
+public class Test {
+	public static void main(String[] args) {
+		String name = "IGSALABS";
+		StringBuilder b=new StringBuilder();
+		b.append(name);
+		System.out.println(b.reverse());
+	}
+}
