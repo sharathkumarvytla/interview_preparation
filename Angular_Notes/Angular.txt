@@ -1,0 +1,96 @@
+# What is Angular
+- Angular is binding framework, which is binds the HTML UI and Javascript model, And angular will building a single-page client application
+- Angular will take of many aspects of frontend web applications such as HTTP requests, routing, layout, forms, reactivity, validation, etc.
+
+# Diff between angular JS and angular
+- Angular js is used Javascript, angular use Typescript
+- Angular js architercture is Controller, angular is component
+- Angular js is not supports mobile application, angular can support mobile applications
+- Angular js could not have CLI, angular have CLI(commmnad line interface)
+- Angular js could not supports server side application, angular can support server side application
+
+# What is DOM
+- DOM stands for Document Object Model, it contains page's information
+- Based on angular directives it can binding data into attributes, elements etc
+
+# What is directives in angular
+- Directives are classes that add additional behavior to elements in Angular applications. Based on directives to manage forms, lists, styles, and what users see.
+
+# What are the directives we have in angular ^
+-In angular we have three kinds of directives:
+1.Component Directive
+
+2.Structural directives 
+Ex: ngFor - this directive is used to repeats a portion of the HTML template once per each item from an iterable list (Collection). 
+    Ex: <tr *ngFor="let customer of customers;">
+        <td>{{customer.customerNo}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.address}}</td>
+        </tr>
+    ngSwitch - this directive is used to add/remove HTML elements depending on a match expression.
+    Ex: <div [ngSwitch]="Switch_Expression"> 
+        <div *ngSwitchCase="MatchExpression1”> First Template</div>
+        <div *ngSwitchCase="MatchExpression2">Second template</div> 
+        <div *ngSwitchCase="MatchExpression3">Third Template</div> 
+        <div *ngSwitchDefault?>Default Template</div>
+        </div>
+    ngIf - this directive is used to add or remove HTML elements based on an expression. The expression must return a boolean value. 
+    Ex:  <div *ngIf="condition"> 
+         This is shown if condition is true
+         </div>
+
+3. Attribute Directives
+Ex: ngModel - this directive is used the perform the two-way data binding.
+    ngClass - this directive is used to add or remove the CSS classes from an HTML element.
+    ngStyle - This directive is used to change the multiple style properties of our HTML elements.
+
+# What is NPM
+- NPM stand for node package manager, which is used to import and install packages into local or global folders
+- Once package will download we can check in nod_module folder, nod_module folder contains all imported packges
+- Ex: NPM(npm) install package-name
+
+# What is package.json
+- It is a root director of Node.js, which contains all javascripts packages informations
+
+# What is Typescript ^
+- It is a superset of javaScript, it added types of javaScript
+ 
+# What is Angular CLI
+- CLI stands for Command Line Interface, we can create new project from CLI very easiely, no need to do install and configure manually
+- And by using we can create components, services, pipes, directives and more. Also it helps in building, serving, testing etc
+- steps to create project using CLI
+1. npm install -g @angular/cli’ -which will install CLI globally on machine.
+2. ng new MyNewApp -which is create new angular project
+3. ng serve -which is use to deploy applition locally, It starts up a local development server
+
+# What are the importance of Component and Modules
+- Module is collections of component, serivce, pipe, And every component is collection of HTML Template, typeScript code, service and pipe
+
+# What is Decorator in angular
+- Decorator defines what kind of class is it. for example if you decorate @Component then it says its an angular component, if you put @NgModule it becomes a angular   module
+
+# What are annotations and metadata
+- 
+
+# What is a template
+- Template is an HTML view of Angular in which we can write directives. 
+- There are two ways to defined template
+  1. Inline 2. Seperate HTML File
+
+# What are the databinding in angular
+- Data binding defines how the view and component communicate with each other, There are four types of bindings in angular
+1. Expresion / Interpolation {{}} :- Data flow from component to the view and we can mix the same with HTML Tag 
+2. Property Binding [] :- Data flow from component to view
+3. Event Binding () :- When you want to send event from view to component
+4. Two-way Binding [()] :- Data flow from component to view and vice versa
+
+# Angular Architecture
+
+# What is SPA in angular
+- SPC Stand for Single Page Application
+- Single Page Application are applications where the main UI gets loaded once and then the needed UI is loading on demand
+
+# How to impliment SPA in angular
+- 	
+	
+ 

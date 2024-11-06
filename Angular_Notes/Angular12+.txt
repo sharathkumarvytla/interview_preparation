@@ -1,0 +1,667 @@
+What is Angular
+- Angular is used for building client-side application using HTML, CSS and a programing language like javaScript or TypeScript
+- Angular is not a programing language in itself like JavaScript. Instead, it is a framework which uses a programing language like JavaScript/TypeScript
+- Angular is a JavaScript framework which allows us to create Single-page Applications.
+What is single page application
+- Angular is maily used to develop single page applications
+- Single page application will refresh which content is required to update on spa
+What are advantages of SPA
+- SPA makes a web applcation very faster and gives the user a reactive experience.
+- Using javascript change the content of the webpage dynamically is much faster than having to reach out to the server for every page change and for every
+  new piece of data we want to display
+What is Angular CLI
+- CLI stands for Command Line Interface, we can create new project from CLI very easiely, no need to do install and configure manually
+- And by using we can create components, services, pipes, directives and more. Also it helps in building, serving, testing etc
+- steps to create project using CLI
+1. npm install -g @angular/cli’ -which will install CLI globally on machine.
+2. ng new MyNewApp -which is create new angular project
+3. ng serve -which is use to deploy applition locally, It starts up a local development server
+
+Why use Angular
+- Angular gives our application a clean and loosely coupled structure that is easy to understand & maintain
+- It brings a lot of utility code  be re-used in lot of applications. Especially, when dealing with user navigation & browser history.
+- Application built with angular are more testable.
+Steps to install angular
+- Download Node JS and install it. Node JS provide some tools that we need to build angular applications
+- We can check whether it is installed or not from command prompt using command C:\User\Sharath\node --version
+- Install Angular CLI(Command Line Interface) which is used to create new angular project or generate some boiler plate code as well as create deployable
+  packages, we can install from command prompt using command C:\User\Sharath\npm install g @angular/cli@latest
+- We can check angular cli is installed or not using command C:\User\Sharath\ng --version
+- And we can create or run application from Angular cli using commands
+- ng new NewAngularApplication // To create new project 
+- ng serve // To run application on server
+- ng serve --port 4044 // To run application on server using port 4044
+- ctr+c // To stop application to run on server
+What is npm
+- npm stands for node package manager, while execute npm commands required packages are downloaded into project
+What is Bootstrap
+- Bootstrap is a framework, we can use utility css styles in our module using bootstrap
+Steps to install Bootstrap
+- npm i bootstrap // install bootstrap
+- @ import '`bootstrap/dist/css/bootstrap.min.css'; // import the framwork out style.css file
+E2E (End to End)
+- end to end test scripts will be residing
+- protractor frameword is used to run end to end tests
+- app.po.ts -> protractor file which will have "po" file
+- app.e2e-spec.ts file
+- whenever you spec added, that means it is a test script
+Angualar folders
+1. ng_modules
+- It contains all third party ibraries, if we add any third party library that library will stored in this folder
+- While build application in production, thise folder is not required( It will skill while build application into production)
+2. src folder
+- It is a source folder, all out appication sources are saved in src folder
+2.1 app folder
+- Wheneve we create new service and components we will create in app folder
+- In app folder contains one service and module is called app module and app service
+2.2 assets
+- It contains application related images, loges ect
+2.3 environments
+- It is used to change project environment
+- It contains two type environment
+  1. environment.prod.ts - It is for production environment, while build application into production then it is enabled
+  2. environment.ts - It is for local environment, while run application on locally then it will enabled
+2.4 favicon.ico 
+- It used to display appplication logo/images on browser tap
+2.5 Index.html
+- It is main html file, it can render browser on user request
+2.6 main.ts
+- It is a typescript file, and it is starting point of application
+- whenever we run application main.ts file will start to execute first
+2.7 folifill.ts
+-
+2.8  style.css
+- It is used to provide global css style for applicaion
+2.9 test.ts
+- It is used to setup testing environment
+3. editorconfig
+-
+4.gitIgnore
+- It is used to give what are the files and folders are exclude from the git reposotory 
+5. angular.json
+- It is a most importante file, it contains all configuration of angular application
+6.karma.config.ts
+- It is contains all test configuretions for test angular application
+7.package.json
+- It contains all dependecies information like devDependencies and prodDependecies
+8.tsConfig.ts
+- It contains bunch of type script compiler information, based on this setting typescript will compile
+
+What is typescript
+1.Typescript is open source programing language developed by microsoft, And it is a superset of javascript
+2.Typescript has additional features that do not exist in current version of java script
+  Ex- Type script is strongly typed, but java script is dynamically typed
+  In java Script - let name ='AAA'
+                   let age = 10
+                   let isIndian = true
+  In Type script - let name:String ='AAA'
+                   let age:number = 10
+                   let isIndian:boolean = true 
+3. In type script we can handle error at compile time
+
+Steps to execute application
+1. main.ts
+2. app.module.ts
+3. app components
+4. index.html will load on the browser
+
+Component
+- Component is type script class decorated with @Component decorator and it contains methods and properties with we can use in HTML
+- A Class: It contains the code required for the view template. That means, it contains the UI logic.
+- A View Template: It defined the user interface. it contains the HTML, directives and databindings
+- A decorator: It adds meda data to the class, making it a component
+- In SPA contains more then 2 components, every component have different UI login
+
+How to add bootstrap in application
+- Execute cli command like npm install --save bootstrap, all bootstrap packages will saved in nod_module folder
+- Add bootstrap css file location in angular.json
+  "styles":[
+   "node_module/bootstrap/dist/css/bootstrap.min.css",
+   "src/styles.css"
+   ]
+Types of selectors
+1. We can user selector like HTML tag  
+   Ex: selector: 'app-header'
+       <app-header></app-header>
+2. We can use selector like HTML attribute
+   Ex: selector: '[app-header]'
+       <div add-header></div>
+3. We can use selector like CSS Class
+   Ex: selector: '.app-header'
+       <div class="app-header"></div>
+
+What is data binding
+- Communicate from angular component class to corresponding view template(html page) and view template to corresponding component class 
+- We have 2 types of data binding
+1. One way databinding
+- In one way data binding will communicate from component class to view template or from view template to component class
+  Ex: String interpolation
+2. Two way databinding will comminicate from component class to view template and view template to component class
+  Ex: NgModel will perform two way databinding
+
+String Interpolation
+-It is one way data binding which is used to display output from type script into view template
+ Ex: I will write copyright with date in footer,
+     In ts file - var currentDate ="DD-MMM-YYYY" / we can get date from date
+     In html file - <h3>@Copyright XXX Company - {{ currentDate }}></h3> // Using {{}} we can perform string interpolation in view template
+       
+What is property binding
+- Property binding is used to bind the property of an HTML element to the property or method of the component class
+  Ex: In HTML <img [src]="source">
+      In Component source: String ="assets/logo.jpg"
+- We can declare property binding using []
+
+What is event binding
+- Event binding is allow us to bind web page event to a component property or method. using event binding we can pass data from view template to component class
+  Ex: In HTML <intput type="Text" (input)="userValue($event)">
+      In Component userValue(userData:event){
+      console.log(userData.target.value);
+      //console.log(<HTMLInputElement>userData.target.value);
+      } 
+
+What is directives
+- Directives are simply an instruction to the DOM (Document Object Model)
+- We have two types of directives
+1. Structural directives
+- Change the view of a webpage by adding or removing DOM elements from a webpage
+2. Attrubute directives
+- Used like an attribute on a existing webpage element to change its look and behaviour
+
+What is *ngFor directive
+- It is an structure directive
+- It is used to repeat a portion of HTML template once per each item from an iterable list
+Ex: <div *nfFor="let emp of listEmployee">{{emp.id}}-{{emp-name}}</div>
+
+What is ngStyle directive
+- It is an attribute directive used to change styles in html
+- It is used to change css styles dynamiclly in html view template based on given typescript expression
+Ex: <div [ngStyle]="{color:emp.id==='101'?'Green':'Red'"}">{{emp.id}}-{{emp.name}}</div>
+
+What is *ngIf directive
+- It is an structural directives
+- It is used to add/remove elements from view template based on give typesctipt condition
+Ex: <div *ngFor="let emp of listEmployee">
+    <div *ngIf="emp.id=='101';else notAnEmployee">{{emp.id}}-{{emp.name}}</div>
+    <ng-template #notAnEmployee>
+    <span>Employee list not found</spac>
+    </ng-template>
+    </div>
+
+What is ngClass directive
+- It is an ngClass directive class
+- It is used to change view template css styles dynamically from CSS class
+Ex: In CSS Class
+    .changeBackground{
+     background-color:#FAD7A0;
+     }
+    In HTML
+    <div [ngClass]="{changeBackground: searchValue !=''}">
+    ...
+   </div>
+    
+What is parent and child components
+- A parent component is like a container for child components. A child component is a more specific part inside a parent component.
+Ex: app component is parent component, header component, left menu component, bodycomponent and footer components are child components
+
+What is @Input() and @Output()
+- @Input() is a decorator used to pass data from parent component to child component
+Ex: CheckCustomerType.ts // child component
+    selector:'app-checkCustomerType'
+    @Input() customerType:String =null;
+    
+    CheckCustomerType.html
+    <input type="Radio" value="All">All Customers
+    <input type="Radio" value="Day">Daily Customers
+    <input type="Radio" value="Month">Monthly Customers
+
+    CustomerData.ts // parent component
+    selector:'app-customerData'
+    customerType:String=null;
+    getCustomerType(){
+    this.customerType=All;
+    //this.customerType=Day;
+    //this.customerType=Month;
+    }
+
+    CustomerData.html
+    <app-checkCustomerType [customerType]="getCustomerType()"></app-checkCustomerType>
+    <div *ngFor="customer of listCustomer">
+    <div *ngIf==="customer.type==customerType">
+    <div {{customer.id}}-{{customer.name}}-{{customer.add}}/>	
+    </div>
+    </div>
+
+- @Output() is a decorator used to pass data from child component to parent component
+Ex: CheckCustomerType.ts // child component
+    selector:'app-checkCustomerType'
+    selectedCustomerType:String = All;
+    @Output()
+    changeRadioButtonCustomerType: EventEmitter<String> = new EventEmmiter<String>();
+    changeCustomerType(){
+    this.changeRadioButtonCustomerType.emit(this.selectedCustomerType);
+    }
+      
+    CheckCustomerType.html
+    <input type="Radio" value="All" [(ngModel)]="selectedCustomerType" (change)="changeCustomerType()">All Customers
+    <input type="Radio" value="Day"[(ngModel)]="selectedCustomerType" (change)="changeCustomerType()">Daily Customers
+    <input type="Radio" value="Month" [(ngModel)]="selectedCustomerType" (change)="changeCustomerType()">Monthly Customers
+
+    CustomerData.ts // parent component
+    selector:'app-customerData'
+    customerType:String=null;
+    getCustomerType(data:String){
+    this.customerType=data;
+    }
+
+    CustomerData.html
+    <app-checkCustomerType (changeRadioButtonCustomerType)="getCustomerType($event)"></app-checkCustomerType>
+    <div *ngFor="customer of listCustomer">
+    <div *ngIf==="customer.type==customerType">
+    <div {{customer.id}}-{{customer.name}}-{{customer.add}}/>	
+    </div>
+    </div>
+
+What is template reference variable
+- template reference variable is an varible, which stored an html element or component or directives which we have used it
+Ex:  demo.html
+    <input type="text" #myVariable (keyUp)="0"> // While entering value, value will be assigned into html element (myVariable) 
+    <button (click)="sayHello(myVariable)"/><sayHello</button>
+    <p><{{myVariable.value}}</p>
+
+    demo.ts
+    msg:String=""
+    sayHello(inputEl:HTMLInputElement){
+    msg=inputEl.value;
+    }
+
+What is view child decorator
+- It is a decorator used to pass assigned template reference variable value into component, and we can get child compoment in parent component
+Ex: voter.html
+    <input type="date" #datebofbirth>
+    <input type="text" #age>
+    <app-customer></app-customer>
+    {{customer.getSite()}} // call child component method
+
+    voter.ts
+    @ViewChild('datebofbirth>') dob:ElementRef;
+    @ViewChild('age') age:ElementRef;
+    @ViewChild('customer') customer:ElementRef; // get child component in parent component
+
+    calculateAge(){
+    let birthYear=new Date(this.dob.nativeElement.value).getFullYear();
+    let currentYear = new Date().getFullYear();
+    let age = currentYear - birthYear;
+    this.age.nativeElement.value=age;
+    }
+
+    customer.html
+    <p>{{siteName}}</p>
+
+    customer.ts
+    selector='app-customer'
+    siteName:String="";
+    getSite(){
+    siteName="www.voterportal.com"
+    }
+
+What is view encapsulation
+- Tha CSS style will be encapsulated into html component without effeting into other html components by giving encapsulated option 
+- We have 3 types of encapsulations
+1. Emulated
+- It is an defualt encapsulation, while using this that css styles will applied into corresponding component only, but not effected for child component
+2. None
+- If we use thise css style could not applied for html component, It mean view encapsulation will not work
+3. Shadowdow
+- If we write this view encapsulation type in component, global css styles will not applied on corresponding component. but css style will work for child components
+Ex:  selector: 'app-demo',
+     templateUrl: './demo.component.html',
+     styleUrls: ['./demo.component.html],
+     encapsulation: viewEncapsulation.Emulated // default
+     encapsulation: viewEncapsulation.None
+     encapsulation: viewEncapsulation.Shadowdow
+
+what is ng-content
+- It is used to insert content dynamically inside the component 
+Ex: product.ts
+    <div class="card">
+    <ng-content select=".title"></ng-content>
+    <p class="summery"> All mobile are good</p>
+    <ng-content select=".btr.more"></ng-content>
+    </div>
+
+    app.ts
+    <div class="container">
+    <h2>New in smart phone</h2>
+    <div class="more-products">
+    <app-product>
+    <h4 class="title">Iphone</h4>
+    <button class="btn btn-more">show more in iPhone</button> 
+    </app-product>
+    <app-product>
+    <h4 class="title">Samsung</h4>
+    <button class="btn btn-more">show more in samsung</button> 
+    </app-product>
+    <app-product>
+    <h4 class="title">Oneplus</h4>
+    <button class="btn btn-more">show more in oneplus</button> 
+    </app-product>
+    </div>
+//Here we use same component summery for mutiple time in app component
+
+What is content child docorator
+- It is similar to viewChild decorator,
+- We can assign children template reference value into child component
+Ex: <h2>parent component</h2>
+    <app-child>
+    <p #paragraph>This is paragraph</P>
+    </app-child>
+    
+    export class ChildComponent{
+    @ContentChild('paragraph') paragraphEl ElementRef;
+    }
+     
+What is custom directives
+- We have two types of directives like artibute directives(ngStyle, ngClass) and structural directives(ngIf,ngFor)
+- We can create out own directives its calles custom directives
+Ex: setbackground.directive.ts
+    @Directive({
+    selector : '[setBackground]'
+    })
+    export class SetBackgroundDirectives imlement init{
+    private element:ElementRef;
+    constructor(element:ElementRef){
+    this.element=element;
+    }
+    ngOnInit(){
+    this.element.nativeElement.style.backgroundColor='#C8E6C9'
+    }
+   }
+    
+   <div class="container" setBackground>
+   <p>Hello Word</P>
+   </div>
+//CLI Command for create custom directive  ng g directive directiveName
+
+What is renderer2 directive
+- Renderer2 is an service, which is used to manipulated , without using DOM elements directly
+Ex: highlight.directive.ts
+    @selector : '[appHighlight]'
+    export class HighlightDirective implement OnInit{
+    constructor(private element:ElementRef, private renderer:Renderer2){}
+    ngOnInit(){
+    this.renderer.setStyle(this.element.nativeElement,'backgoundColor','#F1948A')
+    this.renderer.addClass(this.element.addClass,'container');//Container is from css style file
+    this.renderer.setAttribute(this.element.nativeElement,'title','this is example div')
+    }
+    }
+    
+   <div app appHighlight>
+   <p>This is angular example</p>
+   </div>
+    
+// Diff element:ElementRef and renderer:Renderer2)
+
+What is host listener
+- The @HostListener decorator listen to the DOM event on the host element and it react to that event by executing event handler method
+Ex: hover.directive.ts
+    @selector : '[appHover]'
+    export class HoverDirective implement OnInit{
+    constructor(private element:ElementRef, private renderer:Renderer2){}
+    @HostListener('mouseenter') onmouseover(){
+           this.render.setStyle(this.element.nativeElement,'margin','5px 10px')
+           this.render.setStyle(this.element.nativeElement,'padding','30px 30px')
+           this.render.setStyle(this.elenent.nativeElement,'transition','0.5s')
+    }
+    @HostListener('mouseleave') onmouseout(){
+           this.render.setStyle(this.element.nativeElement,'margin','10px 20px')
+           this.render.setStyle(this.element.nativeElement,'padding','10px 20px')
+           this.render.setStyle(this.elenent.nativeElement,'transition','0.5s')
+    }
+    }
+   
+    <div appHightlight appHover>
+    <p>This is angular application example</p>
+    <div>
+// On mouse will entered into div @HostLister will call onmouseover method, and mouse will exit from div then call onmouseout method
+
+What is host binding
+- The @HostBinding decorator binds a host element property to a variable in a directive or component
+Ex: betterhighlight.directive.ts
+    @selector : '[appBetterHighlight]'
+    export class BetterHighLightDirective implement OnInit{
+    constructor(private element:ElementRef, private renderer:Renderer2){}
+    @HostBinding('style.backgroundColor') background: String = 'transparent';
+    @HostBinding('style.border') border: String ='none';
+    @HostListener('mouseenter') onmouseover(){
+           this.background='pink';
+           this.border='red 2px solid';
+    }
+    @HostListener('mouseleave') onmouseout(){
+           this.background='transparent';
+           this.border='none';
+    }
+    }
+
+How to write custom ngClass directives
+Ex: <div [appClass]="{container:true,'change-font':true}">
+    <p>This is custom ng class directive example</p>
+    </div>
+
+    directive({
+      selector: '[appClass]'
+    )}
+    export class ClassDirective{
+    Constructor(private element:ElementRef, private render:Render2){}
+    @Input('appClass') set display(value:Object){
+    let entries=Object.entries(value);
+    for(let [className,condition] of entries){
+    if(condition){
+    this.render.addClass(this.element.nativeElement, className)
+    }
+    }
+    }
+    }
+
+How to write custom ngStyle directives
+Ex: <div [appStyle]="{backgroundcolor:'pink',color:'white',fontweight:'bold'}">
+    <p>This is custom ng style directive example</p>
+    </div>
+
+    directive({
+      selector: '[appStyle]'
+    )}
+    export class StyleDirective{
+    Constructor(private element:ElementRef, private render:Render2){}
+    @Input('appStyle') set display(style:Object){
+    let entries=Object.entries(value);
+    for(let entry of entries){
+    this.render.setStyle(this.element.nativeElement, entry[0],entry[1]);
+    }
+    }
+    }
+
+How to work *ngIf structural directive
+Ex: <button class="btn btn-notice" (click)="DisplayNotice()">Show notice</button>
+   <!-- <div class="info-container notice" *ngIf="display; else myVar">
+    <h3>This is important notice!</h3>
+    <p>This notice is for all web users</p>
+    </div>
+    <ng-template #myVar>
+    <p>This is an example paragraph.</p>
+    </ng-template> -->
+
+    //Internally ngIf will work like below steps
+    <ng-template [ngIg]="display" [ngIfElse]="myVar">
+    <div class="info-container notice">
+    <h3>This is important notice!</h3>
+    <p>This notice is for all web users</p>
+    </div>
+    </ng-template>
+    <ng-template #myVar>
+    <p>This is paragraph examples</p>
+    </ng-template>
+
+How to write custom structural directive
+Ex: 
+   <p *appIf="10 > 5">This is customer structural example</p>
+
+   @Directive({
+   selector: '[appIf]'
+   })
+   export class IfDirective {
+   constructor(private template: TemplateRef<any>, private viewConstructor:ViewConstructorRef){}
+   @Input() set appIf(condition:boolean){
+   if(condition){
+   this.viewContainer.createEmbeddedView(this.template)
+   } else {
+   this.viewContainer.clear();
+   }
+   }
+   }
+
+How to work *ngSwitch structural directive
+Ex: 
+   <div class="container" [ngSwitch]="occupation">
+   <p *ngSwitchCase="'teacher'">This is teacher</P>
+   <p *ngSwitchCase="'engineer'">This is engineer</P>
+   <p *ngSwitchCase="'disigner'">This is disigner</P>
+   
+    export class AppComponent {
+    title = 'CustomDirectives';
+    active: boolean = false;
+    display: boolean = false;
+    occupation: String = 'engineer'
+    DisplayMsg(){
+    ths.display = true;
+    }
+   }
+  
+What is service
+- A service isa re-usable typescript class that can be used in multiple components
+  across your angular application
+- Like we are use same http client request for different methods, so we can write 
+  http request method in service and re-use from different components
+- Advantages of service
+1. Service are easier to debug and test
+2. Service provides re-usability of code
+3. With services, we can communicate across different components 
+
+What is Dependency Injection
+- Dependency Injection is a technique in which a class recieves its dependencies from
+  external sources rather than creating them it self
+- We no need to create an instance in every component, we just declare service reference
+  in app module in providers
+
+What is single thread programing language
+- Java script is single thread programing language, that means at a time only one thread will allow to execute code
+- So user need to wait until the current user action will complete, so over come thise problem angular we have two types for concept
+- 1. Promise 2. Observable
+
+What is promises
+- While using promises, promises will wait until the completes responce will get from the server
+- We use promises to perform asynchronous operations and handle asynchronous data
+
+What is Observable and Observal
+- While using observable, observable will get response data in the packages from the server, no need to wait for getting complete response data from the server
+- We use Observables to perform asynchronous operations and handle asynchronous data
+- Observable is stream the data in packages, that means while send https request into a server observable will recieve server response data in packages
+- We can import obervable from RXJS package
+- An Observer is a consumer of values delivered by an Observable. Observers are simply a set of callbacks, one for each type of notification delivered by the 
+  Observable: next, error, and complete
+
+Ex: myObservable = new Observable((observer) =>{
+    console.log('Observable starts')
+    setTimeout(()=>{observer.next("1")},1000)
+    setTimeout(()=>{observer.next("2")},2000)
+    setTimeout(()=>{observer.next("3")},3000)
+    setTimeout(()=>{observer.next("4")},4000)
+    setTimeout(()=>{observer.next("5")},5000)
+    // observer.next("1")
+    // observer.next("2")
+    // observer.next("3")
+    // observer.next("4")
+    // observer.next("5")
+    });
+ 
+    ngOnInit(){
+    this.myObservable.subsrcibe((val) => {
+    console.log(val);
+    });
+    }
+
+What is subscriber
+-
+
+
+What is Error and Completion of Observable
+- While observer emit data from the service we may get error, so we can handle errors using error
+- If error will come, next values could not emit
+- If we want to know the complete status of emit, we can use complete
+Ex: myObservable = new Observable((observer) =>{
+    console.log('Observable starts')
+    setTimeout(()=>{observer.next("1")},1000)
+    setTimeout(()=>{observer.next("2")},2000)
+    setTimeout(()=>{observer.next("3")},3000)
+    setTimeout(()=>{observer.error(new Error('Something went wrong, pleaase try again'))},300)
+    setTimeout(()=>{observer.next("4")},4000)
+    setTimeout(()=>{observer.next("5")},5000)
+    setTimeout(()=>{observer.complete()},6000)
+    // observer.next("1")
+    // observer.next("2")
+    // observer.next("3")
+    // observer.next("4")
+    // observer.next("5")
+    });
+ 
+    ngOnInit(){
+    this.myObservable.subsrcibe((val) => {
+    console.log(val);
+    },(error)=>{
+     alert(error.message);
+     },(complete)=>{
+     alert('Observable has complete emitting all values.'));
+    });
+   }
+  }
+
+What is un subscribe
+- While using observable, observer call back function will emit the data from service untile un subscribe the back back function
+Ex: countObervale = interval(1000)
+    counterSub;
+    ngOnInit(){
+    this.counterSub = this.counterObservable.subscribe((val) => {
+    console.log(val);
+    })
+    }
+    unSubscribe(){
+    this.counterSub.unSunscribe();
+    }
+   
+    <input type="button" onClick="unSubscribe()" value="UnSubscribe">
+   
+
+Operators of RxJS
+
+What is routing
+- It is used to navigate one component to another componet in same page using URL
+- We can map urls' with url related components in app.routing.module.ts
+  routerLink="login" and this.router.navigate(['/login']);
+- If we navigate to another component while click button then we use routerLink="login" for event
+- If we navigate to another component from method then we use this.router.navigate(['/login']);
+Ex: con appRoute:Routes=[
+    {path=:'', redirectTo:'login',pathMatch:'full'},
+    {path:'login', component:HomeComponent},
+    {path:'Home', component:HomeComponent},
+    {path:'**',component:ErrorPageComponent} // If url not match then redirect Error page - we declare invalid url path like '**'
+    ] 
+    @NGModule({
+    declarations:[
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+   })
+
+// We can use href="/" instead of routerLink="login", but entire page will reloaded for every href request
+
+What is routerLinkActive
+- while navigate one tab to another tab, user need to know the which tab is current opene tab. so we can highlight the current opened tab using routerLinkActive
+Ex: <a routerLinkActive="active" routerLink="Customer">Custmer</a>

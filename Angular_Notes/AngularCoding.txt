@@ -1,0 +1,105 @@
+# Two-Way data binding
+-app.ts
+
+empName:String;
+
+-app.html
+<label for="name">Name</label><input type="text" id="name[(ngModel)]="empName"/>
+<p>{{empName}}</p>
+
+# Custom directives
+-Attribute custom directives
+
+ts:
+@Directive({
+selector:'[appHighligh]'
+})
+
+export class HightlightDirective{
+cunstructor(private elemRef:ElementRef){
+elemRef.nativeElement.style.backgroud='Red';
+}
+}
+
+html
+<h1 appHighligh>Highligh Directive><h1>
+
+-Structural custom directives
+
+ts:
+@Directive({
+selector:'[appNot]'
+})
+export class AppNotDirective{
+constructor(private temRef:TemplateReference<any>,private viewContainer:ViewContainerRef){
+@Input set addNot(condition:boolean){
+if(!boolean)
+this.viewContianer.createEmbededView(this.temRef)
+else
+this.viewContainer.clear()
+}
+}
+}
+
+html
+<h1 *appNot="true">True<h1><h1 *appNot="false">False</h1>
+
+# How to create service and how to inject into component
+
+-service
+@Injectable({
+providedIn : 'root'// If we not write thise like we need to write this service in app.module providers
+})
+export class MyService{
+getEmp(){
+--
+}
+}
+
+-ts
+constructor(private service:MyService){
+service.getEmp();
+}
+
+# How t validate input fields in angular
+- We can validate input fileds using reactive form, in reactive form we can use seperate controller for every input field and using pre defined method we can validate all inputes
+
+# Write form validation
+- ts
+export class EmployeeReg{
+requiredForm:FormGroup;
+constructor(private fb:FormBuilder){
+myForm();
+}
+myForm(){
+this.requiredForm=this.fb.group({
+name:['',validators.required]
+});
+}
+
+- html
+<form [formgroup]="requiredForm">
+<div class="form-group">
+<label for="name">Emp Name</label>
+<input class="form-controller" form-controller-name="name"/>
+</div>
+</form>
+
+# How to write Custom Pipes
+
+-ts.
+@Pipe(name:'uppercase')
+export class UpperCasePipe implemnt PipeTransform{
+tranform(value:String):string{
+==
+return value.toUpperCase();
+}
+}
+
+-html
+<h1>{{empname | uppercase}}</h1>
+
+# How do you implements routing in angular
+- In app-route module we need to write all route modules
+- cons routes:Routes = [
+   {path=".login" component:LoginComponent, data : {title : "login"}]

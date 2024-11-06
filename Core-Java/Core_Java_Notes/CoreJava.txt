@@ -142,7 +142,7 @@ Ex: int a=10;
 3. final
 - we can use final modifier at class level, method level
 - if we use method as final, child class coud not override that method (mean if A class have final sum(), now in B class extends A class, but we cann't possible to overriden sum() in B class)
-- if we use final for class, we can not create child class means(if am creating Studnet class as final modifer, and also create College classs and try to extends Student class into College class
+- if we use final for class, we can not create child class means(if i creating Studnet class as final modifer, and also create College classs and try to extends Student class into College class
   so here we cannt extends class mean we cann't do inheritance concept)
 4. abstarct
 - we can use abstract modifier at class level, method level and varible level.
@@ -335,7 +335,8 @@ Ex: File Not Found Exception
 - which exceptions are compiler will not checked those exceptions are called unchecked exception
 - Here programer only will handle the exception using try and catch bock and using throws keyword
 Ex: Artthmetic Exception
-    Null pointer Exception
+    Null pointer Exception (E: A NullPointerException (NPE) is a common runtime exception in Java that occurs when your code tries to use an object reference that hasn't been initialized (i.e., it points to null). 
+    This means you're trying to perform an operation (like calling a method, accessing a field, or passing it as an argument) on an object that doesn’t actually exist in memory, as it's represented by null)
 
 Note: Whether checked or unchecked both exception will come on runtime, but not in compile time
 

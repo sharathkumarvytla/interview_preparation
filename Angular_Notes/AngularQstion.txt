@@ -1,0 +1,25 @@
+1. What is Angular JS and Angular
+- Angular JS and angular are used to develop single page application
+- Compare to anuglar JS, we have some advantages in angular
+- Angular Js we use java script language, Angular we use type script language
+- Angular Js support only java script, Angular will support typescript and java script also
+  bcoz typescript is super set of java script only
+- Angular Js doesn't support mobile browser, Angular will support mobile browsers
+- Angular Js doesn't have CLI, Angular provide CLI
+- Angular Js support Model And View, Angular will not support
+
+
+2. What is SPA (Single Page Application)
+- Angular support single page application web pages, whenever user will perform any action on page that 
+  specific content only will updated on page but remaining content will not effected(updated)
+- SPA will loaded very faster, user will not to wait untill loading complete page
+- Provide better perfomance
+- SPA will reduce the developement time
+
+3. Binding between Component to View
+- Binding is like transfer the data from model to view or view to model
+- Angular is provide type of databinding
+- One way data binding is share the values from model to view only, using string interpolation {{}} we can display the data
+- Two way data bindings is share the data from model to view and view to model also, using [{ngNodel}] we can share the data
+- Property data binding is help to set the values for property element, using this values view template will disply
+  Property data binding is like one way data binding, which mean view will not update any values into model 
