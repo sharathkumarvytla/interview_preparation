@@ -198,6 +198,13 @@
         }
 	   }
 	   
+# Collections Vs Streams
+- 1. Read & Write - Read only
+  2. Eeagerly Evalutated - Lazily Evaluted
+  3. Collection about data - About computation on data
+  4. Iterate over collection - Internal iterate
+  5. Multiple iteration possible - only once
+
 # Stream API
 - The Stream API in Java is a powerful feature introduced in Java 8 to process collections of data in a functional and declarative way. It provides a stream of elements from a source (like a collection, array, or I/O channel)
   and allows you to perform a series of operations on the data, such as filtering, mapping, and reducing.
@@ -210,3 +217,16 @@
   
 - A stream in java can be defined as a sequence of elements from a source that supports aggregate operations on them
 - Streams don't change the original data structure, they only provide the result as per the pipelined methods
+
+# map() in Stream API
+- It is used to transform one type to another type of data
+- Its not the Map Collection
+
+# flatMap() in Stream API
+- It is used to transform one type to another type of data same like map
+- Used to flatten a stream of collection
+- Applying one-to-many transformation to the elements
+- Create new Stream once flatten the elements
+
+# filter in Stream API
+- It is used to restrict<filter) the data, but it will not modify data
