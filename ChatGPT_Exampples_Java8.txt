@@ -1,0 +1,169 @@
+1. Find the Second Highest Number in a List
+Question: Given a list of integers, find the second-highest number using Java 8 features.
+
+Hint: Use Stream and sorted().
+
+java
+Copy code
+List<Integer> numbers = Arrays.asList(3, 1, 4, 6, 5, 2);
+Optional<Integer> secondHighest = numbers.stream()
+    .distinct()
+    .sorted(Comparator.reverseOrder())
+    .skip(1)
+    .findFirst();
+
+System.out.println(secondHighest.orElse(-1));
+2. Group by Property
+Question: Given a list of employees, group them by their department using Java 8.
+
+Hint: Use Collectors.groupingBy().
+
+java
+Copy code
+class Employee {
+    String name;
+    String department;
+
+    Employee(String name, String department) {
+        this.name = name;
+        this.department = department;
+    }
+}
+
+List<Employee> employees = Arrays.asList(
+    new Employee("John", "HR"),
+    new Employee("Jane", "Finance"),
+    new Employee("Jack", "HR"),
+    new Employee("Anna", "Finance")
+);
+
+Map<String, List<Employee>> groupedByDepartment = employees.stream()
+    .collect(Collectors.groupingBy(emp -> emp.department));
+
+groupedByDepartment.forEach((dept, empList) -> {
+    System.out.println(dept + ": " + empList.stream().map(e -> e.name).collect(Collectors.joining(", ")));
+});
+3. Convert List of Strings to Uppercase
+Question: Convert a list of strings to uppercase using Java 8.
+
+Hint: Use map().
+
+java
+Copy code
+List<String> strings = Arrays.asList("apple", "banana", "cherry");
+List<String> uppercaseStrings = strings.stream()
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
+
+System.out.println(uppercaseStrings);
+4. Find the First Non-Repeated Character in a String
+Question: Find the first non-repeated character in a string using Java 8.
+
+Hint: Use Collectors.groupingBy() and filter().
+
+java
+Copy code
+String input = "swiss";
+Character firstNonRepeated = input.chars()
+    .mapToObj(c -> (char) c)
+    .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()))
+    .entrySet()
+    .stream()
+    .filter(entry -> entry.getValue() == 1)
+    .map(Map.Entry::getKey)
+    .findFirst()
+    .orElse(null);
+
+System.out.println(firstNonRepeated);
+5. Sort a Map by Its Values
+Question: Sort a map by its values in ascending order.
+
+Hint: Use stream() and sorted().
+
+java
+Copy code
+Map<String, Integer> unsortedMap = new HashMap<>();
+unsortedMap.put("a", 10);
+unsortedMap.put("b", 5);
+unsortedMap.put("c", 20);
+
+Map<String, Integer> sortedMap = unsortedMap.entrySet()
+    .stream()
+    .sorted(Map.Entry.comparingByValue())
+    .collect(Collectors.toMap(
+        Map.Entry::getKey,
+        Map.Entry::getValue,
+        (e1, e2) -> e1, LinkedHashMap::new
+    ));
+
+System.out.println(sortedMap);
+6. Count the Number of Words in a String
+Question: Count the occurrences of each word in a string.
+
+Hint: Use Collectors.groupingBy().
+
+java
+Copy code
+String text = "hello world hello everyone";
+Map<String, Long> wordCount = Arrays.stream(text.split("\\s+"))
+    .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+
+System.out.println(wordCount);
+7. Parallel Streams Performance
+Question: Given a large list of numbers, compute their squares in parallel and collect the results.
+
+Hint: Use parallelStream().
+
+java
+Copy code
+List<Integer> numbers = IntStream.rangeClosed(1, 1000).boxed().collect(Collectors.toList());
+List<Integer> squares = numbers.parallelStream()
+    .map(n -> n * n)
+    .collect(Collectors.toList());
+
+System.out.println(squares.subList(0, 10)); // Print first 10 squares
+8. Flatten a List of Lists
+Question: Flatten a list of lists into a single list using Java 8.
+
+Hint: Use flatMap().
+
+java
+Copy code
+List<List<String>> nestedList = Arrays.asList(
+    Arrays.asList("a", "b"),
+    Arrays.asList("c", "d"),
+    Arrays.asList("e", "f")
+);
+
+List<String> flatList = nestedList.stream()
+    .flatMap(List::stream)
+    .collect(Collectors.toList());
+
+System.out.println(flatList);
+9. Find Maximum Element in a List
+Question: Find the maximum element in a list using Java 8.
+
+Hint: Use max().
+
+java
+Copy code
+List<Integer> numbers = Arrays.asList(3, 5, 7, 2, 8);
+Integer max = numbers.stream()
+    .max(Integer::compareTo)
+    .orElse(null);
+
+System.out.println(max);
+10. Remove Duplicates from a List
+Question: Remove duplicates from a list and sort it in ascending order.
+
+Hint: Use distinct() and sorted().
+
+java
+Copy code
+List<Integer> numbers = Arrays.asList(5, 3, 5, 2, 8, 3, 9);
+List<Integer> uniqueSortedNumbers = numbers.stream()
+    .distinct()
+    .sorted()
+    .collect(Collectors.toList());
+
+System.out.println(uniqueSortedNumbers);
