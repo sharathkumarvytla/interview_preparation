@@ -1,0 +1,6 @@
+# Safram - hyderabad
+- What is differents between Angular 16 & 17 version
+- What are the major/important feature for type script
+- What is standalone component
+- What we required if we want to extend abstract class
+- Spring bean is thread-safe / non thread-safe
