@@ -1,0 +1,164 @@
+# What is Angular
+- Angular is javascript UI frameword, It is help to develop single page applications by using the concept of components and routing
+
+# Diff between Angular JS & Angular
+- Angular JS used JavaScript, Angular used TypeScript
+- Angular JS Architecture is Controller based, Angular Architecture is Component based
+- Angular JS doesn't support CLI, Angular support CLI
+- Angular JS doesn't support mobile application, Angular support mobile application
+- Angular JS deosn't support server side, Angular support server side
+- Angular Js doesn't provide lazy loading, Angular provide lazy loading
+
+# What are the directives in Angular
+- In angular we have 3 types of directives
+- 1.Structural directives 2.Attribute directives 3.Component directives
+- Structural directives : ngIf, ngFor, ngSwitch  Attribute directives : NgStyle, NgClass Component directives : It is like class we can write @Component decorate for class
+
+# What is the importance of NPM & Node Module Folder
+- NPM stands for Node Package Manager used to install any java script framework in NPM folder from GIT hub
+
+# Importance of package.json file
+- It is contains the all installed java script framework dependencies
+
+# What is type script
+- Type script is super set of java script, and it is stricly typed(While creating variable we must be declare type of variable)
+- Type script also provide object oriental programing environment
+
+# Importance of Angular CLI
+- CLI stands for Command Line Interface, We can create project  or create components or create decorators or ect using CLI
+
+# What is component
+- Component is simple call class we can declare class as component using @Component decorator on top of the class
+- Component is like buiding model object into view
+- Every Component have type, css, html and spect file. using selector tag we can use component in anywhere (We can perform SAP using selector tag)
+- Group of components we can call Module
+
+# What is decorator (We can call decorators as annotations or metadata)
+- Decorate is like tell the type of class
+- If we want to create component then we use @Component decorator on top of the class then is it component
+- If we want to create module then we use @NgModel decorator then is it angular module
+
+# What is template
+- Templete is HTML view in angular, we can manage DOM elements and HTML layout using directives
+- In component we can declare template file name using template url tag or else we can write inline code in component file
+
+# What are the type of databinding in angular
+- One Way Data Binding : String interpolation {{}}
+- Two Way Data Binding : [{ngModel}]
+- Property Data Binding : [value], [hidden], [disable]
+- Event Data Binding : (click)="onClick()" (keyUp)="keyUp()" (mourseOver)="mouseOver()"
+
+# Angular Architecture
+1.Template : The HTML view of Angular
+2.Component : Binds the View and Model
+3.Modules : Groups components logically
+4.Binding : Defined how view and component communicate
+5.Directive : Change the HTML DOM behaviour
+6.Service : Helpt to share common login across the project
+7.DI : Dependency injection is help to inject instance across constructor
+
+# What is SPA
+- SPA stands for Single Page Application
+- It is used to update the some part of UI on demand, which means while doing any action on UI only perficular component only will refresh
+- We can perform SPA using routing. routing is used to call(route) the componet using URL then that component will refresh into Template page
+- We have to write <router-outlet></router-outlet>, then only redirect into routing URL component
+- We can navitage route HTML template using [routeLink]  anchor tag and in component file we can use route.navitage('/home')
+
+# How exactly route implemented in Angular
+- We can create unique route link in path for every component and using path value(url) we can call components across project
+
+# What is Lazy loading in Angular
+- Lazy loading means on demand loading nothing but loading neccesary components, HTML, CSS
+
+# How to create lazy loading in Angular
+- For perfoming Lazy loading we need to follow 2 steps
+1. We have to develop application in different modules
+2. We have to use loadChildren in app.route module
+
+# What are services in angular
+- Using  service we can share common functionality across angular project
+- Like login validation we can implemnt is service and share functionality into across project
+
+# Dependency Injection in Angular
+
+# Diff ngServe & ngBuild
+- ngServe is used to build inMemory(inside RAM) and ngBuild is used to build in HardDisk(It will create dist folder on HardDisk)
+- While moving to production we can use ngBuild command
+
+
+
+What is Angular mainly used for
+
+What is angular CLI
+
+Angular architecture diagram
+
+What are binding blocks of angular
+
+What are templates in angular
+
+What are the advantages of angular
+
+What is data binding
+
+-- Intermediate level questions
+
+Explain the concept of scope hierarchy
+
+What are Angular Modulers
+
+What is subscribing in Angular
+
+Discribe different types of filters in Angular
+
+What is dependency injection in angular
+
+List some tools for testing angular applications
+
+List the different between JIT and AOT
+
+How to create service in angular
+
+What do you understand by REST in angular
+
+In angular, describe how will you set, get and clear cookies
+
+Explain ng-app directive in angular
+
+What is property binding
+
+What are Angular Global APIs
+
+What is eager and lazy loading
+
+What do you understand by constants in angular
+
+What is bootstrapping in angular
+
+How can you hide an HTML element just by a button click in angular
+
+1. What is Angular JS and Angular
+- Angular JS and angular are used to develop single page application
+- Compare to anuglar JS, we have some advantages in angular
+- Angular Js we use java script language, Angular we use type script language
+- Angular Js support only java script, Angular will support typescript and java script also
+  bcoz typescript is super set of java script only
+- Angular Js doesn't support mobile browser, Angular will support mobile browsers
+- Angular Js doesn't have CLI, Angular provide CLI
+- Angular Js support Model And View, Angular will not support
+
+
+2. What is SPA (Single Page Application)
+- Angular support single page application web pages, whenever user will perform any action on page that 
+  specific content only will updated on page but remaining content will not effected(updated)
+- SPA will loaded very faster, user will not to wait untill loading complete page
+- Provide better perfomance
+- SPA will reduce the developement time
+
+3. Binding between Component to View
+- Binding is like transfer the data from model to view or view to model
+- Angular is provide type of databinding
+- One way data binding is share the values from model to view only, using string interpolation {{}} we can display the data
+- Two way data bindings is share the data from model to view and view to model also, using [{ngNodel}] we can share the data
+- Property data binding is help to set the values for property element, using this values view template will disply
+  Property data binding is like one way data binding, which mean view will not update any values into model 

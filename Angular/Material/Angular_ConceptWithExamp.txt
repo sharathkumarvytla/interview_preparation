@@ -1,0 +1,677 @@
+-------------------------------- Angular ---------------------------------
+- Angular is framwork, used to developer front end application
+- We can develope single page application
+- In angular we are using typescript, typescript is super set of java script
+- Compare to javascript, typescript is striclty typed. means we must be define data type while creating variables
+Ex: let sno : int = 0;
+    let name : string = "abc"
+-Road map for angular
+* project structure
+* Components
+* Data Binding
+* Component Communication
+* Directives
+* Routing
+* Forms
+* Pipes
+* Services
+* Http
+-Angular CLI (Angular Command Line Inteface)
+* Using Angular CLI we can create angular application, manage application and build application
+* We can install angular CLI using command like npm install -g @angular/cli. before install CLI we must be install node js in machine
+* In command -g stands for -global, It means we are instaling angular cli in globally so we can use cli from any where in machine
+* Every CLI commands are started with ng prefix
+* We can check angular version using command like ng -- version
+* We can create angular application using ng new project_name (example ng new MyNewApplication)
+- Component
+* Component is a combination of typescript, html file, css file and test file, by using component we can create and perform single page application behaviour
+* We can create component using cli command like ng g c component-name (example ng g c header)
+* We can defined html, css and selector using @component decorators
+* We can use component in any other components using selector tag
+* We can declare html page location using templateUrl tag
+* We can declare css page location using styleUrl tag
+* We can run application using ng server command, ng server -o is used to run and open application in browser
+-Data bindings
+* Data binding is like transfer/share data from component to html(model to view) or html to component(view to model)
+* In angular we have two types of databinding
+  1. one way databinding(view to component or component to view)
+  2. two way databinding(view to component and component to view)
+- One way data bindings
+* We can share display data from ts file into html template using String Interpollation like {{}} 
+* Types of one way data binding
+- String interpolation data binding
+* Using this data type we can display values in html page dynamically, if we made any changes in component automatically will fetch data and dispaly
+* We can write string interpolation using {{}} symbol
+* Ex: 
+// Component
+@Component({
+  selector: 'app-example1',
+  templateUrl: './example1.component.html',
+  styleUrls: ['./example1.component.css']
+})
+export class StringInterpolationExpComponent implements OnInit {
+  message:String="";
+  time:String="";
+  styles:string="";
+  constructor() { }
+  ngOnInit(): void {
+    this.updatedMessage();
+    this.time=new Date().toLocaleTimeString();
+    this.styles="timedesign"// we written css class name dynamically, then style will apply on html
+  }
+  updatedMessage(){
+    this.message="Current Time"
+  }
+  timeid = setInterval(()=>{ // we update time value for every 1 sec
+    this.time = new Date().toLocaleTimeString();
+},1000)
+}
+
+// HTML
+<h4>{{message}} </h4> <h4 class={{styles}}>{{time}}</h4>
+
+//CSS
+.timedesign{
+    color: red;
+}
+
+- Property data binding
+* It is used to set the values for the properties elements in html, so based on values view page will display
+Ex:
+// Component
+export class PropertybindingExpComponent implements OnInit {
+
+  changeButtonFlag:boolean=true;// set value for property data binding dynamically
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  enterName(){
+    this.changeButtonFlag = false;
+  }
+
+}
+
+// HTML
+<input type="text" name="name" (change)=enterName() placeholder="Enter Name">
+<button [disabled]=changeButtonFlag>SUBMIT</button> // disable is one of the pre deffined property data binding
+
+- Class data binding
+* It is used to set/assign css classes dynamically for html elements
+* Based on elements values, view design will be changed automatically
+
+Ex:
+//Component
+export class ClassdatabindingexpComponent implements OnInit {
+
+  isActiveCSS:boolean=true;
+  colorType:String="y";
+  isActiveYellow:boolean=true;
+  isActiveBlue:boolean=false;
+  isActiveRed:boolean=false;
+  constructor() { }
+  ngOnInit(): void {
+  }
+  selectColor(type:string){
+    if(type=="y"){
+    this.isActiveYellow=true;
+    this.isActiveBlue=false;
+    this.isActiveRed=false;
+    }else if(type=="b"){
+      this.isActiveYellow=false;
+      this.isActiveBlue=true;
+      this.isActiveRed=false;
+    }else if(type=="r"){
+      this.isActiveYellow=false;
+      this.isActiveBlue=false;
+      this.isActiveRed=true;
+    }
+  }
+}
+
+//HTML
+<h4 [class.firstStyle]=isActiveCSS>This is class data binding examples</h4><br>
+<input type="radio" name="colorType" id="colorType" value="y" (click)="selectColor('y')" checked>Yellow<br>
+<input type="radio" name="colorType" id="colorType" value="b" (click)="selectColor('b')">Blue<br>
+<input type="radio" name="colorType" id="colorType" value="r" (click)="selectColor('r')">Red<br>
+<h4 [class]="{yellowStyle:isActiveYellow,blueStyle:isActiveBlue,redStyle:isActiveRed}" style="width: 100mm;">You are selected thise color</h4>
+
+//CSS
+.firstStyle{
+    color: blue;
+    text-underline-position: below;
+}
+.blueStyle{
+    background-color: blue;
+}
+.yellowStyle{
+    background-color: yellow;
+}
+.redStyle{
+    background-color: red;
+}
+
+- Style data binding
+* It is used to set/assign styles dynamically for specific html elements
+* Based on elements values, view design will be changed automatically
+
+
+- Event data binding
+* It is used to call function while user will make any action in html page
+* The common event data bindings are 
+  1. Mouse Events - click, double click, 	mouseover, mouseout, mouse move
+  2. KeyBoard Events - key down, key up, key press
+  3. Focus Events - focus, blur, focusin, focusout
+  4. Form Events - submit, reset, change
+
+Ex: 
+// Components
+export class EventdatabindingexpComponent implements OnInit {
+
+  counter:number=0;
+  name:String="";
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  counterIncr(){
+    this.counter=this.counter+1;
+  }
+  enterName(n:any){
+    this.name=n.target.value;
+  }
+
+}
+
+//HTML
+<button (click)="counterIncr()">Click Me</button>
+<h4>counter value = {{counter}}</h4>
+
+<input type="text" (input)="enterName($event)">
+<h4>Your name is {{name}}</h4>
+
+- Two Way Data binding
+* Share values from model to view and view to model is called two way data binding
+* [(ngModel)] is one of the two way databinding, using this we can share value from view to model and model to view
+
+* Directives
+- Using directives we can change DOM structure by changing elements data dynamically, and to change html layout
+- We have three types of directives
+- 1.structural directives, 2 attribute directives and 3 custom directive
+
+* Structural directives
+- Using this we can change DOM Elements structure dynamically
+- We have three type of structural directives like ngIf, ngFor and ngSwitch
+
+* ngIf
+- Ex: 
+// Component
+export class NgIfComponent implements OnInit {
+  listData:any = [];
+  constructor() { }
+  ngOnInit(): void {
+  }
+  setData(){
+    this.listData.push("AAA");
+    this.listData.push("BBB");
+    this.listData.push("CCC");
+    this.listData.push("DDD");
+    console.log(this.listData)
+  }
+}
+
+// HTML
+<div>
+    <button (click)="setData()">Click</button>
+</div>
+<h3 *ngIf="listData.length == 0; then loading;else data"></h3>
+<ng-template #loading>
+    Loading ....
+</ng-template>
+<ng-template #data>
+    {{listData}}
+</ng-template>
+
+
+* ngFor
+- Ex: 
+// Component
+export class NgForComponent implements OnInit {
+  listData:any = [];
+  constructor() { }
+  ngOnInit(): void {
+    this.setData();
+  }
+  setData(){
+    this.listData.push("AAA");
+    this.listData.push("BBB");
+    this.listData.push("CCC");
+    this.listData.push("DDD");
+    console.log(this.listData)
+  }
+}
+
+// HTML
+<table>
+<td>Data</td>
+<td>Row Index</td>
+<td>First</td>
+<td>Last</td>
+<td>even</td>
+<td>Odd</td>
+<tr *ngFor="let info of listData;index as i;first as f;last as l;even as e;odd as o">
+ <td>{{info}}</td>
+ <td>{{i}}</td>
+ <td>{{f}}</td>
+ <td>{{l}}</td>
+ <td>{{e}}</td>
+ <td>{{o}}</td>
+</tr>
+</table>
+
+
+* ngSwitch
+- Ex:
+// Component
+export class NgSwitchComponent implements OnInit {
+  fNumber:number=0;
+  lNumber:number=0;
+  optType:String="";
+  calValue:number=0;
+  constructor() { }
+  ngOnInit(): void {
+  }
+  selectOpt(){
+  this.calValue=this.fNumber,this.optType,this.lNumber;
+  console.log(this.optType)
+  }
+}
+
+// HTML
+<div>
+    First Value : <input type="text" [(ngModel)]="fNumber">
+    Second Value : <input type="text" [(ngModel)]="lNumber">
+    Select OP Type : <select [(ngModel)]="optType" (change)="selectOpt()">
+        <option value="+">+ - SUM</option>
+        <option value="-">- - SUB</option>
+        <option value="*">* - MUL</option>
+        <option value="/">/ - Div</option>
+    </select>
+</div>
+<div *ngIf="optType" [ngSwitch]="optType">
+    <div *ngSwitchCase="'+'">{{fNumber}}+{{lNumber}}</div>
+    <div *ngSwitchCase="'-'">{{fNumber}}-{{lNumber}}</div>
+    <div *ngSwitchCase="'*'">{{fNumber}}*{{lNumber}}</div>
+    <div *ngSwitchCase="'/'">{{fNumber}}/{{lNumber}}</div>
+</div>
+
+
+* Attribute directives
+- Using this we can change HTML Layout dynamically
+- We have three type of attribute directives like ngModel, ngClass, ngStyle
+
+Ex: 
+-@Directive({
+  selector: '[appStyles]'
+})
+export class StylesDirective {
+
+  constructor(private eleRef: ElementRef) {
+    eleRef.nativeElement.style.color = 'red';
+}
+}
+
+// HTML
+<p appStyles>This is custom directive styles</p>
+
+* Custom directives
+- We can create custom directives using @Directive on top of class
+
+Ex: We have to implement Custom directives example
+
+* Pipes
+- Pipes are used to tranform the data from one formate to another formate before display on browser
+- We have two type of piles like Built In Pipes and Custom Pipes
+- We can create custom pipes using @Pipe decorator in class
+
+* Built In Pipes
+- Using this we can change data formate
+- We have diff type of built in pipes like
+- DatePipe: Formats a date value according to locale rules.
+- UpperCasePipe: It transforms text to all upper case.
+- LowerCasePipe: It transforms text to all lower case.
+- CurrencyPipe: Transforms a number to a currency string.
+- DecimalPipe: Used to transform a number into a string with a decimal point.
+- PercentPipe: Transforms a number to a percentage string.
+
+Ex:
+//Component
+
+@Component({
+  selector: 'app-allbuiltinpipes',
+  templateUrl: './allbuiltinpipes.component.html',
+  styleUrls: ['./allbuiltinpipes.component.css']
+})
+export class AllbuiltinpipesComponent implements OnInit {
+
+  date = new Date();
+  message = "Welcome to angular application";
+  amount = 45000;
+  percentage = 85;
+  findSquare = 5;
+  findMult = 5;
+  findCaptch = 6;
+  displayTable = 9;
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+// HTML
+<!-- Built It Pipes-->
+UpperCase : <h3>{{message | uppercase}}</h3>
+LowerCase : <h3>{{message | lowercase}}</h3>
+Title Case : <h3>{{message | titlecase}}</h3>
+INR Currency : <h3>{{amount | currency : "INR"}}</h3>
+Percent : <h3>{{percentage | percent}}</h3>
+Date : <h3>{{date | date:"dd-MM-yyyy"}}</h3>
+
+* Custom Pipes
+- Using @Pipe Decorator we can create custom pipes
+Ex:
+1.
+@Pipe({
+  name: 'squarepipe'
+})
+export class SquarepipePipe implements PipeTransform {
+  transform(value: any): unknown {
+    return value*value;
+  }
+}
+
+2.
+@Pipe({
+  name: 'findmultpipe'
+})
+export class FindmultpipePipe implements PipeTransform {
+
+  transform(value: any, param : any): unknown {
+    return value * param;
+  }
+}
+
+3.
+@Pipe({
+  name: 'findmultpipe'
+})
+export class FindmultpipePipe implements PipeTransform {
+
+  transform(value: any, param : any): unknown {
+    return value * param;
+  }
+}
+
+// HTML in component class
+<!-- Custome Pipes-->
+Cust Square : <h3>{{findSquare | squarepipe}}</h3>
+Cust Find Mul : <h3>{{findMult | findmultpipe : 20 }}</h3>
+Cust Find Cap : <h3>{{findCaptch | createCapch}}</h3>
+<h3>--------- table for {{displayTable}} ---------</h3>
+<h3>{{displayTable | displaymathstable}}</h3>
+
+* @Input()
+- It is and @Input() decorator used to send data from parent to child component
+Ex:
+Parent :
+// Component 
+export class ParentComponent implements OnInit {
+  transactionId : any = "IGSA12345"
+  loginUser : String = "IGSA"
+  constructor() { }
+  ngOnInit(): void {
+  }
+}
+
+// HTML
+<div style="border-style: solid;">
+<div class = "main" style="padding-top: 3mm;padding-bottom: 3mm;">
+<div class="sub-div">
+<label>Integrated Demand Supply Planning & Execution</label>
+</div>
+<div class="sub-div">
+<label style="text-align: right;padding-right: 2mm;">User ID : {{loginUser}}</label>
+</div>
+<div class="sub-div">
+<label style="text-align: right;">Transaction ID : {{transactionId}}</label>
+</div>
+</div>
+</div>
+<app-child [parentTransId]="transactionId"></app-child>
+<!--
+    parentTransId is from child component (@input decoarator)
+    Will send transaction id from parent to child component
+ --!>
+
+Child :
+// Component
+export class ChildComponent implements OnInit {
+  @Input('parentTransId') parentTransIdMessage : any = "";  
+  constructor() { }
+  ngOnInit(): void {
+  }
+}
+// HTML
+<h3>{{parentTransIdMessage}}</h3>
+
+* @Output
+- It is an @output decorator used to send data from child to parent component
+Ex:
+Parent :
+// Component
+export class ParentComponent implements OnInit {
+
+  transactionId : any = "IGSA12345"
+  loginUser : String = "IGSA"
+  childUserName : any ="";
+  
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  setChildUserName(childUserId : any){
+    this.childUserName = childUserId;
+  }
+}
+
+// HTML
+<div style="border-style: solid;">
+<div class = "main" style="padding-top: 3mm;padding-bottom: 3mm;">
+<div class="sub-div">
+<label>Integrated Demand Supply Planning & Execution</label>
+</div>
+<div class="sub-div">
+<label style="text-align: right;padding-right: 2mm;">User ID : {{loginUser}}</label>
+</div>
+<div class="sub-div">
+<label style="text-align: right;">Transaction ID : {{transactionId}}</label>
+</div>
+<div class="sub-div">
+    <label style="text-align: right;">Child User ID : {{childUserName}}</label>
+</div>
+</div>
+</div>
+<app-child (childUserName)="setChildUserName($event)"></app-child>
+<!--
+    childUserName is from child component (@output) decorator
+    Will send child user id from child to parent component using eventEmmiter()
+-->
+
+Child :
+// Component
+  userId : string = "";
+  password : string = "";
+  statusMessage : string ="";
+  @Output('childUserName') childUserName = new EventEmitter<string>();
+  constructor() { }
+  ngOnInit(): void {
+  }
+  checkUser(){
+    this.statusMessage="";
+    if((this.userId=="igsa") && (this.password=="pass@1234")){
+    this.childUserName.emit("c-"+this.userId);
+    this.statusMessage = "Users are available"
+    }else{
+    this.statusMessage = "No users are available"
+    }
+  }
+// HTML
+<div class="card" style="padding-top: 3mm;">
+<p *ngIf="statusMessage">{{statusMessage}}</p>
+<div class="main">
+<div class="sub-div">
+<label>User Name :</label>
+<input type="text" [(ngModel)]="userId">
+</div>
+<div class="sub-div">
+<label>Password :</label>
+<input type="password" [(ngModel)]="password">
+</div>
+<div class="sub-div">
+<button (click)="checkUser()">Check User</button>
+</div>
+</div>
+</div>
+}
+
+* @ViewChild
+- It is viewchild decorator used to access child components, directives and dom elements from parent component
+Ex:
+Parent :
+// Component
+export class ParentComponent implements OnInit {
+  @ViewChild(ChildComponent) viewChildComp : ChildComponent;
+  constructor() { }
+  ngOnInit(): void {
+  }
+  changeChildUsdId(){
+    this.viewChildComp.childUserName.emit("p-igsa");
+  }
+}
+// HTML
+<div style="border-style: solid;">
+<div class = "main" style="padding-top: 3mm;padding-bottom: 3mm;">
+<div class="sub-div">
+<label>Integrated Demand Supply Planning & Execution</label>
+</div>
+<div class="sub-div">
+    <label style="text-align: right;" (click)="changeChildUsdId()">Child User ID : {{childUserName}}</label>
+</div>
+</div>
+</div>
+<app-child (childUserName)="setChildUserName($event)"></app-child>
+
+Child :
+// Component
+export class ChildComponent implements OnInit {
+ @Output('childUserName') childUserName = new EventEmitter<string>();
+  constructor() { 
+  this.childUserName.emit("c-igsa");
+  }
+  ngOnInit(): void {
+  }
+}
+
+* @View Children
+
+*Router
+- Routing is used to navigate one compoment to another component in angular
+- We need to add routing links in app-router module
+Ex: const routes: Routes = [
+  {path : '', component: LoginComponent},
+  {path : "createUser", component: CreateaccountComponent, data : {title : "MLP | Create Account"}},
+  {path : "**", component: NotFoundComponent},
+  ]
+- We need to write <router-outlet></router-outlet> in app.component.html file, then navigated templates are display in this component(It is perform single page application behaviour)
+- We can write url paths(navigation path) using routerlink like routelink="/login", and using routerlinkactive will highlight the selected tabs like routerLinksActive="active" 
+
+* Service
+- Service is an class we can declare class as service using injectable decorator
+- It is used to provide common functionalities for multiple different components
+- We have two components, this two component doesn't have any relations, but in two component using some common functions, so it is not recomended to write common functions
+  in each components. at the time we can use service
+- We can import service class in app.module and write service name in provides then we can use same instace of service class in every component and we can call functions from components
+
+* Router Parameters And Query Parameters
+
+* Route Navigation without anchor tag
+
+* Child Routing
+- In app module we use multiple child components, while perform any action on template that action will navigate into suitable components, same child if we want to use child
+  component as parent and in parent component(child component) will use mutiple child components then we use child routing
+- In child component(parent component) html file write <router-outlet><router-outlet> and configure childpath in app-routing.module.ts file like
+  path:'home',component:HomeComponent
+  children:[
+  {
+   path:'homechild1',component:Child1Component
+  }]
+
+* HTTP Service
+- If we want to send a request from angular into another service and get response data from the service then we need to use http service in angular
+- HTTP service is provide some method like GET, POST,PUT and Delete so on. using this methods we can manage data from angular to service
+- Before using this http methods, we need to import HTTMModule in app.module.ts file, and we can create instance for HttpClient Service in components (or) Service
+Ex: export class AppComponent{
+    constructor(private http:HttpClient){}
+    http.get("service url").subscribe((dta)=>{console.log(data)})
+    }
+
+* Route Guards
+- Before navigating from one component to another component, that second component is required to follow some authorized activites then we use route guards
+- Type of authorized activities like 
+  1 User will entered some page data, but without save data user will navigate to another component.
+  2 To give permisions to allow only specific user will only navigate to some specific components
+  3 Validate route parametes before navigate to route
+  4 Fetching some data before display the component
+- Route guards provide some methods like
+  1. CanActivate
+  2. CanDeactivate
+  3. Resolve
+  4. CanLoad
+  5. CanActiveChild
+Ex: 
+
+* What is promises
+- 
+
+* Observables
+- It is used to handle asynchronous operations, which means while executing code some times it may take more time to execute specific lines (like while fetching more data
+  from the sevice then those lines will take more time to complete execution), so it will imfact on application perfomance. To over come thise problem we can use observable
+  while fectching data.
+- observable will load updated data from service and to share the updated data to subscriber. so if we required to get updated from the service, we need to be subsctibe
+  observale data.
+
+* Forms in angular
+- In angular we can validate the user forms using form controller, every form controller contains some methods like
+  1. value 2. Touched 3. Untouched 4. Dirty 5. Pristine 6.Valid 7.Error and 8. Status
+- In angular every field as one form controller, and a group of form controller are called formgroup, in form group also contains same methods like
+  1. value 2. Touched 3. Untouched 4. Dirty 5. Pristine 6.Valid 7.Error and 8. Status
+- In angular we can bind form field into form controller or  form group instance, we have two approch to bind field into form instance like
+  1. Template Driven Forms
+  2. Reactive Forms
+- Angular Provide some properties for form controller/form group
+  1. value - It can return field value form controller 
+  2. Touched - It return true if user touch that field or return false if user didn't touch field
+  3. Untouched - It return true if user didn't touch that field or return false of user touch field
+  4. Dirty - It return true if user touch all fields or return false user didn't touch all fields
+  5. Pristine - It return true if user didn't touch all fields or return false user touch all fields
+  6. Valid - It return true if all fields are valied
+  7. Errors - It return true if contains error in field value
+  8. Status - 
+    
+   
+* Var, Let, Cons
+- Var : It is funcation level varible, we can acces from anywhere in function
+- Let : It is block level variable, we can access within block only
+- Cons : It is block level variable whenever we declare thise varible we must be initialize value for variable, and we can access within block only
