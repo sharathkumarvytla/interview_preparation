@@ -1,0 +1,64 @@
+# Introduction
+- Java 8 was officially introduced into market in the year of march 18, 2014 under oracle corporation
+- Up to java 7 version we can call as "Object Oriential Programing", but from java 8 version onwards its supports "Object Oriental Programing" & "Funcational Programing"
+- Functional programing is new style of coding, we can pass functions as parameters to java methods
+- Functional programing having some building block i.e "Functional Interface & Lambda Expression"
+- The advantage of funtional programing is to write very concise(less) code and more readability
+ 
+# Functional Interface
+- An interface which has only one abstract method then such interfaces called functional interface
+- Also we call single abstact method(SAM)
+- All the predefined functional interfaces are available from java.util.function package
+- Java provided total 43 predefined functional interface
+- The most important functional interfaces are java.util.function.Consumer, java.util.function.Function,java.util.function.Supplier,java.util.function.Predicate etc
+
+Note : If a interface contains more the one abstract method that interface we cann't consider like functional interface and we can't apply lamda expression for those
+       interfaces
+
+    @FunctionalInterface
+Ex: interface Display{
+    public void displayNumbers();
+    }
+- @FunctionalInteface annotation is marker annotation to mark interface as functional interface strictly
+- Before java 8 version we have some couple of functional interfaces are Runnable, Comparable, Comparator, ActionListener, Callable interfaces
+
+# Lambda Expression
+- Lambda expression is an anonymous function (or) nameless function (or) nameless method that means function/method doesn't have the name, return type
+  and access modifier and with a list of formal parameters
+- Arrow symbol(->) is used to seperate the list of parameters and the body
+- The main use of lambda expression is to provide the implementation of functional inteface abstract method
+
+Ex: Noraml Java Method :
+    public void addition(int a, int b){
+    int c = a+b;
+    System.out.println("Sum value : "+a+b);
+    }
+
+    Lambda Expression
+    (int a, int b) -> { System.out.println("Sum value : "+a+b);}
+
+# Stream API methods
+1.Filter
+2.forEach
+3.Sorted
+4.Distinct
+5.flatMap
+6.Map
+7.Reduce
+8.Limit
+9.Stream reduction
+10.Collect
+11.Java Stream
+12.Optional
+13.Parallel streams
+14.Peek
+15.Stream of array
+16.Stream of collection
+17.Aggregate operations
+18.find First
+19.Functional interface
+20.Generating streams
+21.Iterate
+22.Java stream operations
+23.Java time API
+24.mapToLong

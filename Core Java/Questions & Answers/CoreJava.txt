@@ -1,0 +1,978 @@
+# Java
+- Java is object oriental programing language, it is an high level, secured and open source programing language
+
+# What is object orientel
+- In java everything in object only, means we organize our software as a combination of different types of objects
+
+# Type of java application
+- Standalone application
+- Web application
+- Enterprice application
+- Mobile application
+
+# What is standalone applcation
+- Standalone application is like desktop application, means standalone application will perform in same machine with user interface
+- Mobile applications also like standalone applications
+
+# What is distributed application
+- Distributed application are run on server only, user will connect using web application url
+- Based on url user will get UI pages, user will perform operations according
+
+# What is Http and FTP
+- Http(Hyper tech transfer protocol) is used to access the website on the internet
+- FTP(File Transfer Protocol) is used to transfer file from one host to another
+
+# Stateless and Statefull Protocol
+- Stateless doesn't maintain any user request information in sessions
+- Statefull will maintain user request informations in sessions, and if user required request information then we can send using session object
+
+# What are the features in java
+1. Simple
+- Java is simple programing language
+2. PlantForm Independent
+- We can run program on any plateform
+3. Portable
+- We can carry java byte code into any plateform without doing any changes
+4. Secure
+- Java was not communicates directly with machine(Operating System), first convert into byte code then
+  jvm will convert into machine code. so if have any issues with byte code then jvm will not convert into machine code
+  this is also called compiled time error with syntax
+5. Object operiented pragraming language
+- Java is an object oriental programing language, bcoz everything we handle in terms of object only
+6. MultiThreading
+- Java can provide inbuilt support for multithreading by providing rich apis
+- In the case of multithreading, multithread can run simultaniously and can perform specific task symultaniuosly
+7. Distributed
+
+# What is happend in comipile time
+- At compile time, the Java file is compiled by Java Compiler (It does not interact with OS) and converts the Java code into bytecode
+
+# What is JVM (Java Virtual Machine)
+- JVM stands for Java Virtual Machine, it is used to read byte code line by line and convert into nagative understanding formate of OS(Operating System)
+- Steps to follow convert byte to os
+  1. Load code
+  2. Verifies code
+  3. Execute code
+  4. Provide runtime environment
+
+# What is JRE (Java Runtime Environment)
+- It is used to provide run time environment for java application
+
+# What is JDK (Java Development Kits)
+- It is used to develop java applications
+
+# What is JIT (Just In Time)
+- JVM will read byte code in line by line, so it will take more time to read byte code line by line and convertinto OS
+- So over come this problem we use JIT
+- JIT is used to read entire byte code at once and convert into netive understand permate of OS
+
+# What is Garbage Collection
+- It is used to find the unused objects and delete then to reclaim memory
+
+# What is Identifiers in java
+- A name in java program is defualt considered as identifier, which is used to identification purpose
+- It can be class name or method name or variable name or label name
+- In java some idenfier are reserved to associate some functionality or meaning of each reseverd identifier are called reseverd words
+
+# What is variable
+- varible is hold the value, we can assing variable using data type
+- we have 3 types of varialble
+1. local variable
+- If we declare varible inside method, then those methods are calles local variable
+2. instance variable
+- If we declare varicale inside class and outside of methods with non-static is called instance variable
+3. static varicale
+- If we declare varicale inside class and outside of methods with static is called static variable
+
+# What is variable declaration and initialization
+- variable declaration means we coudn't given any value for variable(we are not assign any values for variable)
+Ex: int a;
+- Varible initialization means we will assign value for variable
+Ex: int a=10;
+
+# What is Data Type
+- Data type is declare varible type, which mean our variable values as primitive or non- primitive data type
+- Data types are two type
+1. Primitive data type
+- The primitive data types are boolean, char, byte, short, int, long, float and double.
+2. Non primitive data type
+- The non-primitive data types are Classes, Interfaces, and Arrays
+- String also comes under non-primitive data type, becoz String is an object
+
+# Java Control Statement
+- provides statements that can be used to control the flow of Java code. Such statements are called control flow statements. 
+  It is one of the fundamental features of Java, which provides a smooth flow of program
+- Decision Making statements
+  if statements
+  switch statement - if several options are available then it is not recomended to use if-else, we should use switch
+- Loop statements
+  do while loop - if we want to execute loop body at lease once then we should go for do-while
+  while loop - if we dont know the no of iterations in advance then best loop is while loop
+  for loop - this is most commonly used loop and best suitable if we know the no of iterations in advance
+  for-each loop
+- Jump statements
+  break statement
+  continue statement
+
+# What is new and newInstance()
+- new is a key word used to create an object for class, if we know the class name before create an object then we go for new keyword
+- newInstance() is used to create an object for class, if we want to create instance(object) with out knowing class name then we go for use it
+
+# What is homogenius and hetrogenius
+- Homegenius means same type of object, like array can support only homogeius
+- Hetrogenius mean different types of objects, like array coudn't support hetrogenius values
+
+# What is array 
+- An array used to store the hohmogenius data in index value
+- In array we can't change size of array once array is created
+- we must be know(decide) the size of array before creating
+
+# What is Iterable and Iterator
+- The target element in forEach loop should be Iterable
+- We can use iteraor to get objects one by one from the collection
+
+# Declarations and access modifiers
+- Whenever we write code, we must be give information about classes and methods and variables for JVM
+1. public
+- we can use public modifier at class level and method level
+- if we declase class as public, we can access that classs from within package and out side of package also
+2. defualt
+- it is class level modifier
+- it is defualt type, we can access classs within package only, but cann't access from out side of package
+3. final
+- we can use final modifier at class level, method level
+- if we use method as final, child class coud not override that method (mean if A class have final sum(), now in B class extends A class, but we cann't possible to overriden sum() in B class)
+- if we use final for class, we can not create child class means(if i creating Studnet class as final modifer, and also create College classs and try to extends Student class into College class
+  so here we cannt extends class mean we cann't do inheritance concept)
+4. abstarct
+- we can use abstract modifier at class level, method level and varible level.
+- parent class abstract method doest have any implementation, but parent class tell to guidlines into child class. which mean if am creating Student class, in this class have one abstract method
+  is called studentLogin method. now i have another method is called StudentReg class so now am extends Student class for StudentReg. so must be override abstract class and implementation required
+  implmentaions
+- if we want to not allowed to create an object for java class, then we declare class as abstract class. then we could not create object for that class
+5. private
+- we can use private modifier for method and veriable level
+- If we use private modifier we cann't access out side of class
+6. protected
+- we can use at method level and variable level, but we cann't use class level
+- we can access within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package.
+
+# What Static Modifier
+- We can use static modifer for varible and methods but not classes
+- In instace variable for every object superate copy will created, but static variable only one copy will be created at class level. mean at class level only variable 
+  must be declarete and initialise
+
+# What is synchronized
+- Synchronized is modifier at method and blocks, but we cann't use at classes and variable
+- It is used to allow only one thread at a time and execute given response
+- The main advantage of synchronize modifier is to resolve data inconsistancy problem
+- The disadvantage of synchonize modifier is increase waiting time for remaining thread and reduce performance of application
+
+# What is OOPs
+- OOPs stands for object oriental programing language. java provide few oops concepts like
+1. Object
+- An entity have states and behaviour is know as object, we can defined instance of class is called object
+- We can create object for using new key word, or using newInstance(), while create object it will allocate some memeory space for storing object data
+2. Class
+- A class is blurprint or prototype from which object are created.
+- Every class containns set of properties or methods
+3. Abstraction
+- Hiding internal details and showing functionality is known as abstraction. 
+  For example we have data package provided by java, we just use our required methods. but we dont know the internal logics of methods
+4. Encapsulation
+- It is bunding filed(variables), methods inside a single class is called encapsulation
+5. Inheritance
+- It is used to call/get some functionalotity from one class to another class, like parent class to child class
+- we have diffrent way of inheritance
+- advatage of thise is code reusability
+   1. Single inheritance
+- Here Child class can get features from parent class
+Ex:
+  class Parent{
+  }
+  class Child extends Parent{
+  // Here child class can get parent class features
+  }
+   2. MultiLevel inheritance
+- Here child2 class can get features from child1 class, And child1 class can get features from Parent class
+Ex:
+  class Parent{
+  }
+  class Child1 extends Parent{
+  // Here child1 class get features from Parent
+  }
+  class Child2 extends Child1{
+  // Here child2 class get features from Child1
+  }
+   3. hierarcal inheritance
+- Here child1 class get features from parent class, And child2 class get features from parent class
+Ex:
+  class Parent{
+  }
+  class child1 extends Parent{
+  // Here child1 class get features from Parent class
+  }
+  class child2 extends Parent{
+  // Here child2 class get features from Parent class
+  }
+
+   4. Multiple inheritance
+   5. Hybrid inheritance
+Note: Multiple and Hybrid inheritance will supports for interface only
+
+6. Polymorphism
+- One task can perform multiple ways, like in my code i writen code for write data on csv file using input like arrayList object and filename
+- In that method will work on any type of data like student informtaion data, customer information data, or any invalid data
+- In jave method overloading and overriding also achieve polymorphism 
+- In java we have two type of polymorphism
+  1. compiletime polymorphism - It is nothing but method overloading, that means method overload treat like compiletime polymorphim, bcoz we will pass parameters before run the application
+  2. runtime polymorphism - It is nothing but method overriding, that means method overriding treat like runtime polymorphism, bcoz we will execute rebuild method at runtime
+
+# What is method in java
+- A method is a collection of statement that perform some specific task and return result to caller
+- The advantage of method is to use reusability
+- Public: The method is accessible by all classes when we use public specifier in our application.
+- Private: When we use a private access specifier, the method is accessible only in the classes in which it is defined.
+- Protected: When we use protected access specifier, the method is accessible within the same package or subclasses in a different package.
+- Default: When we do not use any access specifier in the method declaration, Java uses default access specifier by default. It is visible only 
+  from the same package only
+- Return Type: Return type is a data type that the method returns. It may have a primitive data type, object, collection, void, etc. If the method 
+  does not return anything, we use void keyword
+- Method Name: It is a unique name that is used to define the name of a method. It must be corresponding to the functionality of the method. Suppose, 
+  if we are creating a method for subtraction of two numbers, the method name must be subtraction(). A method is invoked by its name
+- Parameter List: It is the list of parameters separated by a comma and enclosed in the pair of parentheses. It contains the data type and variable name. 
+  If the method has no parameter, left the parentheses blank
+- Method Body: It is a part of the method declaration. It contains all the actions to be performed. It is enclosed within the pair of curly braces.
+
+# Types of Method in java
+There are two types of methods in Java:
+1. Predefined Method
+- This methods is given by java library, just we can use method and get functionality of methods
+2. User-defined Method
+- This method is written by developer, These methods are modified according to the requirement.
+
+# Instnace and Static methods in java
+1. Instance method are methods which require an object of its class to be created before it can be called. Static methods are the methods in Java that can be 
+   called without creating an object of class.
+2. Static method is declared with static keyword. Instance method is not with static keyword.
+3. Static method means which will exist as a single copy for a class. But instance methods exist as multiple copies depending on the number of instances created 
+   for that class.
+4. Static methods can be invoked by using class reference. Instance or non static methods are invoked by using object reference.
+5. Static methods can’t access instance methods and instance variables directly. Instance method can access static variables and static methods directly.
+
+# What is this key worked in java
+- In java this keyword can be used to refer the current object in a method or constructor.
+- The most common use of the this keyword is to eliminate the confusion if we use same name attributes in class and constructor or methods
+
+# What is super key word in java
+- In java super key word can be used to refer the parent class variable and methods in child class
+- For example, if i want to get Student class variable values or method in StudentReg class. then we use super key word
+
+# What is super() in java
+- In java super() used to call parent class constuctor only
+
+# Constructor
+- To perform intialization operations of an object using constructors
+- In constructor we can initialize object, but we cann't create object
+- In java we have two type of constructor
+  1. defualt constructor
+  2. parameterized constructor
+
+# What is Is-A and Has-A relation
+- In Is-A is nothing but inheritance. means one class can depende another class loosely, so in inheritance we can get one class methods/functionality in another class
+  using IS-A relations only. bcoz in inhentance strictly loosely couple
+- In Has-A is we can follow tightly couple. like I have one studentInfo class and another one is StudentLogin, And before instantiate object for StudentLogin class must be instantial
+  StudentInfo. bcoz here without student info we can't to login. so StudentLogin class will depend on StudentInfo class lightly it is called Hash-A relation
+
+# What is wrapper class
+- Wrapper class is nothing but to convert from primitive datatype into object or object into primitive
+- so her we need a some classes for convertion like int for Integer, boolen for Boolen, double for Double. so this classes are called wrapper classes 
+
+# What is method overloading and method overriding
+- If both methods having same name but different argument typs is called method overloading
+Ex: public class Student{
+    public void Cal(int val1, int val2){
+    //here 2 argument are int type only
+    }
+    public void Cal(int val1, double val2){
+    //here first argument are int and second argument are double type
+    }
+    }
+- Whenever we inheritate from parent class into child class, we can get method also from parent class. so now my requirement is not suitable for existing parent class implmentation
+  so what am doing, based on requirement am trying to reimplement in same method.
+- So here we assume parent class method  name is Culc(), so in child class am define the same method. that mean Parent Calc() is overrid in child class
+Ex: Public class Student{
+    public void regis(int id, String name){
+    // Some implementation
+    }
+    }
+    Public class Facult extends Student{
+    public void regis(int id, String name){   // In Facult method regis method is overrided from Student class
+    // Some implementation
+    }
+    }
+
+# What is data binding
+- Which mean when we call method from class reference it is called data binding
+- we have two type of data binding
+  1. static data binding- Is-A relations ship like static data binding only, bcoz her we can bind data at compile time
+  2. dynamic data binding- Has-A relations ship like dynamic data binding only, bcoz her we can bind data at run time
+
+# What is String buffer and String builder
+- Both are used to change String object as mutable
+- In string buffer it is thread safe means internally follow synchronized, so at a time only one thread can allow. perfomrance wise is slow
+- In string builder is non thread safe mean inernally is not follow synchonized, perromance wise is speed
+
+
+# What is exeception
+- While executing progarme if have any issue with buisiness login then next process will terminate means not execute complete task 
+- so in thise case we must be handle that exception using try catch blocks
+1. checked exception
+- compile will check before run whether need to handle any exception for runtime level. those exceptions are called checked exception
+Ex: File Not Found Exception
+
+2. unchecked exception
+- which exceptions are compiler will not checked those exceptions are called unchecked exception
+- Here programer only will handle the exception using try and catch bock and using throws keyword
+Ex: Artthmetic Exception
+    Null pointer Exception (E: A NullPointerException (NPE) is a common runtime exception in Java that occurs when your code tries to use an object reference that hasn't been initialized (i.e., it points to null). 
+    This means you're trying to perform an operation (like calling a method, accessing a field, or passing it as an argument) on an object that doesn’t actually exist in memory, as it's represented by null)
+
+Note: Whether checked or unchecked both exception will come on runtime, but not in compile time
+
+# What is throw and throws keyword
+- throw keyword is used to throw the exception explicitly into catch block, we can write throw key work withing body
+- throws keyword is used to declare exception type on method level, once that exception will accured in try block then will throw into catch block, here we write
+  throws beside of method 
+
+# What is collection and collections
+- collection is a fw, to represent group of individual object in single entity then we use collection
+- collections is unility class, it is from java.util.package. it contains some method like soring, serching ect. so we can user those method using collections class
+
+# diff between array and collection
+- Array:
+  1. it is a fixed size, we can't change array size once intialization is done
+  2. it can allow only homogenuis values (mean same type of values)
+  3. deost have any standard underline data structures
+  4. it is good for performance wise
+- Collection:
+  1. It is growable nature, which means dynamicaly assign arraysize depends on requirement
+  2. It can allow homogenius and hetreogenius values
+  3. internally it can follow some standard underline data structures
+  4. peroformance wise it is poor
+
+# HashCode
+- For every object a unique number generated by JVM, which is nothing but hashcode
+- Hashcode wan't represent address of object
+- JVM will use hashcode while saving objects into hashing related data structures like hashtable, hashmap, hashset ect
+- The main advantage of saving objects based on objects is seach operation will become easey( the most powerfull search algarithm upto today is hashing)
+
+# Exception hanling
+- Java.lang.Object is super object of all java objects
+- Java.lang.Throwable is root class of all exceptions
+- We can't handle error while programing will accured errors
+- We have two types of exceptions checked and un-checked exception
+- At the time of compilere will check then it is checked exception
+- At the time of runtime will check the is it un checked exception
+- We can handle both checked and unchecked exception using try{},catch(Exception e){} and finally{} block
+
+# final, finally and finalize
+- final is modifier used for class level, method level and variable level
+- finally is block always associated with try and catch, we can write clean up activities in finally block
+- finalize is a garbase collection method, used to cleanup objects
+
+# Throw keyword
+- While accured checked exception, we must be hangle exception using try catch block
+- Other wise we can throws the checked exception using throws keyword
+- Throws statement will applicable for only checked exception, if we use for unchecked exeception no use of that
+- Some time we need to create exception explicitly then we go for use throw statement
+Ex:pulbic class Test{
+   public static void main(String[] args){
+   try{
+   System.out.println("Explicite exception throw")
+   throw new ArithmeticException();
+   }catch(ArithmeticException e){
+   e.printStack();
+   }
+  }
+ }
+
+# MultiThreading
+- Execute multiple task simultaniously then we use it
+- Two types of mutithreading 1. Process based and 2. Thread based
+- Process based multithreads is execute multiple threads simultaniusly in independently
+- Thread based multithread is execute multiple threads simultaniusly in independently in same programe
+
+# Thread Scheduler
+-Thread scheduler will decide to which thread is execute first
+
+# start() and run()
+-start() method will create new thread and execute run() inside execution
+-run() method will not create new thread execute run() normally
+
+# Thread states
+- Once we create new thread then it is new state
+- Once call start() method then it is entered into ready(or)runnable state
+- Once Thread scheduler will assign CPU then it is running state
+- After execute run() method then it is entered into dead state
+
+# Yield()
+- It is used to pause the current thread execution and give chance to execute remaining waitting thread of same priority
+- If no threads waiting state then same thread will execute
+
+# Join()
+- It is used to wait current thread untile complete speicific thread execution then we use it
+- Join() will throws Interrupted exception is a checked exception, so we must be write join() within try and catch only
+
+# Sleep()
+- If we want to pause/stop execution of thread for some amount of time then we use sleep()
+
+# Synchronized
+- It is a keyword we can use it for method level and block level
+- Synchronized can allow only one thread at a time
+- While using synchronized intenally follow lock mechanisium
+
+- Class level lock and Object level lock
+- If thread will get Class level lock then thread will execute static synchronized methods, once execution completed then lock will release from thread
+- If thread will get object level lock then thread will execute synchronized methods, once execution completed then lock will release from thread
+
+# Synchronized block
+- While using synchronized for method, that entire method will wait for until current thead executin will complete, so it is not recomeded to use
+- That's why we have option to use synchronized block concept
+- Synchronized blocks are used to allow only one thread at a time for block execution 
+
+# Dead lock
+- While multiple thread will be locked eachother
+- Like thread-1 is locked with thread-2, thread-2 is locked with thread-3, and thread-3 is locked with thread-1
+- overcome this problem, we must ignore to give lock for multiple threads, we should five lock for only importante threads, and instead of lock we use join method
+
+# Collection in java
+- If we want to represent a ground of individual object in single entity then we should go for collection
+- List(I) : imllementation classes are ArrayList, LinkedList, Vector
+  1. duplicate values are allowed and insertion order preserved
+  - ArrayList (C) : 1. Uderline data structure for arraylist is growable array
+                    2. best choice for user retrival operation is very faster in arraylist
+                    3.  worst choice for insert/delete oprations,bcoz when insert/delete tha entire values will we shipted
+                    4. It is internally use Random Access interface
+  - LinkedList (C) : 1. Underline data structore for LinkedList is double linked list
+                     2. best choice for inser/delete operations
+                     3. worst choice for frequent retrival operations
+		     4. It doest not use Random Access interface
+  - Vector (C)     : 1. vecotor is synchronized
+                     2. vectory is thread safe
+                     3. performace is low
+                     4. doest not support enumeration and iterator
+
+- Set(I) : implementation classes are HashSet, LinkedHashSet
+  1. duplcate values are not allowed and insertion order not preserved
+  - HashSet (C) : 1. underline data structure for hashset is hashtable
+                  2. It is not follow insertion order, but duplicates are not allowed
+                  3. It can allow null value only once		
+                  4. Performance wise is slightly faster then linked hash set
+
+  - LinkedHashSet(C) : 1. underline data structure for linked hash set is hashtable and double linke list
+                       2. It is follow insertion order, but duplicates are not allowed
+                       3. It can allow null value only once
+                       4. Performance wise is slow then hash set
+
+- SortedSet(I) : it is a implemented from Set Interface And implementation class is Tress set
+  1. duplicate values are not allowed, insertion order not preserved but follow some sorting order
+  - TreeSet(C) : It is an implementation class for SortedSet inteface
+                 1. Duplicates are not allowed, insertion order is not follow but follow some sorting order (like assending or desending order)
+                 2. duplicate values are not allowed
+                 3. best choice for ritrival operations
+
+- Queue(I) : If we want to represent a group of individual object prior to process then we user queue interface, Implementaion class are 
+             priority queue, blocking queue
+
+- Map(I) : If we want to represent a group of individual object in key, value  pair then we user Map
+           Implementation classes are HashMap, LinkedHashMap, Identity HashMap, WeekHashMap
+  - HashMap(C) - 1. hashmap is not follow insertion order
+                 2. duplicate key are not follow, but it can allow duplicate value
+                 3. null key are allowed only one time
+  - LinkedHashMap(C) - 1. linkedhashmap is follow insertion order 
+                       2. duplicate key are not follow, but it can allow duplicate value
+                       3. null key are allowed only one time
+                       
+     
+
+- SortedMap(I) : If we want to represent a group of key values pairn acourding to some sorting order then we use this interface
+                 implementation classes are TreeMap
+  - TreeMap(C) : Tree Map is an implemeted class for SortedMap interface
+                 1. duplicats are not allowed, insertion order is not preseved, but follow some sorting order
+
+# Array
+- Array represent group of indivual objects in single array
+- Array will allow only homogenius datatype elements but not possible to represent hetrogenius datatype elements in array
+- Array doesn't have any underline data structures, means array doesn't maintain any data structure, so array dont have any readymade(pre deffind) methods
+Ex: String[] array=new String[2];
+  array[0]="A"; 
+  array[1]="B";
+
+- Doesn't support Hetrogenuis values
+  Student[] st=new Student[3];
+  st[0]=new Student(); \\ accept homogenius means same type object will accept
+  st[1]=new Employee(); \\ we get error
+
+# Diff Arrays vs Collections
+- Array is fxed size, Collection is growable nature
+- Array can allow only homogenius datatype elements, Collections can allow both homogenius and hetrogenius elements
+- Array doesn't maintain any underline datastructuresm, Collections every class maintain underline data structure
+- Array can hold both primitives and object types, Collections can hold only object types
+- Performance wise Arrays is recomended, Collections are not recomended
+
+# Collections
+- Collections is an framework, collections framework contains collection of classes and interface. It is used to store the data efficiently and we can perform searching, 
+  inserting updating and deleting operations using methods very easily
+- We have different interfaces in collection
+1. List
+2. Set
+3. Queue
+
+# List
+- List is an interface, It is used to insert the element and no required to give an array size and array only can increase array size dynamically
+- List can allow duplicate value and null values, and list can fallow insertion order
+- We can do inser, update, delete and get operation very easily using predefined methods. List interface contains 3 classes
+1. ArrayList 2. LinkedList 3. Vector
+1. ArrayList
+- ArrayList is a class impementd by List interface
+- While adding or remove values in ArrayList in the midle of object,   remaining values will be shifted into next index 
+- Arraylist can allow multiple null value 
+- Arraylist can follow insertion order
+- ArrayList is a non synchronized, so Arraylist is not thread safe
+- sort() : used to sort element in ArrayList object
+Ex: ArrayList<String> listInfo=new ArrayList<String>
+    listInfo.add("C")
+    listInfo.add("A") 
+    listInfo.add("B") 
+    Collections.sort(listInfo)
+
+- reverseOrder(): used to change arraylist in reverse
+Ex: ArrayList<String> listInfo=new ArrayList<String>
+    listInfo.add("A")
+    listInfo.add("B") 
+    listInfo.add("C") 
+    Collections.reverseOrder(listInfo)
+
+1) add( Object o): This method adds an object o to the arraylist.
+obj.add("hello");
+This statement would add a string hello in the arraylist at last position.
+
+2) add(int index, Object o): It adds the object o to the array list at the given index.
+obj.add(2, "bye");
+It will add the string bye to the 2nd index (3rd position as the array list starts with index 0) of array list.
+
+3) remove(Object o): Removes the object o from the ArrayList.
+obj.remove("Chaitanya");
+This statement will remove the string “Chaitanya” from the ArrayList.
+
+4) remove(int index): Removes element from a given index.
+obj.remove(3);
+It would remove the element of index 3 (4th element of the list – List starts with o).
+
+5) set(int index, Object o): Used for updating an element. It replaces the element present at the specified index with the object o.
+obj.set(2, "Tom");
+It would replace the 3rd element (index =2 is 3rd element) with the value Tom.
+
+6) int indexOf(Object o): Gives the index of the object o. If the element is not found in the list then this method returns the value -1.
+int pos = obj.indexOf("Tom");
+This would give the index (position) of the string Tom in the list.
+
+7) Object get(int index): It returns the object of list which is present at the specified index.
+String str= obj.get(2);
+Function get would return the string stored at 3rd position (index 2) and would be assigned to the string “str”. We have stored the returned value in string variable because in our example we have defined the ArrayList is of String type. If you are having integer array list then the returned value should be stored in an integer variable.
+
+8) int size(): It gives the size of the ArrayList – Number of elements of the list.
+int numberofitems = obj.size();
+9) boolean contains(Object o): It checks whether the given object o is present in the array list if its there then it returns true else it returns false.
+obj.contains("Steve");
+It would return true if the string “Steve” is present in the list else we would get false.
+
+10) clear(): It is used for removing all the elements of the array list in one go. The below code will remove all the elements of ArrayList whose object is obj.
+obj.clear();
+
+
+2. Linked List
+- Linkedlist is a class implement by List interface
+- In lnkedlist every element as on node, means can have two point. 1 is data and 2 is reference of next node. so while insert value in linkedlist just reference only can change but not changed/shipted remaining element
+- Linked list can allow multiple null value 
+- LinkedList can follow insertion order
+- LinkedList is a non synchronized, Linked list is not thread safe
+
+Ex: LinkedList<String> listInfo=new LinkedList<String>
+    listInfo.add("C")
+    listInfo.add("A") 
+    listInfo.add("B") 
+    Collections.sort(listInfo)
+
+- reverseOrder(): used to change arraylist in reverse
+Ex: LinkedList<String> listInfo=new LinkedList<String>
+    listInfo.add("A")
+    listInfo.add("B") 
+    listInfo.add("C") 
+    Collections.reverseOrder(listInfo)
+
+- Convert LinkedList to ArrayList
+  List<String> list=new ArrayList<String>(listInfo);
+
+1) boolean add(Object item): It adds the item at the end of the list.
+llistobj.add("Hello");
+It would add the string “Hello” at the end of the linked list.
+
+2) void add(int index, Object item): It adds an item at the given index of the the list.
+llistobj.add(2, "bye");
+This will add the string “bye” at the 3rd position( 2 index is 3rd position as index starts with 0).
+
+3) boolean addAll(Collection c): It adds all the elements of the specified collection c to the list. It throws NullPointerException if the specified collection is null. Consider the below example –
+LinkedList<String> llistobj = new LinkedList<String>();
+ArrayList<String> arraylist= new ArrayList<String>();
+arraylist.add("String1");
+arraylist.add("String2");
+llistobj.addAll(arraylist);
+This piece of code would add all the elements of ArrayList to the LinkedList.
+
+4) boolean addAll(int index, Collection c): It adds all the elements of collection c to the list starting from a give index in the list. It throws NullPointerException if the collection c is null and IndexOutOfBoundsException when the specified index is out of the range.
+llistobj.add(5, arraylist);
+It would add all the elements of the ArrayList to the LinkedList starting from position 6 (index 5).
+
+5) void addFirst(Object item): It adds the item (or element) at the first position in the list.
+llistobj.addFirst("text");
+It would add the string “text” at the beginning of the list.
+
+6) void addLast(Object item): It inserts the specified item at the end of the list.
+llistobj.addLast("Chaitanya");
+This statement will add a string “Chaitanya” at the end position of the linked list.
+
+7) void clear(): It removes all the elements of a list.
+llistobj.clear();
+8) Object clone(): It returns the copy of the list.
+
+For e.g. My linkedList has four items: text1, text2, text3 and text4.
+
+Object str= llistobj.clone();
+ System.out.println(str);
+Output: The output of above code would be:
+
+[text1, text2, text3, text4]
+
+9) boolean contains(Object item): It checks whether the given item is present in the list or not. If the item is present then it returns true else false.
+boolean var = llistobj.contains("TestString");
+It will check whether the string “TestString” exist in the list or not.
+
+10) Object get(int index): It returns the item of the specified index from the list.
+Object var = llistobj.get(2);
+It will fetch the 3rd item from the list.
+
+11) Object getFirst(): It fetches the first item from the list.
+Object var = llistobj.getFirst();
+12) Object getLast(): It fetches the last item from the list.
+
+Object var= llistobj.getLast();
+13) int indexOf(Object item): It returns the index of the specified item.
+llistobj.indexOf("bye");
+
+14) int lastIndexOf(Object item): It returns the index of last occurrence of the specified element.
+int pos = llistobj.lastIndexOf("hello);
+integer variable pos will be having the index of last occurrence of string “hello”.
+
+15) Object poll(): It returns and removes the first item of the list.
+Object o = llistobj.poll();
+16) Object pollFirst(): same as poll() method. Removes the first item of the list.
+Object o = llistobj.pollFirst();
+
+17) Object pollLast(): It returns and removes the last element of the list.
+Object o = llistobj.pollLast();
+
+18) Object remove(): It removes the first element of the list.
+llistobj.remove();
+
+19) Object remove(int index): It removes the item from the list which is present at the specified index.
+llistobj.remove(4);
+It will remove the 5th element from the list.
+
+20) Object remove(Object obj): It removes the specified object from the list.
+llistobj.remove("Test Item");
+
+21) Object removeFirst(): It removes the first item from the list.
+llistobj.removeFirst();
+
+22) Object removeLast(): It removes the last item of the list.
+llistobj.removeLast();
+
+23) Object removeFirstOccurrence(Object item): It removes the first occurrence of the specified item.
+llistobj.removeFirstOccurrence("text");
+It will remove the first occurrence of the string “text” from the list.
+
+24) Object removeLastOccurrence(Object item): It removes the last occurrence of the given element.
+llistobj.removeLastOccurrence("String1);
+It will remove the last occurrence of string “String1”.
+
+25) Object set(int index, Object item): It updates the item of specified index with the give value.
+llistobj.set(2, "Test");
+It will update the 3rd element with the string “Test”.
+
+26) int size(): It returns the number of elements of the list.
+llistobj.size();
+
+# ArrayList Vs Linked List
+- Arraylist is best choice for seaching elements from arraylist object, bcoz arraylist can maintain index based machanisum, so arraylist can return value fastely
+- Linkedlist is best choice for insertion and delete elements from linkedlist, bcoz in linkedlist every element is one node, so node can maintain data and reference   address. while insert or delete elements just node reference only can changes, but not shipted elements
+
+3. Vector
+- Vector is a class implemented by List interface
+- Vector is same like Arraylist only, but Arraylist is non-synchronized(non thread safe) and Vector is synchronized(thread safe)
+- Whenever Arraylist Exceed maxsize then automaticaly increase 50% of capacity, but in vector increase 100% of capacity
+- Comapre to Arraylist Vector is very slow to perform seraching operations, bcoz vector is thread safe
+Ex: Vector<String> listInfo=new Vector<String>
+    listInfo.add("C")
+    listInfo.add("A") 
+    listInfo.add("B") 
+Ex: Vector<String> listInfo=new Vector<String>
+    listInfo.add("A")
+    listInfo.add("B") 
+    listInfo.add("C") 
+    Collections.reverseOrder(listInfo)
+
+1. void addElement(Object element): It inserts the element at the end of the Vector.
+2. int capacity(): This method returns the current capacity of the vector.
+3. int size(): It returns the current size of the vector.
+4. void setSize(int size): It changes the existing size with the specified size.
+5. boolean contains(Object element): This method checks whether the specified element is present in the Vector. If the element is been found it returns true else false.
+6. boolean containsAll(Collection c): It returns true if all the elements of collection c are present in the Vector.
+7. Object elementAt(int index): It returns the element present at the specified location in Vector.
+8. Object firstElement(): It is used for getting the first element of the vector.
+9. Object lastElement(): Returns the last element of the array.
+10. Object get(int index): Returns the element at the specified index.
+11. boolean isEmpty(): This method returns true if Vector doesn’t have any element.
+12. boolean removeElement(Object element): Removes the specifed element from vector.
+13. boolean removeAll(Collection c): It Removes all those elements from vector which are present in the Collection c.
+14. void setElementAt(Object element, int index): It updates the element of specifed index with the given element.
+
+# ArrayList Vs Vector
+- Arraylist is non synchronized(non thread safe), but Vector is synchronized((thread safe)
+- Arraylist will increase capacity 50% while exceed capacity, but vector is increase 100% capacity
+- Arraylist if fast bcoz it is non synchronize, but Vector is slow bcoz vector is synchronized
+Note : Synchronized means only one thread can allow to perform at same time, reamaining thread will wait untill currect thread execution is complete
+
+# Set
+- Set is an interface, It is used to insert the element and no required to give an array size and array only can increase array size dynamically
+- Set coudn't allow duplicate value and null values allow only one time, and list coudn't fallow insertion order
+- We can do insert, update, delete and get operation very easily using predefined methods. List interface contains 3 classes
+1. HashSet 2. LinkedHashSet 3. TreeSet
+1. HashSet
+- HashSet is a class impementd by Set interface
+- HashSet coudn't allow duplicate values and null can allow only one time
+- HashSet coudn't  follow insertion order, randomly return values
+- Hashset is a non synchronized, so HashSetis not thread safe
+
+1.boolean add(Element  e): It adds the element e to the list.
+2.void clear(): It removes all the elements from the list.
+3.Object clone(): This method returns a shallow copy of the HashSet.
+4.boolean contains(Object o): It checks whether the specified Object o is present in the list or not. If the object has been found it returns true else false.
+5.boolean isEmpty(): Returns true if there is no element present in the Set.
+6.int size(): It gives the number of elements of a Set.
+7.boolean(Object o): It removes the specified Object o from the Set.
+
+2. LinkedHashSet
+- LinkedHashSet is a class impementd by Set interface
+- LinkedHashSet coudn't allow duplicate values and null can allow only one time
+- LinkedHashSet can  follow insertion order, and return same order
+- Hashset is a non synchronized, so HashSetis not thread safe
+
+2. TreeSet
+- TreeSet is a class impementd by Set interface
+- TreeSet coudn't allow duplicate values and null can allow only one time
+- TreeSet can follow ascending order, and return ascending order
+- Hashset is a non synchronized, so HashSet is not thread safe
+
+# Diff HashSet Vs LinkedHashSet
+- Only different is HashSet could not follow insertion order, randomly return values, but LinkedHashSet follow insertion order and return same order
+
+# Diff HashSet Vs TreeSet
+- Only different is HashSet could not follow insertion order, but TreeSet follow ascending order
+
+# Map
+- Map is an interface, It is used store values in key and value pair
+- Every map object can allow duplicate value but could not allow duplicate keys
+- Map interface contains 3 implemented classes
+1. HashMap, 2. LinkedHashMap 3.TreeMap
+
+1.HashMap
+- HashMap is implemented class by Map inteface
+- HashMap can insert value in key values fair, but coudn't follow any order
+- HashMap is non sychronized (not in thread safe)
+- HashMap coudn't accept duplicate key but values can duplicate
+
+1. void clear(): It removes all the key and value pairs from the specified Map.
+2. Object clone(): It returns a copy of all the mappings of a map and used for cloning them into another map.
+3. boolean containsKey(Object key): It is a boolean function which returns true or false based on whether the specified key is found in the map.
+4. boolean containsValue(Object Value): Similar to containsKey() method, however it looks for the specified value instead of key.
+5. Value get(Object key): It returns the value for the specified key.
+6. boolean isEmpty(): It checks whether the map is empty. If there are no key-value mapping present in the map then this function returns true else false.
+7. Set keySet(): It returns the Set of the keys fetched from the map.
+8. value put(Key k, Value v): Inserts key value mapping into the map. Used in the above example.
+9. int size(): Returns the size of the map – Number of key-value mappings.
+10. Collection values(): It returns a collection of values of map.
+11. Value remove(Object key): It removes the key-value pair for the specified key. Used in the above example.
+12. void putAll(Map m): Copies all the elements of a map to the another specified map.
+
+2.TreeMap
+- TreeMap is implemented class by Map inteface
+- TreeMap can insert value in key values fair, and it can follow some sorting(ascending) order
+- TreeMap is non sychronized (not in thread safe)
+- TreeMap coudn't accept duplicate key but values can duplicate
+
+3.LinkedHashMap
+- LinkedHashMap is implemented class by Map inteface
+- LinkedHashMap can insert value in key values fair, and it can follow insertion order
+- LinkedHashMap is non sychronized (not in thread safe)
+- LinkedHashMap coudn't accept duplicate key but values can duplicate
+
+4. HashTable
+- HashTable is implemented class by Map inteface
+- HashTable can insert value in key values fair, and it coudn't follow insertion order
+- HashTable is sychronized (thread safe)
+- HashTable coudn't accept duplicate key but values can duplicate and coudn't allow null keys
+
+# Itearator and ListIterator
+- Both are used to iterate object, but Iterator is iterate only forword directions only and ListIterator is used to iterte forward and backward directios
+Ex:
+-  List<String> listObject = new ArrayList<String>();
+      listObject.add("India");
+      listObject.add("Australia");
+      listObject.add("England");
+      Iterator it = listObject.iterator(); // It will work only forward direction
+      while (it.hasNext()) {
+         System.out.println(it.next());
+      }
+
+- List<String> listObject = new ArrayList<String>();
+      listObject.add("Java");
+      listObject.add("Selenium");
+      ListIterator it = listObject.listIterator(); //It will work only forward and backword direction
+      while (it.hasNext()) {
+         System.out.println(it.next());
+      }
+     while (it.hasPrevious()) {
+         System.out.println(it.next());
+      }
+
+# How to change HashMap is synchronized
+- We can change HashMap as synchronized using synchronizedMap method
+Ex:  HashMap<Integer, String> hmap= new HashMap<Integer, String>();
+         hmap.put(2, "Anil");
+         hmap.put(44, "Ajit");
+         hmap.put(1, "Brad");
+         Map map= Collections.synchronizedMap(hmap);
+
+- We can change ArrayList as synchronized using synchronizedList method
+Ex:  ArrayList<Integer, String> hmap= new ArrayList<Integer, String>();
+         hmap.put(2, "Anil");
+         hmap.put(44, "Ajit");
+         hmap.put(1, "Brad");
+         List map= Collections.synchronizedList(hmap);
+
+# Comparable And Comparator
+- Comparable and Comparator are interfaces, both are used to sorting values
+- Comparable provide single sorting, but Comparator provie multiple sortings
+Ex:
+
+- Comparable
+  public class TechInfo implements Comparable<TechInfo>{
+	private String techId;
+	private String techName;
+	private String duration;
+	public TechInfo(String techId, String techName, String duration) {
+		super();
+		this.techId = techId;
+		this.techName = techName;
+		this.duration = duration;
+	}
+	// setters and getters
+	public int compareTo(TechInfo o) {
+		if(getDuration().equals(o.getDuration()))
+		return 1;
+		else
+		return -1;
+	}
+
+- Comparator
+  public class Test2 {
+  public static void main(String[] args) {		
+		List<TechInfo> listInfo=new ArrayList<TechInfo>();
+		listInfo.add(new TechInfo("101","Java","90"));
+		listInfo.add(new TechInfo("102","Puthon","80"));
+		listInfo.add(new TechInfo("103","DataScience","60"));
+		listInfo.add(new TechInfo("104","Angular","50"));
+		listInfo.add(new TechInfo("105","Oracle","30"));
+		Comparator<TechInfo> com=new Comparator<TechInfo>(){
+			public int compare(TechInfo o1, TechInfo o2) {
+				if(o1.getDuration().equals(o2.getDuration()))
+					return 1;
+				else
+				return 0;
+			}
+		};
+		
+		Collections.sort(listInfo, com);
+		for(TechInfo info:listInfo){
+			System.out.println("Id "+info.getTechId()+" Name "+info.getTechName()+" Duration "+info.getDuration());
+		}
+	}
+
+
+
+
+
+# What is comparable and compartor interfaces
+- If we want to follow defualt natural sorting order then we for comparable interface
+  her default sroting mean like 
+  1. Number - defult soring is assending order
+  2. String - defulat soring is albhanumeriacal(a to z)
+  3. here we use compareTo(Object) method
+- If we want to follow customized sorting order then we for comparator interface
+  1. here we compare(Object obj1, Object obj2) method
+
+# How to iterate collection object 
+- we have 3 interfaces for iterate collection object in one by one
+1. Enumeration(I)
+2. Iterator(I)
+3. ListIterator(I)
+
+# What is collections class
+- It is a utitlity class to deffined serveral utility nmethods from collection object
+
+# Diff Get and Post method
+- Get method will append the user parameters on URL, Post method will send user parameters with request body only
+- In Get method user will send limited size of user parameters, In post method no limite to send user parameter size
+
+# Request Dispatcher 
+- In servlet, request dispatcher is an interface used to redirect request into different resource like html, jsp, server application ect
+- we have 2 types of method 1. forward() 2. incluse()
+
+# Servlet Life Cycle
+- States in life cycle
+1. new state, 2. ready state, 3. destroy state
+
+# Driver in JDBC
+- Driver is an software used to intaract with Java and Datase 
+
+# ResultSet metadata, Database metadata
+- Resultset Metadata will return table information like no of column, column name, and column types
+- Database Metadata will return database information like driver name, url, listener ect
+
+# Batch Processing
+- Execute mutiple sql queries in only once without open mutiple db connections
+
+# execute(Sql query) Vs executeQuery(Sql query) Vs executeUpdate(Sql query)
+- execute(Sql query) used to execute sql query and return True or False
+- executeQuery(Sql query) used to execute sql query and retunr resultset object
+- executeUpdate(Sql query) used to update DDL statement and returns nothing
+
+# Statements is JDBC
+- Statement - used to execute sql statement
+- PrepareStatement - used to execute sql statement with dynamic input paramters
+- CollabelStatemetn - used to execute stored procedures
+
+
+

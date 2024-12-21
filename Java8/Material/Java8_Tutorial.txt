@@ -1,0 +1,232 @@
+--------------------https://www.youtube.com/watch?v=tJRVIW5C89c--------------------------------
+# Why Java8
+- Java 8 Introduced few features like
+  1. Lambda expression -  Enable functional-style programming, making code more concise and readable
+  2. Streams API - Simplify bulk data operations like filtering, mapping, and reducing
+  3. Improve Date & Time API - The java.time package introduces a modern, immutable, and thread-safe approach to handling dates and times
+  4. Provide defualt and static methods in interface - Allows interfaces to have methods with implementations, enabling backward compatibility and reducing boilerplate code
+  5. Provide optional class - Helps prevent NullPointerException by providing a container object that may or may not contain a value
+  6. provide buil-in base 64 encode & decode - Built-in support for Base64 encoding/decoding, eliminating the need for external libraries
+  7. Improving performance - Enhanced garbage collection with the introduction of new algorithms
+  8. Enhanced Collection APIs - Built-in support for Base64 encoding/decoding, eliminating the need for external libraries
+
+# What is functional interface
+- A functional interface is an interface that contains only one abstract methods
+- They can have only one functionality to exhibit
+- Lambda exressions can be used to represent the instance of a functional interface
+- Runnable, ActionListener, Comparable are some of the examples of functional interfaces
+- Can contain defualt and static methods
+
+# What are the pillar interfaces in java8
+1. Consumer
+- accept an input and perform an operation on it without returning any result. It is especially useful for side-effect operations such as modifying, printing, or logging data, 
+  where the operation does not produce a direct output. In consumer we have methods like
+  1. accept(T t) - Performs the operation on the given input.
+  2. andThen(Consumer) - Chains another Consumer to execute after the current one.
+  
+  1. Performing Actions on Each Element of a Collection
+  - The Consumer interface is often used with the forEach method in collections and streams to perform an operation on each element.
+  Ex: List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+      names.forEach(name -> System.out.println("Hello, " + name));
+	  Output : Hello, Alice
+			   Hello, Bob
+			   Hello, Charlie
+  2. Logging or Printing
+  - Useful for scenarios like debugging, where you want to print or log values during program execution.
+  Ex: Consumer<Integer> logger = num -> System.out.println("Processing number: " + num);
+	  logger.accept(5); // Output: Processing number: 5
+	  
+  3. Modifying Objects
+  - Perform side effects on objects, such as updating their fields or applying transformations.
+  Ex: Consumer<StringBuilder> appender = sb -> sb.append(" is awesome!");
+      StringBuilder text = new StringBuilder("Java");
+      appender.accept(text);
+      System.out.println(text); // Output: Java is awesome!
+  4. Chaining Actions
+  - Using the andThen method, multiple Consumer instances can be chained to perform sequential operations.
+  Ex: Consumer<String> step1 = str -> System.out.println("Step 1: " + str);
+      Consumer<String> step2 = str -> System.out.println("Step 2: " + str.toUpperCase());
+      Consumer<String> combined = step1.andThen(step2);
+      combined.accept("Java"); 
+      // Output:
+	  // Step 1: Java
+	  // Step 2: JAVA
+  5. Asynchronous Processing
+  - Can be used in asynchronous programming scenarios, such as callback functions or event listeners, where the focus is on consuming a result
+  Ex: CompletableFuture.runAsync(() -> {
+	  Consumer<String> consumer = System.out::println;
+      consumer.accept("Task completed!");
+	  });
+  6. Stream Processing
+  - A Consumer is commonly used in Stream API methods, such as forEach, to define the behavior applied to each stream element.
+  Ex: IntStream.range(1, 5).forEach(num -> System.out.println(num * num)); 
+
+1.1. BiConsumer
+- Comparet to consumer, BiConsumer is allowed two input parameters
+  Ex: BiConsumer c= (a,b) -> {System.out.println(a+b)}
+  
+2. Predicate
+- Predicate is a functional interface in the java.util.function package. It represents a single-argument function that takes an input and returns a boolean value, typically used for conditions or filtering
+  In predicate we have methods like 
+  1. test(T t) - Evaluates the predicate on the input and returns a boolean result.
+  2. and(Predicate) - Combines predicates using logical AND.
+  3. or(Predicate) - Combines predicates using logical OR.
+  4. negate() - Returns a predicate representing the logical negation of the current one.
+  5. isEqual(Object) - Creates a predicate to check for equality with a specific object.
+  Ex 1: Basic Usage
+  public class Main {
+    public static void main(String[] args) {
+        Predicate<Integer> isEven = num -> num % 2 == 0;
+        System.out.println(isEven.test(4)); // true
+        System.out.println(isEven.test(5)); // false
+    }
+  Ex 2: Combining Predicates
+  public class Main {
+    public static void main(String[] args) {
+        Predicate<Integer> isEven = num -> num % 2 == 0;
+        Predicate<Integer> isGreaterThanTen = num -> num > 10;
+        Predicate<Integer> combined = isEven.and(isGreaterThanTen);
+        System.out.println(combined.test(12)); // true (even and >10)
+        System.out.println(combined.test(8));  // false (even but <=10)
+        System.out.println(combined.test(15)); // false (odd)
+        }
+    }
+   Ex 3: Using in Streams
+   public class Main {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("John", "Jane", "Jack", "Doe");
+        Predicate<String> startsWithJ = name -> name.startsWith("J");
+
+        names.stream()
+             .filter(startsWithJ)
+             .forEach(System.out::println);
+        // Output:
+        // John
+        // Jane
+        // Jack
+        }
+    }
+	
+2.2 BiPredicate
+- Compare to Predicate, BiPredicate is allowed two input parameters
+  Ex: BiPredicate<Integer, Strin> bp = (age, gender) -> if(21 => age && gender.equals('Male')) return true
+														else if(18 => age && gender.equals('Female')) return true
+														else return false;
+
+3. Function
+- The Function interface in Java 8 is a functional interface provided in the java.util.function package. It represents a function that takes an input, processes it, and returns a result. 
+  It is a core part of Java's functional programming model and is widely used in stream processing, data transformation, and functional composition. In functional interface we have methods like 
+  1. apply(T t) - Applies the function to the input T and produces a result R.
+  2. andThen(Function) - Chains another function to process the output of the current function.
+  3. compose(Function) - Chains another function to process the input before the current function.
+  4. identity() - Returns a function that returns its input as output (no transformation).
+  Ex 1: Function<String, Integer> lengthFunction = str -> str.length();
+  Ex 2:  Function<String, Integer> lengthFunction = str -> str.length();
+         Function<Integer, Integer> squareFunction = num -> num * num;
+         Function<String, Integer> combined = lengthFunction.andThen(squareFunction);
+         System.out.println(combined.apply("Java")); // Output: 16 (4 * 4)
+		 
+3.1 BiFunction
+- Compare to Function, BiFunction is allowed two input parameters
+  Ex: BiFunction<String, String, String> bf = (input1, input2) -> (input1+" "+input2); 		 
+  
+3.2 Unary Operator
+- UnaryOperator functional interface was introduced as part of the java.util.function package. It represents an operation on a single operand that returns a result of the same type.
+  Ex:   UnaryOperator<Integer> square = x -> x * x;
+        System.out.println(square.apply(5)); // Output: 25
+        UnaryOperator<String> toUpperCase = s -> s.toUpperCase();
+        System.out.println(toUpperCase.apply("hello")); // Output: HELLO  
+		
+3.3 Binary Operator
+- A binary operator is an operator that operates on two operands. In Java, binary operators are used for performing arithmetic, logical, bitwise, comparison, or other operations between two values.
+  Types of Binary Operators in Java :
+  1. Arithmetic Operators => + : Addition, - : Subtraction, * : Multiplication, / : Division, % : Modulus
+  2. Relational (Comparison) Operators => == : Equal to, != : Not equal to, > : Greater than, < : Less than, >= : Greater than or equal to, <= : Less than or equal to
+  3. Logical Operators => && : Logical AND (returns true if both operands are true), || : Logical OR (returns true if at least one operand is true)
+  4. Bitwise Operators => & : Bitwise AND, | : Bitwise OR, ^ : Bitwise XOR, << : Left shift, >> : Right shift, >>> : Unsigned right shift
+  5. Assignment Operators => = : Assignment, += : Add and assign, -= : Subtract and assign, *= : Multiply and assign, /= : Divide and assign, %= : Modulus and assign
+  6. Ternary Operator (Special Case) => Syntax: condition ? trueValue : falseValue
+
+- Diff between Unary & Binary
+  Unary :
+  Definition: Operates on a single operand.
+  Number of Operands: 1
+  Purpose: Typically used for operations like negation, increment, decrement, logical NOT, or bitwise NOT.
+  
+  Binary :
+  Definition: Operates on two operands.
+  Number of Operands: 2
+  Purpose: Used for operations like arithmetic calculations, comparisons, logical operations, or assignments.
+
+4. Supplier
+- In Java, a Supplier is a functional interface introduced in Java 8 as part of the java.util.function package. It represents a supplier of results. Unlike most functional interfaces that take inputs and produce outputs, 
+  Supplier only produces a result without taking any input.
+  1. Supplier doesn't take any parameters
+  2. Its primary purpose is to supply or produce data
+  3. Can be used with lambda expressions or method references.
+- Common Use Cases
+  1. Lazy Initialization: Use Supplier to delay the computation of a value until it's actually needed.
+  2. Data Generation: Generate random data or default values.
+  3. Factory Pattern: Replace traditional factory methods.
+  
+# Method-Reference
+- A method reference in Java is a feature introduced in Java 8 that allows you to refer to methods by their names. It simplifies the syntax of lambda expressions when the lambda expression is merely calling a method
+- Method references provide a way to use methods as arguments for functional interfaces, making the code more concise and readable.
+- We have 3 types of method reference
+  1. Reference to a static method
+  Ex: public class Main {
+      public static void main(String[] args) {
+        Function<String, Integer> parseInt = Integer::parseInt;
+        Integer result = parseInt.apply("123");
+        System.out.println(result); // Output: 123
+       }
+     }
+  2. Reference to a instance method
+  Ex: public class Main {
+      public static void main(String[] args) {
+        String str = "Hello, World!";
+        Supplier<Integer> lengthSupplier = str::length;
+        System.out.println(lengthSupplier.get()); // Output: 13
+       }
+     }
+  3. Reference to a constuctor
+  Ex:  public static void main(String[] args) {
+        Supplier<StringBuilder> newStringBuilder = StringBuilder::new;
+        StringBuilder sb = newStringBuilder.get();
+        sb.append("Hello, Constructor Reference!");
+        System.out.println(sb);
+        }
+	   }
+	   
+# Collections Vs Streams
+- 1. Read & Write - Read only
+  2. Eeagerly Evalutated - Lazily Evaluted
+  3. Collection about data - About computation on data
+  4. Iterate over collection - Internal iterate
+  5. Multiple iteration possible - only once
+
+# Stream API
+- The Stream API in Java is a powerful feature introduced in Java 8 to process collections of data in a functional and declarative way. It provides a stream of elements from a source (like a collection, array, or I/O channel)
+  and allows you to perform a series of operations on the data, such as filtering, mapping, and reducing.
+- Streams make it easier to work with large data sets, enabling parallel execution and better code readability.	  
+- Key Features of Stream API
+  1. Functional Programming: Streams support functional-style operations like filter, map, reduce, etc.
+  2. Lazy Evaluation: Operations on streams are executed lazily, meaning they are only performed when a terminal operation (like collect or forEach) is invoked.
+  3. Pipeline: Stream operations can be chained to form a pipeline (e.g., filter -> map -> collect).
+  4. Parallel Processing: Streams can be processed in parallel for better performance using .parallelStream(). 
+  
+- A stream in java can be defined as a sequence of elements from a source that supports aggregate operations on them
+- Streams don't change the original data structure, they only provide the result as per the pipelined methods
+
+# map() in Stream API
+- It is used to transform one type to another type of data
+- Its not the Map Collection
+
+# flatMap() in Stream API
+- It is used to transform one type to another type of data same like map
+- Used to flatten a stream of collection
+- Applying one-to-many transformation to the elements
+- Create new Stream once flatten the elements
+
+# filter in Stream API
+- It is used to restrict<filter) the data, but it will not modify data

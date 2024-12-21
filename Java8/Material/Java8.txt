@@ -1,0 +1,351 @@
+- Java 8 new features
+1. Lambda expressions
+2. Functional interface
+3. Defualt method and static methods
+4. Predifined functional interfaces
+   Like preducate, function, consumer, supplier etc
+5. Double colon Operator (::)
+   method reference, constructor reference
+6. Streams
+7. Date and Time API
+8. Optional class
+9. Nashorn javascript engine
+etc
+
+1 Lambda Expressions
+- Lambda expression bring funtional programing benifites into java programing
+- Labmda expression is and anonymous function, means lambda expression doesn't have method name or method return type or method level modifiers
+- We are not required to give data type for variables and return type for method, compiler will identify the type
+
+Ex: 
+- Without lambda expression
+    public void sum(int a, int b){
+    System.out.println("sum value is "+a+b);
+    }
+
+- Using lambda expression
+    (a,b)->{System.out.println(a+b);} 
+    (or)
+    (a,b)->System.out.println(a+b); // If body is one line, open/close brases or not required
+
+- Without lambda expression
+    public void square(int a){
+    System.out.println("square value is "+a*a);
+    }
+
+- Using lambda expression
+    (a)->{System.out.println(a*a);} 
+    (or)
+    (a)->System.out.println(a*b); // If body is one line, open/close brases or not required
+    (or)
+     a->System.out.println(a*b); // If method contains only one parameter, open/close brackets not required
+
+Ex: 
+- Without lambda expression
+    public int mult(int a, int b){
+    retunr a*b;
+    }
+
+- Using lambda expression
+    (a,b)-> {retunr a*b;}
+    (or)
+    (a,b)-> retunr a*b; // If body is one line, open/close brases or not required
+    (or)
+    (a,b)-> a*b; //Without open/close brases not required to write return keyword
+
+Note: - Without curly braces we cannot use return keyword
+      - Within curly braces if we want to return some value compulsory we should use return statement
+
+2 Functional Intefaces
+- Functional intefaces contains defulat methods, static methods and only one abstract method
+- We can call labmda methods using functional interfaces abstract method
+- We can declare interface as function interface using @FunctionalInterface annotation
+
+
+Ex:
+- Without lambda expression
+  public interface Interf{
+  public void sum(int a, int b);
+  }
+  public class Demo{
+  public void sum(int a, int b){
+  System.out.println("Sum value is "a+b);
+  }
+  }
+  public static void main(String[] args){
+  Interf f=new Demo();
+  f.sum(10,20);
+  }
+Output: Sum value is 30
+
+- With lambda expression
+  public interface Interf{
+  public void sum(int a, int b);
+  }
+  public static void main(String[] args){
+  Interf f=(a,b)-> System.out.println("Sum value is "a+b); //Here we write direct implementation method
+  f.sum(10,20);
+  }
+Output: Sum value is 30
+
+
+Ex:
+- Without lambda expression
+  public interface Interf{
+  public int sum(int a, int b);
+  }
+  public class Demo{
+  public int sum(int a, int b){
+  return a+b;
+  }
+  }
+  public static void main(String[] args){
+  Interf f=new Demo();
+  System.out.println(f.sum(10,20));
+  }
+Output: 30
+
+- With lambda expression
+  public interface Interf{
+  public int sum(int a, int b);
+  }
+  public static void main(String[] args){
+  Interf f=(a,b)-> a+b; //Here we write direct implementation method
+  System.out.println(f.sum(10,20));
+  }
+Output: Sum value is 30
+
+Note: We cannot use lambda expressions without functional intefaces, lambda expressions associated with functional interfaces
+
+- In mutithreading, Runnable interface is an functional interface, bcoz runnable interface contain only one abstract method called run(), 
+  so we can use lambda expressions for Runnable interface
+Ex: 
+- Without lambda expression
+    public class MyRunnable implements Runnable{
+    run(){
+    for(int i=0;i<=10;i++){
+    System.out.println("Parent Thread");
+    }
+    }
+    public static void main(String[] args){
+    MyRunnable myRun=new MyRunnable();
+    Thread t=new Thread(myRun);
+    t.start();
+    for(int j=0;j<=10;j++){
+    System.out.println("Child Thread");
+    }
+    }
+
+- With lambda expression
+    public static void main(String[] args){
+    MyRunnable myRun=()->{
+    for(int i=0;i<=10;i++){
+    System.out.println("Parent Thread");
+    }
+    };
+    Thread t=new Thread(myRun);
+    t.start();
+    for(int j=0;j<=10;j++){
+    System.out.println("Child Thread");
+    }
+    }
+
+- Lambda expression in  collections
+Ex: 
+- Without labmda expression
+  public class MyComparator implements Comparator<Integer>{
+  public int compare(Integer  i1, Integer i2){
+  if(i1<i2)
+  return -1;
+  else if(i1>i2)
+  return 1;
+  else 0;
+  }
+  }
+  class Test {
+  public static void main(String[] arg){
+  ArrayList<Integer> i=new ArrayList<String>();
+  l.add(20);
+  l.add(10);
+  l.add(25);
+  l.add(5);
+  l.add(30);
+  System.out.println(l);
+  Collections.sort(1,new MyComparator());
+  System.out.println(l);
+  }
+  }
+
+- Without labmda expression
+  public class MyComparator implements Comparator<Integer>{
+  public int compare(Integer  i1, Integer i2){
+  if(i1<i2)
+  return -1;
+  else if(i1>i2)
+  return 1;
+  else 0;
+  (or)
+  return if(i1<i2)?-1:(i1>i2)?-1:0;
+  }
+  }
+  class Test {
+  public static void main(String[] arg){
+  ArrayList<Integer> i=new ArrayList<String>();
+  l.add(20);
+  l.add(10);
+  l.add(25);
+  l.add(5);
+  l.add(30);
+  System.out.println(l);
+  Collections.sort(1,new MyComparator());
+  System.out.println(l);
+  }
+  }
+
+- With labmda expression
+  class Test {
+  public static void main(String[] arg){
+  ArrayList<Integer> i=new ArrayList<String>();
+  l.add(20);
+  l.add(10);
+  l.add(25);
+  l.add(5);
+  l.add(30);
+  System.out.println(l);
+  Comparator<Integer> c=(i1,i2)-> if(i1<i2)?-1:(i1>i2)?1:0;
+  Collections.sort(1,c);
+  System.out.println(l);
+  }
+  }
+
+Ex:
+- Without labmda expression
+  public class EmployeeInfo{
+  private int eId;
+  private int eName;
+  public EmployeeInfo(int eId, String eName);
+  // setters and getters
+  public string toString(){
+  return eId+":"+eName;
+  }
+  }
+  public Class Demo{
+  public static void main(String[] args){
+  ArrayList<EmployeeInfo> e=new ArrayList<EmployeeInfo();
+  l.add(new Employee(135,"AAA"));
+  l.add(new Employee(310,"BBB"));
+  l.add(new Employee(586,"DDD"));
+  l.add(new Employee(294,"LLL"));
+  l.add(new Employee(897,"OOO"));
+  Collecntion.sort(l,(e1,e2)->if(e1.eId<e2.eId2)?-1:(e1.eId>eId)?1:0; // here compare eId assending orders
+  (or)
+  Collecntion.sort(l,(e1,e2)->e.eName.comapareTo(e.eName)); // here compare eName assending orders
+  System.out.println(l);
+
+- Anonymous inner class with labmda expressions
+- Runnable is an functional inteface bcoz it contains only one abstract method is calles compare()
+- we can create anonymous inner class for runnable interface
+Ex:
+- Without lambda expressions
+  public Class Demo{
+  public static void main(String[] args){
+  Runnable r=new Runnable(){  // here we are using Runnble interface with anonymous inner class
+  public void run(){
+  for(int i=0;i<=10;i++){
+  System.out.println("Child thread");
+  }
+  }
+  };
+  Thread t=new Thread(r);
+  t.start();
+  }
+  }
+
+- With lambda expressions
+  public Class Demo{
+  public static void main(String[] args){
+  Runnable r=()->{
+  for(int i=0;i<=10;i++){
+  System.out.println("Child thread");
+  };
+  Thread t=new Thread(r);
+  t.start();
+  }
+  }
+
+Note: If anonymous inner class implements an inteface that contains single abstract method then only we can replace that anonymous inner class with lambda expressions
+
+3. Defualt method and static methods
+Defualt methods
+- In interface, we write methods and implemented class must be override what are the methods in interface
+- but defulat methods are not mandatory to override in implementation classes, it means without effecting on implmentation we can add new methods in interface
+Ex:
+public class Interf{
+public int sum(int a, int b);
+public int square(int a);
+defualt int mult(int a, int b){
+System.out.println("actual mult method");
+return a*b;
+}
+}
+public class Demo implements Interf{
+public int sum(a,b){
+return a+b;
+}
+public int square(a){
+return a*a;
+}
+public stattic void main(String[] args){
+Interf f=new Demo();
+f.sum(10,20);
+f.square(4);
+f.mult(3,6); // we can use defualt method from interface (or) we can override existing defualt method
+(or)
+public mul(int a, int b){
+System.out.println("override mult method");
+return a*b;
+}
+}
+
+Note: We can call specific interface defualt method in implementation class using super keyword
+Ex: Interf.super,mult(10.20); // Interf is an interface name
+
+Static Methods
+- Java 1.7 version onwords interface not allowed to create static methods, but from Java 1.8 version we can create static methods also
+- While writting static methods in interface, implementation class not get static methods from interface
+- In implementation class, we can call statis methods using interface name only
+
+Ex:
+public interface Interf{
+public status void msg(){
+System.out.println("This is Interf static method");
+}
+}
+
+public class Demo implements Interf{
+public static void main(String[] args){
+Interf.msg();          //valied
+Demo d=new Demo();  
+d.msg();               //Invalied
+msg();                 //Invalied
+Demo.msg();            //Invalied
+}
+}
+
+- From java 1.8 we can write static methods in interface also
+Ex:
+public interface Interf{
+public static msg(){
+System.out.println("Msg static method insdie interface")
+}
+public static void main(String args){
+System.out.println("Main method inside interface");
+}
+}
+
+4. Predifined functional interfaces
+- In Java 1.8 provide pre difined functional interface, every interface have some predifined method with spricific featues, so we can use pre defined functional interface
+
+
+
+
