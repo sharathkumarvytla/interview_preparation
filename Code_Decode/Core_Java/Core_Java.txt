@@ -1,0 +1,127 @@
+# Why Java is not 100% Object-Oriented?
+- Java is not 100% Object-Oriented, becuase in java we have primitive type data types like boolean, byte, char, int, float, double, long, short. this all are not a objects. But we can convert primitive to object using wrapper class
+- Also in java we have static methods and static variables, this are not belong to objects. Its belongs to class. becuase we can call static methods or static variables without creating objects
+
+# Why ponters are not used in java?
+- Basically pointers are unsafe, and increase the complexity of the program, In Java JVM is responsible for implicity memory allocation so required to use pointers
+
+# What is JIT?
+- JIT stands for Just-In-Time, Java compiler will convert java code(file.java) to byte code. JVM will read byte code line by line and convert(interprete) into machine language, JIT will read byte code very faster compare to JVM
+
+# Why String is immutable?
+- Immutable is like we cann't change values, String is immutable becauase once we assign value to String we cann't change value, If we try to change value internally will create new object for new value.
+- Basically we are using String object for cradentials, URL Details, and storing confidential data so for security reasons String was immutable
+- While assign value for String object, it will check already exist in string pool or not, if not then create new object other wise return exist string reference only
+- But we can change String is mutable using String Buffer and String Builder
+
+# What is Marker Interface?
+- In marker interface doesn't have any methods and field. It is empty interface
+- It is used to provide the metadata to a class while implement this inteface
+- While implement marker interface, interface will tell to JVM this class is Serializable and Clonnable
+  Ex: Public class MyClass implements Serializable { }
+- We can create custom marker interface using annotation also like
+  Ex: @MyMarker
+      Public class MyClass { }
+
+# Can we override a private or static method in Java?
+- We can't override private or static method in java
+- We can't access private methods from out side of class, so we cann't over ride private method
+- We can't override static method becuase if we use same method name, parameters and return type in child class then it will hide the superclass method, it is called method hiding
+  Ex: class Parent {
+    static void display() {
+        System.out.println("Parent's static method");
+    }
+  }
+
+  class Child extends Parent {
+    static void display() {  // This is method hiding, not overriding.
+        System.out.println("Child's static method");
+    }
+  }
+
+  public class Main {
+    public static void main(String[] args) {
+        Parent obj1 = new Parent();
+        obj1.display();  // Output: Parent's static method
+
+        Parent obj2 = new Child();
+        obj2.display();  // Output: Parent's static method (method hiding, not overriding)
+
+        Child obj3 = new Child();
+        obj3.display();  // Output: Child's static method
+    }
+  }
+
+# Does "finally" always execute in Java?
+- Only for two cases not executed finally block like 
+  1. If we use System.exit(), then it will terminate means will not execute next line
+  2. Some time JVM will crash or get StockOveFlow Error then finally block will not execute
+
+# What methods does the objects class hava?
+Method			Purpose
+clone()	                Creates a copy of the object.
+equals(Object obj)	Checks if two objects are equal.
+finalize()		Cleanup before the object is garbage collected. (Deprecated since Java 9)
+getClass()		Gets the runtime class of the object.
+hashCode()		Returns a hash code for the object.
+notify()		Wakes up a single thread waiting on this object's monitor.
+notifyAll()		Wakes up all threads waiting on this object's monitor.
+toString()		Returns a string representation of the object.
+wait()			Causes the thread to wait until notified.
+
+# How can we make a class immutable
+- To make class as immutable we have to follow set of rules like
+1. Declare the class final.
+- So it can't be extended
+2. Make all fields private and final.
+- So we cann't access field directly
+3. Initialize all fields in the constructor.
+4. Provide getter methods (but no setter methods).
+5. Use defensive copies for mutable fields.
+Ex: public final class Person {
+    private final String name;
+    private final int age;
+    private final Date birthDate;
+    // Constructor to initialize the fields
+    public Person(String name, int age, Date birthDate) {
+        this.name = name;
+        this.age = age;
+        // Defensive copy of the mutable object
+        this.birthDate = new Date(birthDate.getTime());
+    }
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+    // Getter for age
+    public int getAge() {
+        return age;
+    }
+    // Getter for birthDate with defensive copy
+    public Date getBirthDate() {
+        return new Date(birthDate.getTime());
+    }
+  }
+
+# What is singleon class in java and how can we make a class singleton?
+- A Singleton class is a design pattern that ensures a class has only one instance in the entire application and provides a global point of access to that instance. This pattern is often used when you need to control 
+  access to resources, such as database connections or logging.
+- To make a class Singleton, we need to ensure the following:
+1. Private constructor: To prevent instantiation from outside the class.
+2. A static variable: To hold the single instance of the class.
+3. A public static method: To provide access to the instance.
+Ex: public class Singleton {
+    // Step 1: Create a private static variable to hold the instance
+    private static Singleton instance;
+    // Step 2: Make the constructor private so that the class cannot be instantiated outside
+    private Singleton() {
+        // Private constructor to prevent instantiation
+    }
+    // Step 3: Provide a public static method to get the instance
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton(); // Create the instance if it doesn't exist
+        }
+        return instance;
+    }
+  }
