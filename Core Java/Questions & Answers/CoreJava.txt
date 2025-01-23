@@ -2,7 +2,7 @@
 - Java is object oriental programing language, it is an high level, secured and open source programing language
 
 # What is object orientel
-- In java everything in object only, means we organize our software as a combination of different types of objects
+- In java everything in object only, means we are organize our software as a combination of different types of objects
 
 # Type of java application
 - Standalone application
@@ -11,20 +11,20 @@
 - Mobile application
 
 # What is standalone applcation
-- Standalone application is like desktop application, means standalone application will perform in same machine with user interface
+- Standalone application is like desktop application which means doesn't run in server, will run in same machine only
 - Mobile applications also like standalone applications
 
 # What is distributed application
 - Distributed application are run on server only, user will connect using web application url
-- Based on url user will get UI pages, user will perform operations according
+- Based on application url details user will open application and perform actions
 
 # What is Http and FTP
-- Http(Hyper tech transfer protocol) is used to access the website on the internet
-- FTP(File Transfer Protocol) is used to transfer file from one host to another
+- Http(Hyper tech transfer protocol) which is used to transfer data from one server(host) to another server(host) via internet
+- FTP(File Transfer Protocol) is used to transfer file from one host(server) to another host(server)
 
 # Stateless and Statefull Protocol
-- Stateless doesn't maintain any user request information in sessions
-- Statefull will maintain user request informations in sessions, and if user required request information then we can send using session object
+- Stateless doesn't maintain user request information in sessions(memeory)
+- Statefull will maintain user request informations in sessions(memory) and if we want to send user request session object we can send it.
 
 # What are the features in java
 1. Simple
@@ -51,7 +51,7 @@
 - JVM stands for Java Virtual Machine, it is used to read byte code line by line and convert into nagative understanding formate of OS(Operating System)
 - Steps to follow convert byte to os
   1. Load code
-  2. Verifies code
+  2. Verifiy code
   3. Execute code
   4. Provide runtime environment
 
@@ -62,12 +62,12 @@
 - It is used to develop java applications
 
 # What is JIT (Just In Time)
-- JVM will read byte code in line by line, so it will take more time to read byte code line by line and convertinto OS
+- JVM will read byte code in line by line, so it will take more time to read byte code line by line and convert into OS
 - So over come this problem we use JIT
-- JIT is used to read entire byte code at once and convert into netive understand permate of OS
+- JIT is used to read entire byte code at once and convert into native understand permate of OS
 
 # What is Garbage Collection
-- It is used to find the unused objects and delete then to reclaim memory
+- It is used to find the unused objects and delete then to reclaim memory, so application performance will increase
 
 # What is Identifiers in java
 - A name in java program is defualt considered as identifier, which is used to identification purpose
@@ -76,7 +76,7 @@
 
 # What is variable
 - varible is hold the value, we can assing variable using data type
-- we have 3 types of varialble
+- We have 3 types of varialble
 1. local variable
 - If we declare varible inside method, then those methods are calles local variable
 2. instance variable
@@ -91,7 +91,7 @@ Ex: int a;
 Ex: int a=10;
 
 # What is Data Type
-- Data type is declare varible type, which mean our variable values as primitive or non- primitive data type
+- Data type is declare varible type, which means our variable values as primitive or non- primitive data type
 - Data types are two type
 1. Primitive data type
 - The primitive data types are boolean, char, byte, short, int, long, float and double.
@@ -100,7 +100,7 @@ Ex: int a=10;
 - String also comes under non-primitive data type, becoz String is an object
 
 # Java Control Statement
-- provides statements that can be used to control the flow of Java code. Such statements are called control flow statements. 
+- Provides statements that can be used to control the flow of Java code. Such statements are called control flow statements. 
   It is one of the fundamental features of Java, which provides a smooth flow of program
 - Decision Making statements
   if statements
@@ -119,43 +119,50 @@ Ex: int a=10;
 - newInstance() is used to create an object for class, if we want to create instance(object) with out knowing class name then we go for use it
 
 # What is homogenius and hetrogenius
-- Homegenius means same type of object, like array can support only homogeius
-- Hetrogenius mean different types of objects, like array coudn't support hetrogenius values
+- Homegenius means same type of object, like array can support only homogeius elements
+- Hetrogenius means different types of objects, like array coudn't support hetrogenius elements
 
 # What is array 
 - An array used to store the hohmogenius data in index value
 - In array we can't change size of array once array is created
-- we must be know(decide) the size of array before creating
+- we must be know(decide) the size of array before creating arrays
 
 # What is Iterable and Iterator
 - The target element in forEach loop should be Iterable
 - We can use iteraor to get objects one by one from the collection
 
+# Different between Iterable and Iterator
+Feature	                   Iterable	                                     Iterator
+Definition	           Represents a collection of elements.	             Used to traverse elements in a collection.
+Provides	           An iterator() method to get an Iterator.	     hasNext(), next(), and remove() methods.
+For-Each Compatibility	   Enables for-each loop.	                     Cannot be directly used in for-each.
+Modification	           Does not directly modify elements.	             Can remove elements during iteration.
+
 # Declarations and access modifiers
-- Whenever we write code, we must be give information about classes and methods and variables for JVM
+- We can give access controllers for Classes, method and variable using modifiers
 1. public
-- we can use public modifier at class level and method level
-- if we declase class as public, we can access that classs from within package and out side of package also
+- We can use public modifier at class level and method level
+- If we declase class as public, we can access that classs from within package and out side of package also
 2. defualt
-- it is class level modifier
-- it is defualt type, we can access classs within package only, but cann't access from out side of package
+- It is class level modifier
+- It is defualt type, we can access classs within package only, but cann't access from out side of package
 3. final
-- we can use final modifier at class level, method level
-- if we use method as final, child class coud not override that method (mean if A class have final sum(), now in B class extends A class, but we cann't possible to overriden sum() in B class)
-- if we use final for class, we can not create child class means(if i creating Studnet class as final modifer, and also create College classs and try to extends Student class into College class
+- We can use final modifier at class level, method level
+- If we use method as final, child class coud not override that method (mean if A class have final sum(), now in B class extends A class, but we cann't possible to overriden sum() in B class)
+- If we use final for class, we can not create child class means(if we creating Studnet class as final modifer, and also create College classs and try to extends Student class into College class
   so here we cannt extends class mean we cann't do inheritance concept)
 4. abstarct
-- we can use abstract modifier at class level, method level and varible level.
+- We can use abstract modifier at class level, method level and varible level.
 - parent class abstract method doest have any implementation, but parent class tell to guidlines into child class. which mean if am creating Student class, in this class have one abstract method
-  is called studentLogin method. now i have another method is called StudentReg class so now am extends Student class for StudentReg. so must be override abstract class and implementation required
+  is called studentLogin method. now i have another method is called StudentReg class so now am extends Student class for StudentReg. so can override abstract class and implementation required
   implmentaions
-- if we want to not allowed to create an object for java class, then we declare class as abstract class. then we could not create object for that class
+- if we dons't allowed to create an object for java class, then we declare class as abstract class. then we could not create object for that class
 5. private
 - we can use private modifier for method and veriable level
 - If we use private modifier we cann't access out side of class
 6. protected
 - we can use at method level and variable level, but we cann't use class level
-- we can access within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package.
+- we can access within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package. //read:20-01-2025
 
 # What Static Modifier
 - We can use static modifer for varible and methods but not classes
@@ -919,8 +926,6 @@ Ex:
 			System.out.println("Id "+info.getTechId()+" Name "+info.getTechName()+" Duration "+info.getDuration());
 		}
 	}
-
-
 
 
 
