@@ -303,4 +303,79 @@ Endpoint	        Description
 /actuator/threaddump	Provides a thread dump of the JVM.
 /actuator/loggers	Shows and allows configuration of application log levels.
  
->>>>>>> Stashed changes
+# How do we configure same property with different values for different environments
+- We have to maintain different types of property files like application-dev.property, application-prod.property, application-test.property. and have on activate any perticular property file in application.property file
+  like spring.profiles.active=dev, spring.profiles.active=prod, spring.profiles.active=test
+- Using @Profile annotaion we can manage environment like we have to create different datasource in configuration class
+    @Configuration
+    public class DataSourceConfig {
+    @Bean
+    @Profile("dev")
+    public DataSource devDataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3306/dev_db");
+        dataSource.setUsername("dev_user");
+        dataSource.setPassword("dev_password");
+        return dataSource;
+    }
+
+    @Bean
+    @Profile("prod")
+    public DataSource prodDataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3306/prod_db");
+        dataSource.setUsername("prod_user");
+        dataSource.setPassword("prod_password");
+        return dataSource;
+     }
+    }
+- In application.property file we need to activate any one of the environment like spring.profiles.active=dev, based on active value that bean only create
+
+# What is AOP
+
+# How can you access a value defined in the application? What is properties file in spring boot?
+- We can inject property file values using @Value annotation, like
+  propertiesfile:
+  app.name=MySpringBootApp
+  app.version=1.0.0
+
+  @Component
+  public class AppConfig {
+  @Value("${app.name}")
+  private String appName;
+  @Value("${app.version}")
+  private String appVersion;
+  }
+
+- And also we can access properties using @ConfigurationProperties, like
+  app.properties:
+  app.details.name=MySpringBootApp
+  app.details.version=1.0.0
+  app.details.owner=Sharath
+
+  @Component
+  @ConfigurationProperties(prefix = "app.details")
+  public class AppDetailsConfig {
+
+  private String name;
+  private String version;
+  private String owner;
+
+  // Getters and Setters
+  public String getName() { return name; }
+  public void setName(String name) { this.name = name; }
+
+  public String getVersion() { return version; }
+  public void setVersion(String version) { this.version = version; }
+
+  public String getOwner() { return owner; }
+  public void setOwner(String owner) { this.owner = owner; }
+  }
+
+# How can you share your Rest endpoint API contracts with consumers of your applications
+- We can share End point details with the help of swagger. Swagger will describing the structure of APIs. It is an open source service provided by Spring Boot
+
+# How will we convert a monolithic to microservice application (16:20)
+
+# How to make your microservices more Robust and fault tolerant
+  
