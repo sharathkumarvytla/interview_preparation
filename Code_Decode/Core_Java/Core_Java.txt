@@ -378,4 +378,24 @@ Endpoint	        Description
 # How will we convert a monolithic to microservice application (16:20)
 
 # How to make your microservices more Robust and fault tolerant
+
+# How microservices can communicate each other
+- We have two approaches to communicate microservices, like Synchronous & Asynchronous
+- Synchronous communication : Rest Template, Web Client, Feign Client can be used for synchronous communication between two microservices
+- Asynchronous communication : In this communication the client does not wait for a response, instead, it just send the message to the message broker. AMQP (like RebbitMQ)
+  or Kafka can be used for asynchronous communication across microservices to achieve eventual consistency
+
+# What are Joins in SQL?
+- There are four types of SQL Joins
+1. (Inner Joins) : It is used to retrieve the records that have matching values in both tables that are   involved in the join. Inner Join is mostly used to join queries
+    - SELECT * FROM TABLE A JOIN TABLE B
+    - SELECT * FROM TABLE A INNER JOIN TABLE B
+2. Left(Outer Join) : Use for left join is to retrieve all the records or row from the left and the matched one from the right
+    - SELECT * FROM TABLE_A A LEFT JOIN TABLE_B ON A.COL = B.COL
+3. 
+
+
+
+
+
   
