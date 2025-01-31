@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # Why Java is not 100% Object-Oriented?
 - Java is not 100% Object-Oriented, becuase in java we have primitive type data types like boolean, byte, char, int, float, double, long, short. this all are not a objects. But we can convert primitive to object using wrapper class
 - Also in java we have static methods and static variables, this are not belong to objects. Its belongs to class. becuase we can call static methods or static variables without creating objects
@@ -375,7 +374,7 @@ Endpoint	        Description
 # How can you share your Rest endpoint API contracts with consumers of your applications
 - We can share End point details with the help of swagger. Swagger will describing the structure of APIs. It is an open source service provided by Spring Boot
 
-# How will we convert a monolithic to microservice application (16:20)
+# How will we convert a monolithic to microservice application
 
 # How to make your microservices more Robust and fault tolerant
 
@@ -392,7 +391,150 @@ Endpoint	        Description
     - SELECT * FROM TABLE A INNER JOIN TABLE B
 2. Left(Outer Join) : Use for left join is to retrieve all the records or row from the left and the matched one from the right
     - SELECT * FROM TABLE_A A LEFT JOIN TABLE_B ON A.COL = B.COL
-3. 
+3. Right(Outer) Join : Use of right join is to retrieve all the records or rows from the right and the matched one from the left
+    - SELECT * FROM TABLE_A A RIGHT JOIN TABLE_B B ON A.COL = B.COL
+4. Full (Outer) Join : The use of Full join is to retrieve the records that have a match either in the left table or the right table
+    - SELECT * FROM TABLE TABLE_A A FULL JOIN TABLE_B B ON A.COL = B.COL
+Remember ** Full outer join syntax is not supported in Mysql
+
+# What is an index
+- Indexes is used to improves the speed of data retrieval operations on a table. we can find the rows more efficiently rather than scanning the entire table
+- We have different type of indexes in sql like
+  1. Primary Index – Automatically created when a PRIMARY KEY is defined.
+  2. Unique Index – Ensures that all values in a column are unique (UNIQUE constraint).
+  3. Clustered Index – Sorts and stores data rows in the table based on the indexed column (only one per table).
+  4. Non-Clustered Index – Creates a separate structure to store pointers to data rows, allowing multiple indexes per table.
+  5. Composite Index – An index on multiple columns.
+  6. Full-Text Index – Used for text searches.
+  7. Bitmap Index – Used in OLAP systems for low-cardinality columns.
+- When to Use an Index:
+  1. When searching large datasets frequently.
+  2. When filtering data using WHERE, ORDER BY, and JOIN conditions.
+  3. When performing range queries.
+- When Not to Use an Index:
+  1. On small tables (as a full table scan might be faster).
+  2. On frequently updated columns (as indexes slow down INSERT, UPDATE, DELETE operations).
+  3. When too many indexes exist (as they consume additional storage and maintenance overhead).
+
+# What is the difference between first level cache and second level cache
+- First Level Cache
+  1. This is local to the session object and cannot be shared between multiple sessions
+  2. This cache is enabled by default and there is no way to disable it
+  3. The first level cache is available only until the session is open. once the session is closed, the first level cache is destroyed
+
+- Second Level Cache
+  1. This cache is maintained at the SessionFactory Level and shared amoung all sessions in hibernate
+  2. This is disabled by default. bu we can enable it through configuration
+  3. The second-level cache is available through the application's life cycle, It is only destroyed and recreated when an application is restarted
+
+# What are the most commonly used annotations available to support hibernate mapping
+
+# What is criteria API in hibernate
+
+# Does hibernate support Native SQL Queries
+
+
+// Questions (Infosys, Wipro, TCS)
+# What is the difference between ArrayList and Linked List 
+- Array List
+  1. Array List will store the data in resizable array
+  2. For accesing data is it fast, because it directly jumping to the item using index
+  3. For adding/removing data in middle it is slow, because elements should be shift into next 
+  4. Recomended to use for accesing data
+
+- Linked List
+  1. Linked List will store the data in chain of nodes (each node has data + a link to the next node)  
+  2. For accesing data is it slow, becuase it shoud be check and find from the begining of elements
+  3. For adding/removing data in middle it is fast, becuase it just update links
+  4. Recomended to use for adding/removing elements frequently
+
+# What is Lazy Initialization in Hibernate
+- 
+
+# Difference between is first level & second level cache in hibernate
+-
+
+# Different between HashMap and Hashtable
+- HashMap
+  1. It is not synchronized, which means not thread-safe, so performance wise it is faster
+  2. Allows only one null key, and can allow multiple null values
+  3. Throws ConcurentModficationException if modified during iteration
+  4. Default is not thread-safe, but can be made thread-safe using Collection.synchronizedMap() or ConcurrentHashMap
+  5. It is modern (introduced in java 1.2)
+
+- Hashtable
+  1. It is synchronized, Which means thread safe, but perfomance wise is slower
+  2. Doesn't allow null keys or null values
+  3. Throws ConcurentModficationException if modified during iteration
+  4. Default is thread-safe
+  5. Legacy (from java 1.0)
+
+# Describe, in general, how java's garbage collector works
+
+# What is serialization ? Why do we need it
+- Serialization is the process of converting a Java object into a byte stream so it can be stored in a file, sent over a network, or saved in a database. The reverse process, converting the byte stream back into an object, 
+  is called deserialization.
+- Serialization is useful when:
+✅ Saving objects to a file (e.g., saving user sessions).
+✅ Sending objects over a network (e.g., in distributed systems, REST APIs).
+✅ Storing objects in a database (e.g., caching objects in Redis).
+✅ Deep cloning objects (copying complex objects with references).
+Ex: public class SerializeExample {
+    public static void main(String[] args) throws Exception {
+        Student student = new Student(1, "John");
+        FileOutputStream fileOut = new FileOutputStream("student.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(student);  // Serialization
+        out.close();
+        fileOut.close();
+        System.out.println("Object serialized!");
+     }
+    }
+ 
+    public class DeserializeExample {
+    public static void main(String[] args) throws Exception {
+        FileInputStream fileIn = new FileInputStream("student.ser");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        Student student = (Student) in.readObject();  // Deserialization
+        in.close();
+        fileIn.close();
+        System.out.println("Student ID: " + student.id);
+        System.out.println("Student Name: " + student.name);
+     }
+    }
+- Only classes that implement Serializable can be serialized.
+- transient keyword: If a field is marked as transient, it will not be serialized
+Ex: transient String password; 
+
+# What is dependency injection or IOC (Inversion of Control)
+- Dependency injection which means injecting the requred dependency from external source rather than create them inside class
+- IOC Container is core container of spring framework
+- Why Do We Need Dependency Injection
+✅ Reduces Tight Coupling – Objects depend on interfaces instead of concrete implementations.
+✅ Improves Maintainability – Changing one class does not require changing dependent classes.
+✅ Enhances Testability – Makes unit testing easier by allowing mock dependencies.
+✅ Better Code Reusability – Objects can be reused across multiple places.
+- Types of Dependency Injection
+✅ Constructor Injection – Injects dependencies via constructor.
+✅ Setter Injection – Injects dependencies via setter methods.
+✅ Field Injection – Injects dependencies directly into fields (using frameworks like Spring).
+
+# What is weekhashmap
+
+# What is functional interface
+
+# If synchronized map is there why concurrent hash map was introduced
+
+
+
+
+
+
+
+
+
+
+
 
 
 
