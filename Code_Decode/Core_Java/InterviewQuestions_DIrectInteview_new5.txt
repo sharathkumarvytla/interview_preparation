@@ -1,0 +1,666 @@
+
+----- Capgemini ------ [https://www.youtube.com/watch?v=Y5o9aUR8ujY]
+# Different between String Builder & String Buffer
+- Both are used to do String related operations
+- StringBuilder is synchronous which means it can allow only one thread at time. when we work on single thread environment then use it
+- String Buffer is asynchronous which means it can allow multiple threads at time, when we work on multiple thread environment the we use it
+
+# Different between Array List & LinkedList
+- This two classes are we implemented by List interface
+- Array List is follow dynamic array, LinkedList follow double linked list
+- Array List I used to frequently doing search operations, And LinkedList I used to doing insert, update and delete operations, because in linked list while adding elements internally create link            for new element but its not shifting into elements for next index
+
+# Explain purpose of finalized() and Is it recommended to use it *
+- Finalized() is called by garbage collector when the object is read to destroy. And It is not recommended to use finalize() method, and it is deprecated in Java 9
+
+# Different between Comparable & Comparator, When we use comparable & Comparator
+- Comparable and comparator both are interface, its used to ordering of sorting the elements
+- If I want to do default natural sorting order, like i have list of number or list of string want to apply sorting for that, at the time i will use comparable interface
+- If I want to do custom sorting order then use Comparator interface
+  Ex: I have Employee class in the might have some fields like name, in that i want to get data by employee name for that i will custom sorting using Comparator with ComparareTo()
+
+# What is exceptions
+- Exceptions is like code will not execute abnormally, we have two types of exceptions like checked & un-checked exceptions
+- Checked exceptions will check by compiler at compiler time, but un-checked exceptions will not check compiler, un-checked exceptions will come at run time
+- For example SQL Exceptions, IO Exceptions are checked exceptions, Null pointer Exceptions, Array Index Out Of Bounds Exceptions are un-checked exceptions
+
+# How to handle validations in spring boot application
+- For example we have employee entity, it might have some fields like employeeId, employeeName, employeeEmail. so this employeeId is not null field so for that I used spring boot annotations like @NotNull annotations
+- In Controller layer, I used @Validator annotation along with Request body of that employee, is validator annotation will check whether the employee id is null or not. if null return employee id can't be null
+
+# Status codes in spring boot https
+- Status codes are indicate about our HTTP API status, for example
+1. 200 OK: The request was successful.
+2. 301 Moved Permanently: The requested resource has been permanently moved to a new location
+3. 400 Bad Request: The request was invalid
+4. 401 Unauthorized: The client needs to authenticate to access the resource
+5. 403 Forbidden: The client does not have permission to access the resource
+6. 404 Not Found: The requested resource could not be found
+7. 500 Internal Server Error: The server encountered an unexpected error
+8. 503 Service Unavailable: The server is temporarily unavailable 
+
+# What is spring boot profiles & How we can use ?
+- Profiles is like tell the which type of environment we want to used for spring boot application like dev, test, prod
+- We can configure separate profile for separate environment(like application-dev/application-test/application-prod), and we can switch those profiles in application.properties file using        spring.profiles.active=dev/test/prod
+
+# What is spring boot actuator
+- Actuator is used to check health of spring boot application like get the beans which are used in application	or we can get no of request which are coming for particular API
+
+# How we can configure custom health indicator in spring boot application *
+- We have interface called HealthIndicator, so first we will create one class and implement HealthIndicator interface and override the health() 
+
+# What is API Gate way
+- API gate way is act as entry point for client request, whenever the client request will come then it will go through the API gate to backed services
+- Primary responsibility is like routing the request which are coming for the client, and we can use authentication and authorization as well
+
+# What do you use for API gate way
+- We used Spring cloud gate way as API gate way dependency
+
+# Different between authentication & authorization
+- Authentication is used to identify user and authorization is comes after
+- Once use will authenticated then will check what are the permission are associated with that user that is basically authorization
+
+# What is transaction & How to handle distributed transaction in microservices*
+- 
+- Distributed transaction will basically happen between two services, let us consider we are passing data from one service to another service using kafka. so while publish the message to the kafka remaining services will find the messages from kafka 
+
+# public static void main(String[] args){
+   List<String> list = Arrays.asList("apple", "bat", "cat", "banana", "dog");
+   Map<String, Long> strLenMap =  list.stream().collect(Collector.groupBy(String::length, Collector.couting()));
+   System.out.println(strLenMap);
+   O/p : {3=3, 5=1, =1}
+
+# Write SQL Query to find Top 3 employee salary
+  SELECT DISTRICT SALARY FROM EMPLOYEES ORDER BY SALARY DESC LIMIT 3;
+
+# Real time Scenario like, In application have memory leakage issue, that is happening in production serve. so on which places you trying to investigation issue*
+- 
+-------- TCS ----------- [https://www.youtube.com/watch?v=yVj2EgwZxk4]
+# How many ways to create thread & which is recommended way to create thread
+- We can create thread in 3 ways
+  1. By extend Thread class and override run()
+  2. By implement RunnableInterface
+  3. By using Executor framework
+- Recommended way is if we want to create multiple thread then we can use Executor framework, and if want to create single thread and our class is not extend anything then use Thread class or use RunnableInterface
+
+# What is dead lock in threads
+- Which means two or more threads are waiting each other for resources, like thread1 is holding resource1, but thread2 is waiting for resource2 but that is holding in another thread is called dead lock
+- We can avoid this, like we should follow lock orders are consistent, etc*
+
+# What are the stages in threads
+- When we create new thread that thread stage is new stage
+- wheneven that thread is ready to execute that stage is ready state
+- whenever that thread is waiting for other functions that is called waiting stage
+- then entered into terminated stage 
+
+# Is possible to restart terminated state thread
+- If we try to restart terminated state thread that also called new thread only
+
+# What is throw and throws keyword
+- This two are used to handle the exception
+- If we want to throw the exception explicitly then we have to use throw key word in try block ( For example I am trying to get Employee data, but there is no Employee class. so explicitly am throwing Employee class not found exception)
+- And throws is method signature keyword, which is used to tell method may throws exception
+
+# What are the different types of exceptions in java
+- We have two types of exceptions like checked exceptions and unchecked exceptions
+- checked exceptions are checked by compiler at compile time
+- unchecked exceptions are not checked by compiler, at run time will check unchecked exceptions. like Null pointer exception, Array Index Out Of Bound Exception 
+
+# What is try-with-resources in exceptions *
+- The try-with-resources statement (introduced in Java 7) is used to automatically close resources (like files, database connections, network sockets, etc.) when they are no longer needed.
+
+# What is equals operator(==) & equals method
+- equals operator is used to compare object reference
+- equals() is used to compare object content like
+Ex: String str1 = "ABC";
+    String str2 = new String("ABC");
+    System.out.println(str1 === str2) // output : false
+    System.out.println(str1.equals(str2)) // output : true
+
+# Different between abstract class and interface & when to go for which one
+- Abstract class can have abstract methods as well as non abstract methods, but in interface can have only abstract methods. but from java8 added default and static methods in interface
+- Class can extend only one class only, but class can implement multiple interfaces
+
+# What is dependency injections
+- Basically dependency injection is design pattern, which means injecting the dependencies into a class instead of creating beans
+- We can use annotations like @Autowired, @Controller, @Service, @Repository and @Component annotations for dependency injection
+
+# What is circular dependency in spring boot*
+- A circular dependency occurs when two or more beans depend on each other, forming a loop. This prevents Spring from creating and injecting the beans properly.
+- Use @Lazy to Delay Bean Initialization (Recommended)
+Ex: @Service
+    public class ServiceA {
+    private final ServiceB serviceB;
+
+    @Autowired
+    public ServiceA(@Lazy ServiceB serviceB) {
+        this.serviceB = serviceB;
+    }
+    }
+
+- Use Constructor Injection Instead of Field Injection
+Ex: @Service
+    public class ServiceA {
+    private final ServiceB serviceB;
+
+    public ServiceA(ServiceB serviceB) {
+        this.serviceB = serviceB;
+    }
+    }
+
+# What is CRUD repository & JPA repository*
+- Both are Spring Data JPA inteface, in CrudRepository we can do basic operations like save,update,delete,get using methods like save(), findByAll(), findById(), deleteById(). but in JPA we have another features like pagable, sorting
+  batch processing
+
+# In spring boot application how to tune application performance
+- To improve application performance I can use caching, I am trying to avoid no of database call frequently, i will save in cache level and retrieve data from cache
+- I can configure actuator to monitor application health & performance and identify the where it was taking more time
+- And try to use Asynchronous processing using @Asynch annotation
+
+# How to divide monolithic to microservice application*
+- 
+
+# Different between synchronous and asynchronous communication in microservice*
+- For synchronouse one microsevice will send request to another service and wait untill another microservice response will come. if another microservice will delay first microservice will blocked
+- For Asynchronous one microservice will send message to kafka and without waiting process the next executions
+
+# Write program to find list of words characters from sentence, and sorted alphabetical order using java 8
+- public static void main(String[] args){
+  String str = "Java is fun and Java is powerfull";
+  List<String> uniqueWords = Arrays.Stream(str.split(" ")).map(String::toLowercase).distinct().sorted().collect(Collectors.toList());
+  System.out.println(uniqueWords);
+  }
+
+
+---------- CGI ---------[https://www.youtube.com/watch?v=I8vcwnn6Qc8]
+# We have two interface A & B, we have a same default method in both interface. And I am implements both interfaces to my class and try to use default method in my class. how it will work
+- When a class implements multiple interfaces that each provide the same default method, Java will encounter an ambiguity because it cannot decide which default method to use. In such a case, you must explicitly override the 
+  method in the class to resolve the conflict.
+
+# Why they introduced private in Java
+
+# When we should go default method & when we should go static method
+- Default method : When we want to implement interface functionality without bracking then we use default method
+- Static method : Static methods are not depends on object, when we want to get utility functions then we use this method. we must be override this methods
+
+# What is variable argument in java
+
+# In public static void main(String[] args), can we replace with variable argument in string[]
+
+# We have class is Test, it have one static method list testing(), we are create object for this Test class with null reference. like Test obj = null; now if i call obj.testing(). So it work fine or get any issues
+- I will work fine, becuase static methods are associated with classes not for objects. but it is not recomended. we have to do like Test.testing();
+
+# What is equals & hash code contract
+
+# Different between base class & abstract class
+
+# What is marker interface in java
+- Marker Interface is an interface, it doesn't have any fields and metthod. It is used to provide metadata for class while implementes Marker Interface
+- JVM will provide special behaviour for marker interface like serializable and clonnable
+- Serializable is like convert object to byte stream so we can share file throw as network
+- Clonable is used to create copy of an object without using constructors(It is faster then manually copying)
+ 
+# Can we create our own custom market interface? If yes how?
+
+# What volatile key word
+- In muti thread environment if mutiple thread will do like read and write for same variable then we use volatile key word for field
+Ex: static volatile int count = 0;
+
+# Can we are functional interface without abstract methods? If no why?
+- No, Without exact one abstract method we can't consider that is functional interface, becuase in interface if does't have one abstract method we can't perform lambda expresions
+
+# We have use TreeSet and we are added first elements in null and second elements is abc. so if we print that object what will display
+- Will get run time exception, because we added null, null values not allowed error so it will run time
+
+# What will happen if we return system.exit() in try catch block, finally block will execute or not?
+- If you call System.exit() within a try-catch block, the finally block will not execute because System.exit() immediately terminates the entire Java Virtual Machine (JVM), preventing the   execution of any further code, including the finally block
+
+# What are the different components of microservices
+- We have different type of components in microservice like Service Discovery, API Gate Way, Load balancer, Service Registry, AOP, Circuit Breakers
+
+# Diff API Gate Way, Service Registry, Config Server
+- API Gate Way is entry point for handling client request, we can do authentication and authorizations and configure load balance
+- Service Registry is track the available services in micro service and register those services
+- Config Server is Centralized config server, we can districutes propeties from Config Server
+
+# What are the different way to create spring boot applications
+- We normal used spring boot initializer, we can select what are the dependencies for application and generate application and export application into IDE (like STS)
+- Also we can generate Spring boot application from IDE it self(Like STS)
+- Also we can generate spring boot application form CLI
+
+
+# How to handle Spring Boot application exceptions globally
+- We can handle exceptions globally by using @ControllerAdvice and use @ExceptionHandler annotation for methods
+Ex: @ControllerAdvice
+    public class GlobalExceptionHandler {
+    // Handle Resource Not Found Exception
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleResourceNotFound(ResourceNotFoundException ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("timestamp", LocalDateTime.now());
+        response.put("message", ex.getMessage());
+        response.put("status", HttpStatus.NOT_FOUND.value());
+
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+   }
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    @GetMapping("/{id}")
+    public String getUserById(@PathVariable int id) {
+        if (id != 1) {  // Simulating user not found
+            throw new ResourceNotFoundException("User with ID " + id + " not found");
+        }
+        return "User found!";
+    }
+}
+
+# Which build tool use normal like Maven/Gradle
+
+# What is maven life cycle
+
+# What is default scop is maven
+- Default scop is compile
+
+# What is maven plugin
+- 
+
+# What is cluster and non-cluster index in SQL
+
+# What is view in SQL & How to defined from the table
+
+# What is store procedures & how to defind from view
+- Store procedures only queries, it like one or more SQL statements in database, and it can accept parameters and it perform operations based on parameters
+
+# What is primary and foreign key
+- Primary and Foreign keys are used to establish relations between two tables
+- In table every row have primary key that should be have unique, and also every table have foreign key. foreign key will craete with reference of primary key
+
+----- TCS -------[https://www.youtube.com/watch?v=SoijryxeSrc]
+# Can we have two method in same class
+- Yes can create same method in same class. but should be have different or type of parameters
+
+# Diff abstract class & interface
+
+# We have super class, that class have method and that method return Null pointer exceptions in run time, from sub class if we over ride that method what will happen?
+
+# Different between Comparable and Comparator Interface
+
+# How do we use Comparable & Comparator Interface
+
+# Different between equals() and == operator
+
+# What is Big Integer & How to initialize Big Integer
+- Big Integer is a class from Java.match package. Which is used to handle large integer values
+- We can initialize big integer in different ways like
+  1. BigInteger num = BigInteger.valueOf(1000) - for small integer values
+  2. BigInteger bigNum = new BigInteger("987654321987654321987654321") - for very large integer values 
+
+# Why Java is not 100% object oriental
+
+# If we use Java 8 how to avoid null pointer exceptions
+- Using Optional class we can avoid null pointer exceptions by using ofNotNull() or isPresent()
+
+# What are the methods we have in Optional class
+
+# Diff map and flateMap
+- Both are used to transform data, but different is if our function already returing Optional or Stream use flatMap or else use map 
+
+# What is functional interface
+
+# Can you name some one functional interfaces
+
+# What is clonable interface
+
+# What is marker interface
+
+# What is Stream API
+- String API is one of the features in Java8 versions, which is used to perform data without using loops, Steam API provide methods like filter, map, forEach method so we can do very faster and efficiely
+
+# Diff throw, throws and throwable
+- Throwable is super class of all errors and exceptions
+- Throws is key word we can use this on method level
+- Throw is used to throw the exception explicitly in try and catch block
+
+# What we understand by lambda expressions
+
+# We have list, in the list we have some string we have to find out the distinct names 
+
+# We have employee table, find the who's have kumar as a midle name in SQL
+- select * from employee where midle_name like %kumar%;
+
+# What is foreign constraints
+
+# Can we use HashMap in multithread environment
+- We can use, but Hashmap is non-thread safe so we might get data consistance issue, so recomended to use ConcurentHashMap or else we can make HashMap as thread safe using Collections.SynchronizedMap()
+Ex: Map<Integer, String> map = Collections.synchronizedMap(new HashMap<>());
+
+# Can we put duplicate elements in Array List
+
+# What type of annotations we used for Rest API 
+- @Controller, @RequestMapping, @RequestMethod, @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @Service, @Repository
+
+# How we are connecting database
+
+# If we want to get some value from properties file which annotation will use
+- @Value annotation - for field level
+- @propertySource - for class level
+
+---- ------- [https://www.youtube.com/watch?v=Qit4vJKGEE8]
+# Different between Java script & Type script
+- Java Script
+1. dynamically typed scripted language, which means variable can hold any type of value
+2. we might get run time exceptions, because we are not writing the variable type
+3. compilation no required, because it will run direct in browser or nod.js
+4. Its not supports interfaces and generics	
+
+- Type script
+1. Type script is strictly typed programing language, which means we can declare variable type so we might get at compile time only
+2. In type script we required compilations, In compilation type script will convert into .ts file into java script .js
+3. In type script supports interfaces and generics also 
+
+# What are the features in angular 8
+1. Standalone Components Improvements - We can use standalone components without importing in ngModel
+2. Directives and pipes directly imported in standalone component
+3. Required input component : We can make @Input() value is mandatory field by writing @Input({ required: true }) value!: string;
+4. Improve the performance of build
+5. Support Typescript 5
+
+# What are the building components of an angular application*
+
+# What are the types of directives
+
+# What is purpose of NgDestroy()
+- It is angular life cycle hook, which is used to do cleanup activities before closing component or directive. like un-subscribe data, or removing event listeners or, Closing WebSockets or database connections
+
+# What is selectors
+- In angular every components have as selector tag, so using selector tag we can use the components in template
+
+# We have radio group (like two radio buttons) a and b, if we select a that radio button a div should display, if we select b that radio button b div should display. write a code using angular
+- <input type="radio" (change)="showBox($event)" name="com" value="a"> Show A
+  <input type="radio" (change)="showBox($event)" name="com" value="b"> Show B
+<div *ngIf="boxName == 'a'">
+ A box
+</div>
+<div *ngIf="boxName == 'b'">
+ A box
+</div>
+
+boxName = '';
+showBpx(event:any){
+this.boxName = event.target.value;
+}  
+
+# We are calling 10 API's, after getting 10 API's response want to calls  another API, how we can handle it.
+- You can handle this scenario in Angular using RxJS operators like forkJoin(), combineLatest(), zip(), or mergeMap(). The best approach depends on whether the API calls are independent or  dependent on each other
+1. forkJoin() : It is best approach for Parallel API Calls, because If all 10 API calls are independent and can be executed in parallel, you can use forkJoin(). It waits for all API calls to complete and then triggers the next API.
+Ex:
+ngOnInit() {
+    const apiCalls = [
+      this.http.get('https://api.example.com/data1'),
+      this.http.get('https://api.example.com/data2'),
+      ....
+    ];
+
+    forkJoin(apiCalls).subscribe(
+      responses => {
+        console.log('All 10 API responses received:', responses);
+        
+        // Now call the next API after all 10 responses are received
+        this.http.get('https://api.example.com/final-api').subscribe(finalResponse => {
+          console.log('Final API response:', finalResponse);
+        });
+      },
+      error => {
+        console.error('Error in API calls:', error);
+      }
+    );
+  }
+
+2. combineLatest() : It waits until all APIs have emitted at least once.
+Ex: combineLatest([
+  this.http.get('https://api.example.com/data1'),
+  this.http.get('https://api.example.com/data2'),
+  // Add other API calls
+]).subscribe(responses => {
+  console.log('All API responses:', responses);
+  this.http.get('https://api.example.com/final-api').subscribe(finalResponse => {
+    console.log('Final API response:', finalResponse);
+  });
+});
+
+3. zip() : zip() waits for all API responses before emitting once
+Ex: zip([
+  this.http.get('https://api.example.com/data1'),
+  this.http.get('https://api.example.com/data2'),
+  // Add other API calls
+]).subscribe(responses => {
+  console.log('All API responses received:', responses);
+  this.http.get('https://api.example.com/final-api').subscribe(finalResponse => {
+    console.log('Final API response:', finalResponse);
+  });
+});
+
+4. concatMap() : If one API call depends on the previous one, use concatMap() to execute them sequentially
+Ex: const apiUrls = [
+  'https://api.example.com/data1',
+  'https://api.example.com/data2',
+  // Add other API URLs
+];
+
+from(apiUrls).pipe(
+  concatMap(url => this.http.get(url))
+).subscribe(response => {
+  console.log('API Response:', response);
+}, null, () => {
+  // This runs after all API calls are completed
+  this.http.get('https://api.example.com/final-api').subscribe(finalResponse => {
+    console.log('Final API response:', finalResponse);
+  });
+});
+
+
+# What is absorbable and promises
+
+# I [] = [{name, id,address, number},{name, id,address, number},{name, id,address, number}] transform -> [(name,id)]
+- const transformedData = data.map(({ name, id }) => ({ name, id }));
+
+# If we face performance issue in angular, how we will fix
+- To resolve performance issues in Angular:
+1. Optimize change detection.
+2. Lazy load modules.
+3. Reduce bundle size with tree shaking and code splitting.
+4. Use trackBy in *ngFor loops.
+5. Debounce input events.
+6. Optimize images and assets.
+7. Move heavy computation out of templates.
+8. Use Web Workers for complex tasks.
+9. Implement Server-Side Rendering (SSR) where necessary.
+10. Cache API calls.
+
+# How do we maintain security kind of authentication while routing to other component
+- We can handle using route guard like canACtive or canDeactive like
+
+# How to inject service in components
+
+# We have 2 components like a & b, doing some operations in component a, based on component a changes want to updated/modify in component b
+
+---- TCS ----- [https://www.youtube.com/watch?v=ehaT1KFp0_Y]
+# What are the life cycle in angular
+1. ngOnChanges(changes: SimpleChanges)
+- Called before ngOnInit and whenever input properties change.
+- Used to respond to changes in @Input() properties.
+2. ngOnInit()
+- Called once after the first ngOnChanges.
+- Used for initialization logic, like fetching data.
+3. ngDoCheck()
+- Called during every change detection cycle.
+- Used for custom change detection logic.
+4. ngAfterContentInit()
+- Called once after projecting (inserting) content into the component using <ng-content>.
+5. ngAfterContentChecked()
+- Called after every change detection cycle when projected content is checked.
+6. ngAfterViewInit()
+- Called once after component’s view (DOM) has been initialized.
+- Used to access child components via @ViewChild().
+7. ngAfterViewChecked()s
+- Called after every change detection cycle when the component’s view is updated.
+8. ngOnDestroy()
+- Called just before the component is destroyed.
+- Used for cleanup (unsubscribe from observables, remove event listeners, etc.)
+
+# Different between ngDoCheck() ngOnChanges()
+- Both ngDoCheck() and ngOnChanges() are Angular lifecycle hooks used for detecting changes in a component,  but they have key differences in how and when they are triggered.
+1. ngOnChanges() : 
+   - Triggered when @Input() properties change
+   - Called only when an @Input() property changes.
+Ex: export class ChildComponent implements OnChanges {
+    @Input() data: string = '';
+
+    ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges called!', changes);
+    }
+2 ngDoCheck() :
+  - Called on every change detection cycle
+  - Runs on every change detection cycle, even if no @Input() changes occurred.
+Ex: export class ChildComponent implements DoCheck {
+    @Input() data: any;
+
+    ngDoCheck() {
+    console.log('ngDoCheck called!');
+    }
+    }
+
+# What are directives
+- Basically we have 3 types of directives in angular like  component directive, structural directive and behaviour directive
+
+# How to create custom directive and where we exactly chance to create custom directives
+- We have two button like save and submit button, and am adding directive for those two buttons and depends on button type am applying color for button, this is one scenario we can use 
+  directive
+- we can create directive using cli command line ng g d my-directive and import directive in ngModel then only we can use directive
+
+# What are the different  way to share data in different components
+- If we have parent child relation ship between components then we can share data using @Input()(parent -> child) or @Outpu() (child -> parent) decorators
+- If we dont have relation between component then we use service classes then we can subscribe data from service into any component
+
+# Do you followed agile methodology ?
+- Yes, every day we have scrum call
+
+# What is interceptors
+
+# How to handle centralized error
+
+# How lazy loading will work
+
+# How changeDetection() will work
+
+# How we can manage large data in front end
+
+--- Java 8 Coding Questions ----- [https://www.youtube.com/watch?v=nDceCubB3Yg]
+# Given list of integer, find the first element of list using stream functions
+Ex:  List<Integer> listNumbers = Arrays.asList(5,7,9,3,7,2);
+     listNumbers.stream().findFirst().ifPresent(System.out::println);
+
+# Given list of integer, find the total of element of list using stream functions
+Ex: List<Integer> listNumbers = Arrays.asList(1,3,5,8,9,2,4,3);
+    System.out.println(listNumbers.stream().count());
+
+# Given list of integer, find the even and add element of list using stream functions
+Ex: List<Integer> listNumbers = Arrays.asList(1,3,5,8,9,2,4,3);
+    listNumbers.stream().filter(n -> n%2 == 0).collect(Collectors.toList()).forEach(System.out::print);
+    System.out.println();
+    listNumbers.stream().filter(n -> n%2 != 0).collect(Collectors.toList()).forEach(System.out::print);
+
+# Given list of integer, find the number with started 5 element of list using stream functions
+Ex: List<Integer> listNumbers = Arrays.asList(51,3,55,8,59,25,54,35);
+    listNumbers.stream().filter(n -> n.toString().startsWith("5")).collect(Collectors.toList()).forEach(System.out::println);
+
+# Given list of integer, find the duplicate elements of list using stream functions
+Ex: HashSet<Integer> uniqueList = new HashSet<Integer>();
+    List<Integer> numbers = Arrays.asList(1, 2, 3, 9,4, 5, 2, 6, 7, 8, 3, 9, 1);
+    numbers.stream().filter(n -> !uniqueList.add(n)).collect(Collectors.toList()).forEach(System.out::print);
+
+# Given list of integer, find the max and min elements of list using stream functions
+Ex: List<Integer> listNumbers = Arrays.asList(1,3,5,8,9,2,4,3);
+    Optional<Integer> minValue = listNumbers.stream().min(Integer::compareTo);
+    Optional<Integer> maxValue = listNumbers.stream().max(Integer::compareTo);
+    System.out.println(minValue.get());
+    System.out.println(maxValue.get());
+
+# Given list of integer, sort elements of list using stream functions
+Ex: List<Integer> numbers = Arrays.asList(1, 2, 3, 9,4, 5,0, 2, 6, 7, 8, 3, 9, 1);
+    numbers.stream().distinct().sorted().collect(Collectors.toList()).forEach(System.out::print); 
+
+# Given list of integer, sort elements in descending order of list using stream functions
+Ex: List<Integer> numbers = Arrays.asList(1, 2, 3, 9,4, 5,0, 2, 6, 7, 8, 3, 9, 1);
+    numbers.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).forEach(System.out::print);
+
+# Given list of integer, check is have duplicate values  in list using stream functions
+Ex: List<Integer> numbers = Arrays.asList(1, 2, 3, 9,4, 5,0, 2, 6, 7, 8, 3, 9, 1);
+    if(numbers.stream().distinct().count() != 0)
+    System.out.println("Contains duplicate values");
+    else System.out.println("Doesn't have duplicate values");
+
+# Given list of integer, to perform square on list elements and filter numbers grethen then 50
+Ex: List<Integer> numbers = Arrays.asList(10,20,50,2,3,8,9,4,6);
+    numbers.stream().map(numb -> numb * numb).filter(numb -> numb > 50).collect(Collectors.toList()).forEach(System.out::println);
+		
+# Given list of integer, To sort an array and then convert sorted array into stream
+Ex: int[] numbers = {1,2,4,5}
+    Array.sort(numbers);
+    Array.Stream(numbers).
+# How to use map to convert words into uppercase in java8
+Ex: List<String> listWords = Arrays.asList("hello", "java", "world");
+    listWords.stream().map(s -> s.toUpperCase()).collect(Collectors.toList()).forEach(System.out::println);
+
+# How to concate two streams
+Ex: Stream<Integer> s1=Stream.of(1,2,3);
+    Stream<Integer> s2=Stream.of(4,5,6);
+    Stream.concat(s1, s2).forEach(System.out::print);
+
+# How to print random 10
+Ex: Random r = new Random();
+    Stream.generate(r::nextInt).limit(10).forEach(System.out::print);
+
+# Print date and time in java8
+Ex: LocalDateTime date = LocalDateTime.now();
+    System.out.println(date);
+
+# Formate local date and time formate to dd-MM-yyyy
+Ex: LocalDateTime date= LocalDateTime.now();
+    DateTimeFormatter formate = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    System.out.println(formate.format(date));
+		
+---- Angular Developer ----- [https://www.youtube.com/watch?v=NBe9qgUKGyA&list=PLAgJNt0flqKdcAtyFCyZrtg9CmCqxqgqg&index=1]
+# What are the new features in angular 17
+- Block-Based Syntax : New @for, @if and @swith directives improve code clarity and perfomance, replacing older structural directives like *ngIf
+- Deffered Rendering : The @defer directive delays rendering content until needed, supporting trigger like viewport visibility, interactions or conditions
+- View Transitions API : Enables smooth and interactive animations between views for enhanced user experience
+- Improve Server-Side Rendering(SSR) : Simplified SSR setup, better hydration, and lazy-loading support imporve app perfomance
+- Faster Builds : Integration of esbuild for significantly faster builds and development server performance
+- Router Enhancements : Dynamic routing and streamlined configuration imrpove navigation management
+- Node.js 18 Requirements : Support Node.js 18.13.0 and above for modern features and long-term support
+
+# What are the pipes we have in angular
+- Built-In pipes : Ready to use pipes for common tasks like text formating, date, numbers, JOSN, etc
+               Ex: upperCase, currency, date, percent
+ - Async Pipe : Automatically handles observables or promises in templates
+            Ex: {{observables$ | async}} (auto-subscribes and unsubscribes)    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
